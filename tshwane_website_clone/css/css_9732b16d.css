@@ -1,0 +1,211 @@
+/* ======================================================================================================================================================
+Slideshow Fullwidth
+====================================================================================================================================================== */
+.avia-slideshow-inner li{
+	transform-style: preserve-3d; /*fixes flickering issue when slider moves. usually other elements in other container flicker */
+}
+
+
+.avia-fullwidth-slider{
+	border-top-style: solid;
+	border-top-width: 1px;
+	z-index: 1;
+}
+
+.avia-fullwidth-slider.avia-builder-el-0{
+	border-top: none;
+}
+
+div.slider-not-first,
+.html_header_transparency #top .avia-builder-el-0{
+	border-top: none;
+}
+
+.avia-slide-wrap{
+	position: relative;
+	display: block;
+}
+
+.avia-slide-wrap > p{
+	margin: 0;
+	padding: 0;
+}
+
+.av_slideshow_full.avia-slideshow{
+	margin: 0;
+}
+
+#top .av_slideshow_full.av-control-default .avia-slideshow-arrows a{
+	margin: -50px 0 0 0;
+	width: 0;
+	text-align: center;
+	height: 100px;
+	line-height: 102px;
+	/*opacity: 0.5;		removed 5.0 */
+}
+
+#top .av_slideshow_full.av-control-minimal .avia-slideshow-arrows a{
+	margin: -50px 0 0 0;
+	width: 0;
+	/*opacity: 0.4;		removed 5.0 */
+}
+
+#top .av_slideshow_full.av-control-default:not(.av-slideshow-ui) .avia-slideshow-arrows a,
+#top .av_slideshow_full.av-control-minimal:not(.av-slideshow-ui) .avia-slideshow-arrows a{
+	width: 35px;
+}
+
+/*	show/hide nav arrows depending on options and state of slider	*/
+#top .av_slideshow_full.av-slideshow-ui.av-loop-endless .avia-slideshow-arrows > a,
+#top .av_slideshow_full.av-slideshow-ui.av-loop-manual-endless .avia-slideshow-arrows > a,
+#top .av_slideshow_full.av-slideshow-ui .avia-slideshow-arrows.av-visible-prev > a.prev-slide,
+#top .av_slideshow_full.av-slideshow-ui .avia-slideshow-arrows.av-visible-next > a.next-slide{
+	width: 35px;
+}
+
+#top .av_slideshow_full .avia-slideshow-arrows a:hover{
+	/*opacity: 1;		removed 5.0 */
+}
+
+#top .av_slideshow_full.av-control-default .next-slide:before{
+	border-top-right-radius: 0;
+	border-bottom-right-radius: 0;
+	line-height: 102px;
+}
+
+#top .av_slideshow_full.av-control-default .prev-slide:before{
+	border-top-left-radius: 0;
+	border-bottom-left-radius: 0;
+	line-height: 102px;
+}
+
+.av_slideshow_full li img{
+	border-radius: 0px;
+}
+
+.av_slideshow_full .container.caption_container{
+	position: relative;
+	top: 0;
+	z-index: 5;
+	height: 100%;
+	left: 0%;
+	overflow: visible;
+}
+
+.av_slideshow_full .av-image-copyright{
+	line-height: 1.2em;
+}
+
+.avia_transform .av_slideshow_full .avia-caption-content,
+.avia_transform .av_slideshow_full .avia-caption-title,
+.avia_transform .av_fullscreen .avia-caption-content,
+.avia_transform .av_fullscreen .avia-caption-title,
+.avia_transform .av_fullscreen .avia-slideshow-button,
+.avia_transform .av_slideshow_full .avia-slideshow-button{
+	transform: translate(0,0);
+	visibility: hidden;
+}
+
+
+.avia_transform .av_slideshow_full .active-slide .avia-caption-content,
+.avia_transform .av_fullscreen .active-slide .avia-caption-content{
+	visibility: visible;
+	animation: caption-right  1s 1 cubic-bezier(0.985, 0.005, 0.265, 1);
+}
+
+.avia_transform .av_slideshow_full .active-slide .avia-slideshow-button,
+.avia_transform .av_fullscreen .active-slide .avia-slideshow-button{
+	visibility: visible;
+	animation: caption-left  1.2s 1 cubic-bezier(0.985, 0.005, 0.265, 1);
+}
+
+.avia_transform .av_slideshow_full .active-slide .avia-slideshow-button-2,
+.avia_transform .av_fullscreen .active-slide .avia-slideshow-button-2{
+	visibility: visible;
+	animation: caption-right  1.2s 1 cubic-bezier(0.985, 0.005, 0.265, 1);
+}
+
+.avia_transform .av_slideshow_full .active-slide .avia-caption-title,
+.avia_transform .av_fullscreen .active-slide .avia-caption-title{
+	visibility: visible;
+	animation: caption-left   1s 1 cubic-bezier(0.985, 0.005, 0.265, 1);
+}
+
+.avia_transform .av_slideshow_full.avia-fade-slider .active-slide .avia-caption-content,
+.avia_transform .av_fullscreen.avia-fade-slider .active-slide .avia-caption-content{
+	visibility: visible;
+	animation: caption-bottom 0.5s 1 ease-out;
+}
+
+.avia_transform .av_slideshow_full.avia-fade-slider .active-slide .avia-caption-title,
+.avia_transform .av_fullscreen.avia-fade-slider .active-slide .avia-caption-title{
+	visibility: visible;
+	animation: caption-top    0.5s 1 ease-out;
+}
+
+.avia_transform .av_slideshow_full.avia-fade-slider .active-slide .avia-slideshow-button,
+.avia_transform .av_fullscreen.avia-fade-slider .active-slide .avia-slideshow-button{
+	visibility: visible;
+	animation: caption-top  1.2s 1 ease-out;
+}
+
+/* Mobile Portrait Size to Mobile Landscape Size (devices and browsers) */
+@media only screen and (max-width: 479px)
+{
+	.responsive #top .slideshow_caption{
+		left: 0;
+		width: 100%;
+		padding: 0;
+	}
+
+	.responsive #top .slideshow_caption h2{
+		font-size: 20px;
+	}
+
+	.responsive #top .slideshow_caption .avia-caption-content,
+	.responsive #top .slideshow_caption .avia-caption-content p{
+		font-size: 13px;
+	}
+
+/*	.responsive .av_slideshow_full .container.caption_container { margin-left: -138px; } */
+
+}
+
+/* Mobile Landscape Size to Tablet Portrait (devices and browsers) */
+@media only screen and (min-width: 480px) and (max-width: 767px)
+{
+	.responsive #top .slideshow_caption{
+		left: 0;
+		width: 100%;
+		padding: 0;
+	}
+
+	.responsive #top .slideshow_caption h2{
+		font-size: 20px;
+	}
+
+	.responsive #top .slideshow_caption .avia-caption-content,
+	.responsive #top .slideshow_caption .avia-caption-content p{
+		font-size: 13px;
+	}
+
+/* 		.responsive .av_slideshow_full .container.caption_container { margin-left: -216px; } */
+
+}
+
+/* Tablet Portrait size to standard 960 (devices and browsers) */
+@media only screen and (min-width: 768px) and (max-width: 989px)
+{
+/* 		.responsive .av_slideshow_full .container.caption_container { margin-left: -342px; } */
+}
+
+
+@media only screen and (min-width: 1140px)
+{
+/* 		.responsive .av_slideshow_full .container.caption_container { margin-left: -515px;} */
+}
+
+@media only screen and (min-width: 1340px)
+{
+/* 		.responsive .av_slideshow_full .container.caption_container { margin-left: -605px;} */
+}

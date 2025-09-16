@@ -1,0 +1,120 @@
+/* ======================================================================================================================================================
+Layout Grid + Cells
+====================================================================================================================================================== */
+
+.av-layout-grid-container{
+	width:100%;
+	table-layout: fixed;
+	display: table;
+	border-top-style:none;
+	border-top-width: 0px;
+}
+
+.flex_cell{
+	display: table-cell;
+	padding:30px;
+	vertical-align: top;
+}
+
+.flex_cell_inner{
+	display: block;
+	position: relative;
+}
+
+.av-border-top-bottom{
+	border-top-style: solid;
+	border-top-width: 1px;
+	border-bottom-style: solid;
+	border-bottom-width: 1px;
+}
+
+.av-border-cells .flex_cell{
+	border-left-style: solid;
+	border-left-width:1px;
+}
+
+.av-border-cells .flex_cell:first-child{
+	border:none;
+}
+
+.av-layout-grid-container + .av-layout-grid-container{
+	border-top:none;
+}
+
+/*no image radius if zero padding cell*/
+.av-zero-padding .av-hotspot-container-inner-wrap img{
+	border-radius: 0;
+}
+
+body .flex_cell.avia-link-column{
+	cursor: pointer;
+}
+
+body .flex_cell.avia-link-column.avia-link-column-hover:hover{
+	opacity: 0.8;
+}
+
+.av-layout-grid-container .flex_cell.av_one_full.av-cell-link{
+	display: block;
+}
+
+
+/* All Tablets and smaller */
+@media only screen and (max-width: 989px)
+{
+	.responsive #top #wrap_all .av-layout-grid-container.av-flex-cells.av-break-at-tablet.av-grid-order-reverse{
+		display: flex;
+		flex-direction: column-reverse;
+	}
+
+	.responsive #top #wrap_all .av-layout-grid-container.av-flex-cells.av-break-at-tablet.av-grid-order-individual{
+		display: flex;
+		flex-direction: column;
+	}
+}
+
+/*  #Mobile (Portrait)  */
+@media only screen and (max-width: 767px)
+{
+	.responsive #top #wrap_all .av-layout-grid-container.av-flex-cells.av-grid-order-reverse{
+		display: flex;
+		flex-direction: column-reverse;
+	}
+
+	.responsive #top #wrap_all .av-layout-grid-container.av-flex-cells.av-grid-order-individual{
+		display: flex;
+		flex-direction: column;
+	}
+}
+
+/*	stronger selectors to override flextable settings !!	*/
+@media only screen and (min-width: 990px)
+{
+	.responsive #top #wrap_all .av-layout-grid-container.av-desktop-hide{
+		display: none !important;
+	}
+}
+
+/* Tablet Portrait size to standard 960 (devices and browsers) */
+@media only screen and (min-width: 768px) and (max-width: 989px)
+{
+	.responsive #top #wrap_all .av-layout-grid-container.av-medium-hide{
+		display: none !important;
+	}
+}
+
+/* Mobile Landscape Size to Tablet Portrait (devices and browsers) */
+@media only screen and (min-width: 480px) and (max-width: 767px)
+{
+	.responsive #top #wrap_all .av-layout-grid-container.av-small-hide{
+		display: none !important;
+	}
+}
+
+/* Mobile Portrait Size to Mobile Landscape Size (devices and browsers) */
+@media only screen and (max-width: 479px)
+{
+	.responsive #top #wrap_all .av-layout-grid-container.av-mini-hide{
+		display: none !important;
+	}
+}

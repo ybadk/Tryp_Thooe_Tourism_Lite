@@ -1,0 +1,61 @@
+
+    🌿 TSHWANE TOURISM ASSOCIATION - NEW BOOKING REQUEST
+
+    ═══════════════════════════════════════════════════════════
+    📋 BOOKING DETAILS
+    ═══════════════════════════════════════════════════════════
+
+    🆔 Booking ID: 738abf95
+    📅 Submitted: 2025-09-07T12:32:08.687693
+    🤖 AI Processed: True
+    ⭐ Validation Score: 0.8/1.0
+
+    ═══════════════════════════════════════════════════════════
+    👤 CLIENT INFORMATION
+    ═══════════════════════════════════════════════════════════
+
+    Name: kgothatso
+    Email: kgothatsothooe@gmail.com
+    WhatsApp: +27 82 658 5658
+
+    ═══════════════════════════════════════════════════════════
+    🎯 BOOKING PREFERENCES
+    ═══════════════════════════════════════════════════════════
+
+    Selected Place: 137 Murray Street Guesthouse
+    Selected Restaurant: 
+    Restaurant Reservation: Yes
+    Visit Date: 2025-09-07
+
+    ═══════════════════════════════════════════════════════════
+    💬 SPECIAL REQUESTS
+    ═══════════════════════════════════════════════════════════
+
+    i want an uber to come fetch me from the airport
+
+    ═══════════════════════════════════════════════════════════
+    🤖 AI SYSTEM INFORMATION
+    ═══════════════════════════════════════════════════════════
+
+    This booking was processed through our AI-powered tourism portal
+    with enhanced validation and real-time processing capabilities.
+
+    System Features Used:
+    • Real-time form validation
+    • AI-powered place analysis
+    • Encrypted data transmission
+    • Automated notification system
+
+    ═══════════════════════════════════════════════════════════
+    📞 CONTACT & SUPPORT
+    ═══════════════════════════════════════════════════════════
+
+    Created by: Profit Projects Online Virtual Assistance
+    Enterprise Number: K2025200646
+    Contact: Thapelo Kgothatso Thooe
+    Email: kgothatsothooe@gmail.com
+
+    For booking inquiries: secretary@tshwanetourism.com
+
+    ═══════════════════════════════════════════════════════════
+    

@@ -1,0 +1,190 @@
+/* ======================================================================================================================================================
+Share Box
+====================================================================================================================================================== */
+
+.av-social-sharing-box{
+	margin-top: 30px;
+	float: left;
+	width: 100%;
+}
+
+.av-share-box{
+	width: 100%;
+	clear: both;
+	float: left;
+	font-size: 13px;
+	margin-top: 30px;
+	margin-bottom: -50px;
+	padding: 0;
+}
+
+.av-share-box .av-share-link-description{
+	margin-bottom: 20px;
+}
+
+#top .av-share-box ul{
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+	overflow: hidden;
+	border-style: solid;
+	border-width: 1px;
+	display: table;
+	text-align: center;
+	table-layout: fixed;
+	border-radius: 3px;
+	background: transparent;
+}
+
+.av-social-sharing-box.av-social-sharing-box-fullwidth .av-share-box ul{
+	width: 100%;
+}
+
+#top .av-social-sharing-box.av-social-sharing-center .av-share-box ul{
+	margin: 0 auto;
+}
+
+.av-social-sharing-box.av-social-sharing-right .av-share-box ul{
+	float: right;
+}
+
+.av-share-box ul li{
+	margin: 0;
+	padding: 0;
+	display: table-cell;
+	border-left-style: solid;
+	border-left-width: 1px;
+}
+
+.av-social-sharing-box:not(.av-social-sharing-box-rounded, .av-social-sharing-box-buttons, .av-social-sharing-box-default, .av-social-sharing-box-minimal) .av-share-box ul li {
+	display: inline-block;
+}
+
+.av-social-sharing-box-circle .av-share-box ul li, 
+.av-social-sharing-box-icon .av-share-box ul li {
+	margin-bottom: 2px;
+}
+
+.av-share-box ul li:first-child{
+	border: none;
+}
+
+.av-share-box ul li a{
+	display: block;
+	padding: 15px 0;
+	text-decoration: none;
+	color: inherit;
+	font-size: 14px;
+	transition: all 0.2s ease-in-out;
+}
+
+.av-social-sharing-box.av-social-sharing-box-same-width .av-share-box ul li a{
+	width: 55px;
+	height: 55px;
+}
+
+.av-social-sharing-box.av-social-sharing-box-buttons .av-share-box ul li a{
+	border-radius: 25px;
+}
+
+.av-social-sharing-box.av-social-sharing-box-circle .av-share-box ul li a{
+	border-radius: 50%;
+}
+
+.av-social-sharing-box.av-social-sharing-box-rounded .av-share-box ul li:first-child a{
+	border-radius: 25px 0 0 25px;
+}
+
+.av-social-sharing-box.av-social-sharing-box-rounded .av-share-box ul li:last-child a{
+	border-radius: 0 25px 25px 0;
+}
+
+.av-social-sharing-box.av-social-sharing-box-icon .av-share-box ul li a{
+	background: transparent;
+	border-radius: 50%;
+	border-style: solid;
+	border-width: 1px;
+}
+
+.av-social-sharing-box.av-social-sharing-box-buttons .av-share-box ul li:nth-child(n + 1) a,
+.av-social-sharing-box.av-social-sharing-box-circle .av-share-box ul li:nth-child(n + 1) a,
+.av-social-sharing-box.av-social-sharing-box-icon .av-share-box ul li:nth-child(n + 1) a{
+	margin-left: 2px;
+}
+
+.av-share-box .avia-related-tooltip{
+	width: 150px;
+}
+
+.av-social-sharing-box .av-share-box{
+	margin: 0;
+}
+
+#top .av-social-sharing-box:not(.av-social-sharing-box-default) .av-share-box ul{
+	border: none;
+}
+
+#top .av-social-sharing-box:not(.av-social-sharing-box-default) .av-share-box ul li{
+	border-left: none;
+}
+
+.av-social-sharing-box.av-social-sharing-box-color-bg .av-social-link-rss a{ color: #fff; background-color: #ffa133; }
+.av-social-sharing-box.av-social-sharing-box-color-bg .av-social-link-facebook a{ color: #fff; background-color: #37589b; }
+.av-social-sharing-box.av-social-sharing-box-color-bg .av-social-link-twitter a, 
+.av-social-sharing-box.av-social-sharing-box-color-bg .av-social-link-square-x-twitter a{ color: #fff; background-color: #14171a; }
+.av-social-sharing-box.av-social-sharing-box-color-bg .av-social-link-whatsapp a{ color: #fff; background-color: #00e676; }
+.av-social-sharing-box.av-social-sharing-box-color-bg .av-social-link-mail a{ color: #fff; background-color: #9fae37; }
+.av-social-sharing-box.av-social-sharing-box-color-bg .av-social-link-dribbble a{ color: #fff; background-color: #e44885; }
+.av-social-sharing-box.av-social-sharing-box-color-bg .av-social-link-linkedin a{ color: #fff; background-color: #419cca; }
+.av-social-sharing-box.av-social-sharing-box-color-bg .av-social-link-search a{ color: #fff; background-color: #222222; }
+.av-social-sharing-box.av-social-sharing-box-color-bg .av-social-link-gplus a{ color: #fff; background-color: #de5a49; }
+.av-social-sharing-box.av-social-sharing-box-color-bg .av-social-link-behance a{ color: #fff; background-color: #008cfa; }
+.av-social-sharing-box.av-social-sharing-box-color-bg .av-social-link-flickr a{ color: #fff; background-color: #ff0086; }
+.av-social-sharing-box.av-social-sharing-box-color-bg .av-social-link-forrst a{ color: #fff; background-color: #234317; }
+.av-social-sharing-box.av-social-sharing-box-color-bg .av-social-link-myspace a{ color: #fff; background-color: #000000; }
+.av-social-sharing-box.av-social-sharing-box-color-bg .av-social-link-tumblr a{ color: #fff; background-color: #345574; }
+.av-social-sharing-box.av-social-sharing-box-color-bg .av-social-link-vimeo a{ color: #fff; background-color: #31baff; }
+.av-social-sharing-box.av-social-sharing-box-color-bg .av-social-link-youtube a{ color: #fff; background-color: #a72b1d; }
+.av-social-sharing-box.av-social-sharing-box-color-bg .av-social-link-pinterest a{ color: #fff; background-color: #cb2027; }
+.av-social-sharing-box.av-social-sharing-box-color-bg .av-social-link-skype a{ color: #fff; background-color: #12a5f4; }
+.av-social-sharing-box.av-social-sharing-box-color-bg .av-social-link-instagram a{ color: #fff; background-color: #a67658; }
+.av-social-sharing-box.av-social-sharing-box-color-bg .av-social-link-five_100_px a{ color: #fff; background-color: #222222; }
+.av-social-sharing-box.av-social-sharing-box-color-bg .av-social-link-soundcloud a{ color: #fff; background-color: #F76700; }
+.av-social-sharing-box.av-social-sharing-box-color-bg .av-social-link-xing a{ color: #fff; background-color: #006567; }
+.av-social-sharing-box.av-social-sharing-box-color-bg .av-social-link-vk a{ color: #fff; background-color: #597BA5; }
+.av-social-sharing-box.av-social-sharing-box-color-bg .av-social-link-reddit a{ color: #fff; background-color: #FF4500; }
+.av-social-sharing-box.av-social-sharing-box-color-bg .av-social-link-telegram a{ color: #fff; background-color: #25A4E3; }
+.av-social-sharing-box.av-social-sharing-box-color-bg .av-social-link-yelp a{ color: #fff; background-color: #d32323; }
+
+.av-social-sharing-box.av-social-sharing-box-color-bg a:hover{
+	opacity: 0.75;
+}
+
+/*	#top #wrap_all needed because of layout.css	*/
+#top #wrap_all .av-social-sharing-box.av-social-sharing-box-icon-simple .av-social-link-rss a:hover{ background: transparent; color: #ffa133; }
+#top #wrap_all .av-social-sharing-box.av-social-sharing-box-icon-simple .av-social-link-facebook a:hover{ background: transparent; color: #37589b; }
+#top #wrap_all .av-social-sharing-box.av-social-sharing-box-icon-simple .av-social-link-twitter a:hover,
+#top #wrap_all .av-social-sharing-box.av-social-sharing-box-icon-simple .av-social-link-square-x-twitter a:hover{ background: transparent; color: #14171a; }
+#top #wrap_all .av-social-sharing-box.av-social-sharing-box-icon-simple .av-social-link-whatsapp a:hover{ background: transparent; color: #00e676; }
+#top #wrap_all .av-social-sharing-box.av-social-sharing-box-icon-simple .av-social-link-mail a:hover{ background: transparent; color: #9fae37; }
+#top #wrap_all .av-social-sharing-box.av-social-sharing-box-icon-simple .av-social-link-dribbble a:hover{ background: transparent; color: #e44885; }
+#top #wrap_all .av-social-sharing-box.av-social-sharing-box-icon-simple .av-social-link-linkedin a:hover{ background: transparent; color: #419cca; }
+#top #wrap_all .av-social-sharing-box.av-social-sharing-box-icon-simple .av-social-link-search a:hover{ background: transparent; color: #222222; }
+#top #wrap_all .av-social-sharing-box.av-social-sharing-box-icon-simple .av-social-link-gplus a:hover{ background: transparent; color: #de5a49; }
+#top #wrap_all .av-social-sharing-box.av-social-sharing-box-icon-simple .av-social-link-behance a:hover{ background: transparent; color: #008cfa; }
+#top #wrap_all .av-social-sharing-box.av-social-sharing-box-icon-simple .av-social-link-flickr a:hover{ background: transparent; color: #ff0086; }
+#top #wrap_all .av-social-sharing-box.av-social-sharing-box-icon-simple .av-social-link-forrst a:hover{ background: transparent; color: #234317; }
+#top #wrap_all .av-social-sharing-box.av-social-sharing-box-icon-simple .av-social-link-myspace a:hover{ background: transparent; color: #000000; }
+#top #wrap_all .av-social-sharing-box.av-social-sharing-box-icon-simple .av-social-link-tumblr a:hover{ background: transparent; color: #345574; }
+#top #wrap_all .av-social-sharing-box.av-social-sharing-box-icon-simple .av-social-link-vimeo a:hover{ background: transparent; color: #31baff; }
+#top #wrap_all .av-social-sharing-box.av-social-sharing-box-icon-simple .av-social-link-youtube a:hover{ background: transparent; color: #a72b1d; }
+#top #wrap_all .av-social-sharing-box.av-social-sharing-box-icon-simple .av-social-link-pinterest a:hover{ background: transparent; color: #cb2027; }
+#top #wrap_all .av-social-sharing-box.av-social-sharing-box-icon-simple .av-social-link-skype a:hover{ background: transparent; color: #12a5f4; }
+#top #wrap_all .av-social-sharing-box.av-social-sharing-box-icon-simple .av-social-link-instagram a:hover{ background: transparent; color: #a67658; }
+#top #wrap_all .av-social-sharing-box.av-social-sharing-box-icon-simple .av-social-link-five_100_px a:hover{ background: transparent; color: #222222; }
+#top #wrap_all .av-social-sharing-box.av-social-sharing-box-icon-simple .av-social-link-soundcloud a:hover{ background: transparent; color: #F76700; }
+#top #wrap_all .av-social-sharing-box.av-social-sharing-box-icon-simple .av-social-link-xing a:hover{ background: transparent; color: #006567; }
+#top #wrap_all .av-social-sharing-box.av-social-sharing-box-icon-simple .av-social-link-vk a:hover{ background: transparent; color: #597BA5; }
+#top #wrap_all .av-social-sharing-box.av-social-sharing-box-icon-simple .av-social-link-reddit a:hover{ background: transparent; color: #FF4500; }
+#top #wrap_all .av-social-sharing-box.av-social-sharing-box-icon-simple .av-social-link-telegram a:hover{ background: transparent; color: #25A4E3; }
+#top #wrap_all .av-social-sharing-box.av-social-sharing-box-icon-simple .av-social-link-yelp a:hover{ background: transparent; color: #d32323; }

@@ -1,0 +1,316 @@
+/* ======================================================================================================================================================
+Image Before After
+====================================================================================================================================================== */
+.avia-image-diff-container{
+	display: flex;
+	position: relative;
+	width: 100%;
+	justify-content: flex-start;
+	margin: 5px;
+	box-sizing: content-box;
+	overflow: hidden;
+}
+
+.avia-image-diff-container.avia-align-left{
+	justify-content: flex-start;
+	margin-right: 15px;
+}
+
+.avia-image-diff-container.avia-align-center{
+	justify-content: center;
+}
+
+.avia-image-diff-container.avia-align-center.avia-builder-el-no-sibling{
+	margin-bottom: 0;
+	margin-top: 0;
+}
+
+.avia-image-diff-container.avia-align-right{
+	justify-content: flex-end;
+	margin-left: 15px;
+}
+
+.avia-image-diff-container .av-image-diff-wrapper{
+	position: relative;
+	max-width: 100%;
+	display: block;
+	overflow: hidden;
+}
+
+.avia-image-diff-container.av-active-drag .av-image-diff-wrapper{
+	cursor: ew-resize;			/*	avoid flicker of cursor during drag operation	*/
+}
+
+.avia-image-diff-container.av-active-drag.av-handle-horizontal .av-image-diff-wrapper{
+	cursor: ns-resize;			/*	avoid flicker of cursor during drag operation	*/
+}
+
+.avia-image-diff-container:not(.av-active-drag):not(.av-initialise) .av-image-diff-wrapper *{
+	transition: all 0.7s ease-in-out;
+}
+
+.avia-image-diff-container:not(.avia-animate-admin-preview).av-animated-diff-img{
+	opacity: 0;
+}
+
+.avia-image-diff-container .av-image-diff-wrapper .avia_image{
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 10;
+}
+
+.avia-image-diff-container .av-image-diff-wrapper .av-img-before{
+	position: relative;
+	z-index: 20;
+}
+
+.avia-image-diff-container .av-image-diff-overlay{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	text-align: center;
+	opacity: 1;
+	transition: all 0.7s ease-in-out;
+}
+
+.avia-image-diff-container .av-image-diff-overlay .av-img-diff-label{
+	padding: 5px 10px;
+	border: 1px solid transparent;
+	border-radius: 3px;
+	background: rgba(0,0,0,0.3);
+	color:#fff;
+	z-index: 30;
+	transition: all 0.7s ease-in-out;
+	font-size: 14px;
+}
+
+.avia-image-diff-container.btn-style-oval .av-image-diff-overlay .av-img-diff-label{
+	border-radius: 50%;
+}
+
+.avia-image-diff-container.btn-style-square .av-image-diff-overlay .av-img-diff-label{
+	border-radius: 0;
+}
+
+.avia-image-diff-container.btn-on-hover .av-image-diff-overlay .av-img-diff-label{
+	opacity: 0;
+}
+
+.avia-image-diff-container.btn-on-hover .av-image-diff-wrapper:hover .av-img-diff-label{
+	opacity: 1;
+}
+
+.avia-image-diff-container .av-image-diff-overlay .av-img-diff-label:hover,
+.avia-image-diff-container.btn-on-hover .av-image-diff-wrapper .av-img-diff-label:hover{
+	opacity: 0.5;
+	cursor: pointer;
+}
+
+.avia-image-diff-container.btn-always-hide .av-image-diff-overlay{
+	display: none;
+}
+
+.avia-image-diff-container.av-handle-vertical .av-img-diff-label{
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+}
+
+.avia-image-diff-container.av-handle-vertical .av-img-diff-label.label-before{
+	left: 10px;
+}
+
+.avia-image-diff-container.av-handle-vertical .av-img-diff-label.label-after{
+	right: 10px;
+}
+
+.avia-image-diff-container.av-handle-horizontal .av-img-diff-label{
+	position: absolute;
+	left: 50%;
+	text-align: center;
+	transform: translateX(-50%);
+}
+
+.avia-image-diff-container.av-handle-horizontal .av-img-diff-label.label-before{
+	top: 10px;
+}
+
+.avia-image-diff-container.av-handle-horizontal .av-img-diff-label.label-after{
+	bottom: 10px;
+}
+
+.avia-image-diff-container.av-handler-at-before .av-img-diff-label.label-before,
+.avia-image-diff-container.av-handler-at-after .av-img-diff-label.label-after,
+.avia-image-diff-container.av-handler-at-before.btn-on-hover .av-img-diff-label.label-before,
+.avia-image-diff-container.av-handler-at-after.btn-on-hover .av-img-diff-label.label-after{
+	opacity: 0;
+	transition: all 0.7s ease-in-out;
+	pointer-events: none;
+}
+
+
+/*	circle handle + divider line	*/
+.avia-image-diff-container .av-image-diff-handle{
+	height: 38px;
+	width: 38px;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	margin-left: -19px;			/* -22px; removed  */
+	margin-top: -22px;
+	border: 4px solid #fff;
+	border-radius: 1000px;
+	box-shadow: 0 0 12px rgba(51,51,51,.5);
+	z-index: 40;
+	cursor: ew-resize;
+}
+
+#av-admin-preview .avia-image-diff-container.av-handle-vertical .av-image-diff-handle{
+	left: 0;
+}
+
+#av-admin-preview .avia-image-diff-container.av-handle-horizontal .av-image-diff-handle{
+	top: 0;
+}
+
+.avia-image-diff-container.av-handle-filled .av-image-diff-handle{
+	background-color: #000;
+}
+
+.avia-image-diff-container.av-handle-horizontal .av-image-diff-handle{
+	transform: rotate(90deg);
+	margin-left: -20px;
+	margin-top: -19px;
+	cursor: ns-resize;
+}
+
+.avia-image-diff-container.av-handle-oval .av-image-diff-handle{
+	height: 80px;
+	margin-top: -43px;
+}
+
+.avia-image-diff-container.av-handle-border .av-image-diff-handle{
+	backdrop-filter: blur(2px);
+}
+
+.avia-image-diff-container .av-image-diff-handle:before{
+	content: " ";
+	display: block;
+	position: absolute;
+	left: 50%;
+	bottom: 50%;
+	width: 4px;
+	height: 9999px;
+	margin-left: -2px;
+	margin-bottom: 22px;
+	background: #fff;
+	box-shadow: 0 3px 0 #ffffff, 0px 0px 12px rgba(51, 51, 51, 0.5);
+	z-index: 30;
+}
+
+.avia-image-diff-container.av-handle-oval .av-image-diff-handle:before{
+	margin-bottom: 43px;
+}
+
+.avia-image-diff-container.av-circle-dashed .av-image-diff-handle{
+	border-style: dashed;
+}
+
+.avia-image-diff-container.av-circle-dotted .av-image-diff-handle{
+	border-style: dotted;
+}
+
+.avia-image-diff-container.av-line-dotted .av-image-diff-handle:before,
+.avia-image-diff-container.av-line-dotted .av-image-diff-handle:after{
+	background: transparent;
+	border-left: 4px dotted #fff;
+	width: 0;
+}
+
+.avia-image-diff-container.av-line-dotted .av-image-diff-handle:before{
+	margin-bottom: 27px;
+}
+
+.avia-image-diff-container.av-handle-oval.av-line-dotted .av-image-diff-handle:before{
+	margin-bottom: 48px;
+}
+
+.avia-image-diff-container .av-image-diff-handle:after{
+	content: " ";
+	display: block;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	width: 4px;
+	height: 9999px;
+	margin-left: -2px;
+	margin-top: 19px;
+	background: #fff;
+	box-shadow: 0 3px 0 #ffffff, 0px 0px 12px rgba(51, 51, 51, 0.5);
+	z-index: 30;
+}
+
+.avia-image-diff-container.av-handle-oval .av-image-diff-handle:after{
+	margin-top: 40px;
+}
+
+.avia-image-diff-container.av-handle-arrows .av-image-diff-handle{
+	border: 0px none;
+	background: transparent;
+	box-shadow: unset;
+}
+
+.avia-image-diff-container.av-handle-arrows .av-image-diff-handle:before{
+	margin-bottom: 0;
+	box-shadow: unset;
+}
+
+.avia-image-diff-container.av-handle-arrows .av-image-diff-handle:after{
+	margin-top: 0;
+	box-shadow: unset;
+}
+
+
+/*	arrows	*/
+.av-image-diff-handle .av-handle-arrow{
+	position: absolute;
+	top: 50%;
+	margin-top: -6px;
+	width: 0;
+	height: 0;
+	border: 6px inset transparent;
+}
+
+
+.av-image-diff-handle .av-handle-left-arrow{
+	border-right: 6px solid #fff;
+	left: 50%;
+	margin-left: -17px;
+}
+
+.av-image-diff-handle .av-handle-right-arrow{
+	border-left: 6px solid #fff;
+	right: 50%;
+	margin-right: -17px;
+}
+
+.avia-image-diff-container.av-handle-arrows-expand .av-handle-left-arrow,
+.avia-image-diff-container.av-handle-arrows .av-handle-left-arrow{
+	margin-left: -14px;
+}
+
+.avia-image-diff-container.av-handle-arrows-expand .av-handle-right-arrow,
+.avia-image-diff-container.av-handle-arrows .av-handle-right-arrow{
+	margin-right: -14px;
+}
+
+.avia-image-diff-container.av-handle-arrows-expand .av-image-diff-wrapper:hover .av-handle-left-arrow{
+	margin-left: -17px;
+}
+
+.avia-image-diff-container.av-handle-arrows-expand .av-image-diff-wrapper:hover .av-handle-right-arrow{
+	margin-right: -17px;
+}

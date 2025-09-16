@@ -1,0 +1,934 @@
+2025-07-11 20:47:36,628 - INFO - Comprehensive Data Processor initialized
+2025-07-11 20:47:36,628 - INFO - Starting comprehensive data processing...
+2025-07-11 20:47:36,631 - INFO - Found CSV file: developer_details.csv
+2025-07-11 20:47:36,631 - INFO - Found CSV file: synced_gallery.csv
+2025-07-11 20:47:36,631 - INFO - Found CSV file: tshwane_coordinates.csv
+2025-07-11 20:47:36,631 - INFO - Found CSV file: tshwane_descriptions.csv
+2025-07-11 20:47:36,633 - INFO - Found CSV file: tshwane_places.csv
+2025-07-11 20:47:36,633 - INFO - Found CSV file: tshwane_sentiment_data.csv
+2025-07-11 20:47:36,633 - INFO - Found CSV file: tshwane_social_links.csv
+2025-07-11 20:47:36,665 - INFO - Found CSV file: tshwane_temperature_data.csv
+2025-07-11 20:47:36,674 - INFO - Found CSV file: processed_data\tshwane_places.csv
+2025-07-11 20:47:36,677 - INFO - Found CSV file: processed_data\tshwane_restaurants.csv
+2025-07-11 20:47:37,182 - INFO - Found CSV file: processed_data\Tryp_Thooe_Tourism-main\tshwane_places.csv
+2025-07-11 20:47:37,216 - INFO - Found CSV file: processed_data\Tryp_Thooe_Tourism-main\tshwane_social_links.csv
+2025-07-11 20:47:37,248 - INFO - Found CSV file: processed_data\Tryp_Thooe_Tourism-main\processed_data\tshwane_places.csv
+2025-07-11 20:47:37,265 - INFO - Found CSV file: processed_data\Tryp_Thooe_Tourism-main\processed_data\tshwane_restaurants.csv
+2025-07-11 20:47:37,362 - INFO - Found CSV file: processed_data\Tryp_Thooe_Tourism-main\tshwane_crawled_data\data\places.csv
+2025-07-11 20:47:37,396 - INFO - Found CSV file: scraps\Tryp_Thooe_Tourism-main\tshwane_places.csv
+2025-07-11 20:47:37,462 - INFO - Found CSV file: scraps\Tryp_Thooe_Tourism-main\tshwane_social_links.csv
+2025-07-11 20:47:37,479 - INFO - Found CSV file: scraps\Tryp_Thooe_Tourism-main\processed_data\tshwane_descriptions.csv
+2025-07-11 20:47:37,488 - INFO - Found CSV file: scraps\Tryp_Thooe_Tourism-main\processed_data\tshwane_locations.csv
+2025-07-11 20:47:37,495 - INFO - Found CSV file: scraps\Tryp_Thooe_Tourism-main\processed_data\tshwane_places.csv
+2025-07-11 20:47:37,498 - INFO - Found CSV file: scraps\Tryp_Thooe_Tourism-main\processed_data\tshwane_restaurants.csv
+2025-07-11 20:47:37,517 - INFO - Found CSV file: scraps\Tryp_Thooe_Tourism-main\processed_data\tshwane_sentiments.csv
+2025-07-11 20:47:37,525 - INFO - Found CSV file: scraps\Tryp_Thooe_Tourism-main\processed_data\tshwane_temperature.csv
+2025-07-11 20:47:39,368 - INFO - Found CSV file: scraps\Tryp_Thooe_Tourism-main\Repo\Tryp_Thooe_Tourism-main\tshwane_annual_temperature.csv
+2025-07-11 20:47:39,380 - INFO - Found CSV file: scraps\Tryp_Thooe_Tourism-main\Repo\Tryp_Thooe_Tourism-main\tshwane_descriptions.csv
+2025-07-11 20:47:39,392 - INFO - Found CSV file: scraps\Tryp_Thooe_Tourism-main\Repo\Tryp_Thooe_Tourism-main\tshwane_places.csv
+2025-07-11 20:47:39,517 - INFO - Found CSV file: scraps\Tryp_Thooe_Tourism-main\Repo\Tryp_Thooe_Tourism-main\tshwane_places_coordinates.csv
+2025-07-11 20:47:39,698 - INFO - Found CSV file: scraps\Tryp_Thooe_Tourism-main\Repo\Tryp_Thooe_Tourism-main\tshwane_sentiment_analysis.csv
+2025-07-11 20:47:39,926 - INFO - Found CSV file: scraps\Tryp_Thooe_Tourism-main\Repo\Tryp_Thooe_Tourism-main\tshwane_social_links.csv
+2025-07-11 20:47:40,113 - INFO - Found CSV file: scraps\Tryp_Thooe_Tourism-main\Repo\Tryp_Thooe_Tourism-main\processed_data\tshwane_places.csv
+2025-07-11 20:47:40,315 - INFO - Found CSV file: scraps\Tryp_Thooe_Tourism-main\Repo\Tryp_Thooe_Tourism-main\processed_data\tshwane_restaurants.csv
+2025-07-11 20:47:40,559 - INFO - Found CSV file: scraps\Tryp_Thooe_Tourism-main\Repo\Tryp_Thooe_Tourism-main\tshwane_crawled_data\data\places.csv
+2025-07-11 20:47:40,772 - INFO - Found CSV file: scraps\Tryp_Thooe_Tourism-main\tshwane_crawled_data\data\places.csv
+2025-07-11 20:47:40,890 - INFO - Found CSV file: scraps\Tryp_Thooe_Tourism-main\Tshwane_Tourism_Association\Tryp_Thooe_Tourism\tshwane_places.csv
+2025-07-11 20:47:41,019 - INFO - Found CSV file: scraps\Tryp_Thooe_Tourism-main\Tshwane_Tourism_Association\Tryp_Thooe_Tourism\tshwane_social_links.csv
+2025-07-11 20:47:41,085 - INFO - Found CSV file: scraps\Tryp_Thooe_Tourism-main\Tshwane_Tourism_Association\Tryp_Thooe_Tourism-main\tshwane_places.csv
+2025-07-11 20:47:41,185 - INFO - Found CSV file: scraps\Tryp_Thooe_Tourism-main\Tshwane_Tourism_Association\Tryp_Thooe_Tourism-main\tshwane_social_links.csv
+2025-07-11 20:47:41,188 - INFO - Found CSV file: scraps\Tryp_Thooe_Tourism-main\Tshwane_Tourism_Association\repo\Tryp_Thooe_Tourism\tshwane_places.csv
+2025-07-11 20:47:41,189 - INFO - Found CSV file: scraps\Tryp_Thooe_Tourism-main\Tshwane_Tourism_Association\repo\Tryp_Thooe_Tourism\tshwane_social_links.csv
+2025-07-11 20:47:41,270 - INFO - Found CSV file: scraps\Tryp_Thooe_Tourism-main\Tshwane_Tourism_Association\repo\mock-up\Tryp_Thooe_Tourism-main\tshwane_places.csv
+2025-07-11 20:47:41,322 - INFO - Found CSV file: scraps\Tryp_Thooe_Tourism-main\Tshwane_Tourism_Association\repo\mock-up\Tryp_Thooe_Tourism-main\tshwane_social_links.csv
+2025-07-11 20:47:41,356 - INFO - Found CSV file: scraps\Tryp_Thooe_Tourism-main\Tshwane_Tourism_Association\repo\mock-up\Tryp_Thooe_Tourism-main\processed_data\tshwane_places.csv
+2025-07-11 20:47:41,362 - INFO - Found CSV file: scraps\Tryp_Thooe_Tourism-main\Tshwane_Tourism_Association\repo\mock-up\Tryp_Thooe_Tourism-main\processed_data\tshwane_restaurants.csv
+2025-07-11 20:47:41,436 - INFO - Found CSV file: scraps\Tryp_Thooe_Tourism-main\Tshwane_Tourism_Association\repo\mock-up\Tryp_Thooe_Tourism-main\tshwane_crawled_data\data\places.csv
+2025-07-11 20:47:41,499 - INFO - Found CSV file: scraps\Tryp_Thooe_Tourism-main\Tshwane_Tourism_Association\repo\Tryp_Thooe_Tourism\processed_data\tshwane_places.csv
+2025-07-11 20:47:41,569 - INFO - Found CSV file: scraps\Tryp_Thooe_Tourism-main\Tshwane_Tourism_Association\repo\Tryp_Thooe_Tourism\processed_data\tshwane_restaurants.csv
+2025-07-11 20:47:43,801 - INFO - Found CSV file: scraps\Tryp_Thooe_Tourism-main\Tshwane_Tourism_Association\repo\Tryp_Thooe_Tourism\tshwane_crawled_data\data\places.csv
+2025-07-11 20:47:43,890 - INFO - Found CSV file: scraps\Tryp_Thooe_Tourism-main\Tshwane_Tourism_Association\Tryp_Thooe_Tourism\processed_data\tshwane_places.csv
+2025-07-11 20:47:44,115 - INFO - Found CSV file: scraps\Tryp_Thooe_Tourism-main\Tshwane_Tourism_Association\Tryp_Thooe_Tourism\processed_data\tshwane_restaurants.csv
+2025-07-11 20:47:44,703 - INFO - Found CSV file: scraps\Tryp_Thooe_Tourism-main\Tshwane_Tourism_Association\Tryp_Thooe_Tourism\tshwane_crawled_data\data\places.csv
+2025-07-11 20:47:44,777 - INFO - Found CSV file: scraps\Tryp_Thooe_Tourism-main\Tshwane_Tourism_Association\Tryp_Thooe_Tourism-main\processed_data\tshwane_places.csv
+2025-07-11 20:47:44,891 - INFO - Found CSV file: scraps\Tryp_Thooe_Tourism-main\Tshwane_Tourism_Association\Tryp_Thooe_Tourism-main\processed_data\tshwane_restaurants.csv
+2025-07-11 20:47:45,342 - INFO - Found CSV file: scraps\Tryp_Thooe_Tourism-main\Tshwane_Tourism_Association\Tryp_Thooe_Tourism-main\tshwane_crawled_data\data\places.csv
+2025-07-11 20:47:45,533 - INFO - Found CSV file: tshwane_crawled_data\data\places.csv
+2025-07-11 20:47:45,615 - INFO - Found CSV file: processed_data\tshwane_places.csv
+2025-07-11 20:47:45,659 - INFO - Found CSV file: processed_data\tshwane_restaurants.csv
+2025-07-11 20:47:45,662 - INFO - Found CSV file: processed_data\Tryp_Thooe_Tourism-main\tshwane_places.csv
+2025-07-11 20:47:45,664 - INFO - Found CSV file: processed_data\Tryp_Thooe_Tourism-main\tshwane_social_links.csv
+2025-07-11 20:47:45,825 - INFO - Found CSV file: processed_data\Tryp_Thooe_Tourism-main\processed_data\tshwane_places.csv
+2025-07-11 20:47:45,859 - INFO - Found CSV file: processed_data\Tryp_Thooe_Tourism-main\processed_data\tshwane_restaurants.csv
+2025-07-11 20:47:45,983 - INFO - Found CSV file: processed_data\Tryp_Thooe_Tourism-main\tshwane_crawled_data\data\places.csv
+2025-07-11 20:47:46,092 - INFO - Found CSV file: scraps\Tryp_Thooe_Tourism-main\tshwane_places.csv
+2025-07-11 20:47:46,264 - INFO - Found CSV file: scraps\Tryp_Thooe_Tourism-main\tshwane_social_links.csv
+2025-07-11 20:47:46,497 - INFO - Found CSV file: scraps\Tryp_Thooe_Tourism-main\processed_data\tshwane_descriptions.csv
+2025-07-11 20:47:46,600 - INFO - Found CSV file: scraps\Tryp_Thooe_Tourism-main\processed_data\tshwane_locations.csv
+2025-07-11 20:47:46,660 - INFO - Found CSV file: scraps\Tryp_Thooe_Tourism-main\processed_data\tshwane_places.csv
+2025-07-11 20:47:46,823 - INFO - Found CSV file: scraps\Tryp_Thooe_Tourism-main\processed_data\tshwane_restaurants.csv
+2025-07-11 20:47:46,993 - INFO - Found CSV file: scraps\Tryp_Thooe_Tourism-main\processed_data\tshwane_sentiments.csv
+2025-07-11 20:47:47,095 - INFO - Found CSV file: scraps\Tryp_Thooe_Tourism-main\processed_data\tshwane_temperature.csv
+2025-07-11 20:47:47,805 - INFO - Found CSV file: scraps\Tryp_Thooe_Tourism-main\Repo\Tryp_Thooe_Tourism-main\tshwane_annual_temperature.csv
+2025-07-11 20:47:47,831 - INFO - Found CSV file: scraps\Tryp_Thooe_Tourism-main\Repo\Tryp_Thooe_Tourism-main\tshwane_descriptions.csv
+2025-07-11 20:47:47,853 - INFO - Found CSV file: scraps\Tryp_Thooe_Tourism-main\Repo\Tryp_Thooe_Tourism-main\tshwane_places.csv
+2025-07-11 20:47:47,853 - INFO - Found CSV file: scraps\Tryp_Thooe_Tourism-main\Repo\Tryp_Thooe_Tourism-main\tshwane_places_coordinates.csv
+2025-07-11 20:47:47,955 - INFO - Found CSV file: scraps\Tryp_Thooe_Tourism-main\Repo\Tryp_Thooe_Tourism-main\tshwane_sentiment_analysis.csv
+2025-07-11 20:47:47,956 - INFO - Found CSV file: scraps\Tryp_Thooe_Tourism-main\Repo\Tryp_Thooe_Tourism-main\tshwane_social_links.csv
+2025-07-11 20:47:47,964 - INFO - Found CSV file: scraps\Tryp_Thooe_Tourism-main\Repo\Tryp_Thooe_Tourism-main\processed_data\tshwane_places.csv
+2025-07-11 20:47:48,110 - INFO - Found CSV file: scraps\Tryp_Thooe_Tourism-main\Repo\Tryp_Thooe_Tourism-main\processed_data\tshwane_restaurants.csv
+2025-07-11 20:47:48,252 - INFO - Found CSV file: scraps\Tryp_Thooe_Tourism-main\Repo\Tryp_Thooe_Tourism-main\tshwane_crawled_data\data\places.csv
+2025-07-11 20:47:48,311 - INFO - Found CSV file: scraps\Tryp_Thooe_Tourism-main\tshwane_crawled_data\data\places.csv
+2025-07-11 20:47:48,507 - INFO - Found CSV file: scraps\Tryp_Thooe_Tourism-main\Tshwane_Tourism_Association\Tryp_Thooe_Tourism\tshwane_places.csv
+2025-07-11 20:47:48,547 - INFO - Found CSV file: scraps\Tryp_Thooe_Tourism-main\Tshwane_Tourism_Association\Tryp_Thooe_Tourism\tshwane_social_links.csv
+2025-07-11 20:47:48,635 - INFO - Found CSV file: scraps\Tryp_Thooe_Tourism-main\Tshwane_Tourism_Association\Tryp_Thooe_Tourism-main\tshwane_places.csv
+2025-07-11 20:47:48,787 - INFO - Found CSV file: scraps\Tryp_Thooe_Tourism-main\Tshwane_Tourism_Association\Tryp_Thooe_Tourism-main\tshwane_social_links.csv
+2025-07-11 20:47:48,926 - INFO - Found CSV file: scraps\Tryp_Thooe_Tourism-main\Tshwane_Tourism_Association\repo\Tryp_Thooe_Tourism\tshwane_places.csv
+2025-07-11 20:47:49,008 - INFO - Found CSV file: scraps\Tryp_Thooe_Tourism-main\Tshwane_Tourism_Association\repo\Tryp_Thooe_Tourism\tshwane_social_links.csv
+2025-07-11 20:47:49,057 - INFO - Found CSV file: scraps\Tryp_Thooe_Tourism-main\Tshwane_Tourism_Association\repo\mock-up\Tryp_Thooe_Tourism-main\tshwane_places.csv
+2025-07-11 20:47:49,168 - INFO - Found CSV file: scraps\Tryp_Thooe_Tourism-main\Tshwane_Tourism_Association\repo\mock-up\Tryp_Thooe_Tourism-main\tshwane_social_links.csv
+2025-07-11 20:47:49,197 - INFO - Found CSV file: scraps\Tryp_Thooe_Tourism-main\Tshwane_Tourism_Association\repo\mock-up\Tryp_Thooe_Tourism-main\processed_data\tshwane_places.csv
+2025-07-11 20:47:49,411 - INFO - Found CSV file: scraps\Tryp_Thooe_Tourism-main\Tshwane_Tourism_Association\repo\mock-up\Tryp_Thooe_Tourism-main\processed_data\tshwane_restaurants.csv
+2025-07-11 20:47:49,468 - INFO - Found CSV file: scraps\Tryp_Thooe_Tourism-main\Tshwane_Tourism_Association\repo\mock-up\Tryp_Thooe_Tourism-main\tshwane_crawled_data\data\places.csv
+2025-07-11 20:47:49,645 - INFO - Found CSV file: scraps\Tryp_Thooe_Tourism-main\Tshwane_Tourism_Association\repo\Tryp_Thooe_Tourism\processed_data\tshwane_places.csv
+2025-07-11 20:47:49,829 - INFO - Found CSV file: scraps\Tryp_Thooe_Tourism-main\Tshwane_Tourism_Association\repo\Tryp_Thooe_Tourism\processed_data\tshwane_restaurants.csv
+2025-07-11 20:47:50,695 - INFO - Found CSV file: scraps\Tryp_Thooe_Tourism-main\Tshwane_Tourism_Association\repo\Tryp_Thooe_Tourism\tshwane_crawled_data\data\places.csv
+2025-07-11 20:47:50,841 - INFO - Found CSV file: scraps\Tryp_Thooe_Tourism-main\Tshwane_Tourism_Association\Tryp_Thooe_Tourism\processed_data\tshwane_places.csv
+2025-07-11 20:47:51,103 - INFO - Found CSV file: scraps\Tryp_Thooe_Tourism-main\Tshwane_Tourism_Association\Tryp_Thooe_Tourism\processed_data\tshwane_restaurants.csv
+2025-07-11 20:47:51,386 - INFO - Found CSV file: scraps\Tryp_Thooe_Tourism-main\Tshwane_Tourism_Association\Tryp_Thooe_Tourism\tshwane_crawled_data\data\places.csv
+2025-07-11 20:47:51,479 - INFO - Found CSV file: scraps\Tryp_Thooe_Tourism-main\Tshwane_Tourism_Association\Tryp_Thooe_Tourism-main\processed_data\tshwane_places.csv
+2025-07-11 20:47:51,625 - INFO - Found CSV file: scraps\Tryp_Thooe_Tourism-main\Tshwane_Tourism_Association\Tryp_Thooe_Tourism-main\processed_data\tshwane_restaurants.csv
+2025-07-11 20:47:51,782 - INFO - Found CSV file: scraps\Tryp_Thooe_Tourism-main\Tshwane_Tourism_Association\Tryp_Thooe_Tourism-main\tshwane_crawled_data\data\places.csv
+2025-07-11 20:47:51,864 - INFO - Total CSV files discovered: 99
+2025-07-11 20:47:51,967 - INFO - Successfully loaded developer_details.csv with 6 rows
+2025-07-11 20:47:52,249 - INFO - Successfully loaded synced_gallery.csv with 111 rows
+2025-07-11 20:47:52,256 - INFO - Successfully loaded tshwane_coordinates.csv with 10 rows
+2025-07-11 20:47:52,263 - INFO - Successfully loaded tshwane_descriptions.csv with 8 rows
+2025-07-11 20:47:52,270 - INFO - Successfully loaded tshwane_places.csv with 117 rows
+2025-07-11 20:47:52,275 - INFO - Successfully loaded tshwane_sentiment_data.csv with 8 rows
+2025-07-11 20:47:52,279 - INFO - Successfully loaded tshwane_social_links.csv with 3 rows
+2025-07-11 20:47:52,371 - INFO - Successfully loaded tshwane_temperature_data.csv with 12 rows
+2025-07-11 20:47:52,420 - INFO - Successfully loaded tshwane_places.csv with 7 rows
+2025-07-11 20:47:52,496 - INFO - Successfully loaded tshwane_restaurants.csv with 2 rows
+2025-07-11 20:47:52,536 - INFO - Successfully loaded tshwane_places.csv with 117 rows
+2025-07-11 20:47:52,628 - INFO - Successfully loaded tshwane_social_links.csv with 12 rows
+2025-07-11 20:47:52,633 - INFO - Successfully loaded tshwane_places.csv with 7 rows
+2025-07-11 20:47:52,636 - INFO - Successfully loaded tshwane_restaurants.csv with 2 rows
+2025-07-11 20:47:52,688 - INFO - Successfully loaded places.csv with 7 rows
+2025-07-11 20:47:52,777 - INFO - Successfully loaded tshwane_places.csv with 117 rows
+2025-07-11 20:47:52,782 - INFO - Successfully loaded tshwane_social_links.csv with 12 rows
+2025-07-11 20:47:52,784 - WARNING - Failed to load tshwane_descriptions.csv: Error tokenizing data. C error: Expected 6 fields in line 5, saw 8
+
+2025-07-11 20:47:52,788 - INFO - Successfully loaded tshwane_locations.csv with 10 rows
+2025-07-11 20:47:52,793 - INFO - Successfully loaded tshwane_places.csv with 7 rows
+2025-07-11 20:47:52,798 - INFO - Successfully loaded tshwane_restaurants.csv with 2 rows
+2025-07-11 20:47:52,803 - INFO - Successfully loaded tshwane_sentiments.csv with 10 rows
+2025-07-11 20:47:52,884 - INFO - Successfully loaded tshwane_temperature.csv with 12 rows
+2025-07-11 20:47:52,907 - INFO - Successfully loaded tshwane_annual_temperature.csv with 12 rows
+2025-07-11 20:47:52,923 - INFO - Successfully loaded tshwane_descriptions.csv with 117 rows
+2025-07-11 20:47:53,022 - INFO - Successfully loaded tshwane_places.csv with 117 rows
+2025-07-11 20:47:53,072 - INFO - Successfully loaded tshwane_places_coordinates.csv with 117 rows
+2025-07-11 20:47:53,159 - INFO - Successfully loaded tshwane_sentiment_analysis.csv with 117 rows
+2025-07-11 20:47:53,186 - INFO - Successfully loaded tshwane_social_links.csv with 12 rows
+2025-07-11 20:47:53,281 - INFO - Successfully loaded tshwane_places.csv with 7 rows
+2025-07-11 20:47:53,335 - INFO - Successfully loaded tshwane_restaurants.csv with 2 rows
+2025-07-11 20:47:53,339 - INFO - Successfully loaded places.csv with 7 rows
+2025-07-11 20:47:53,342 - INFO - Successfully loaded places.csv with 7 rows
+2025-07-11 20:47:53,347 - INFO - Successfully loaded tshwane_places.csv with 2 rows
+2025-07-11 20:47:53,350 - INFO - Successfully loaded tshwane_social_links.csv with 12 rows
+2025-07-11 20:47:53,354 - INFO - Successfully loaded tshwane_places.csv with 117 rows
+2025-07-11 20:47:53,434 - INFO - Successfully loaded tshwane_social_links.csv with 12 rows
+2025-07-11 20:47:53,455 - INFO - Successfully loaded tshwane_places.csv with 2 rows
+2025-07-11 20:47:53,460 - INFO - Successfully loaded tshwane_social_links.csv with 12 rows
+2025-07-11 20:47:53,463 - INFO - Successfully loaded tshwane_places.csv with 117 rows
+2025-07-11 20:47:53,468 - INFO - Successfully loaded tshwane_social_links.csv with 12 rows
+2025-07-11 20:47:53,477 - INFO - Successfully loaded tshwane_places.csv with 7 rows
+2025-07-11 20:47:53,575 - INFO - Successfully loaded tshwane_restaurants.csv with 2 rows
+2025-07-11 20:47:53,721 - INFO - Successfully loaded places.csv with 7 rows
+2025-07-11 20:47:53,724 - INFO - Successfully loaded tshwane_places.csv with 7 rows
+2025-07-11 20:47:53,728 - INFO - Successfully loaded tshwane_restaurants.csv with 2 rows
+2025-07-11 20:47:53,731 - INFO - Successfully loaded places.csv with 7 rows
+2025-07-11 20:47:53,768 - INFO - Successfully loaded tshwane_places.csv with 7 rows
+2025-07-11 20:47:53,873 - INFO - Successfully loaded tshwane_restaurants.csv with 2 rows
+2025-07-11 20:47:53,980 - INFO - Successfully loaded places.csv with 7 rows
+2025-07-11 20:47:54,013 - INFO - Successfully loaded tshwane_places.csv with 7 rows
+2025-07-11 20:47:54,092 - INFO - Successfully loaded tshwane_restaurants.csv with 2 rows
+2025-07-11 20:47:54,112 - INFO - Successfully loaded places.csv with 7 rows
+2025-07-11 20:47:54,148 - INFO - Successfully loaded places.csv with 7 rows
+2025-07-11 20:47:54,228 - INFO - Successfully loaded tshwane_places.csv with 7 rows
+2025-07-11 20:47:54,241 - INFO - Successfully loaded tshwane_restaurants.csv with 2 rows
+2025-07-11 20:47:54,249 - INFO - Successfully loaded tshwane_places.csv with 117 rows
+2025-07-11 20:47:54,265 - INFO - Successfully loaded tshwane_social_links.csv with 12 rows
+2025-07-11 20:47:54,278 - INFO - Successfully loaded tshwane_places.csv with 7 rows
+2025-07-11 20:47:54,287 - INFO - Successfully loaded tshwane_restaurants.csv with 2 rows
+2025-07-11 20:47:54,355 - INFO - Successfully loaded places.csv with 7 rows
+2025-07-11 20:47:54,397 - INFO - Successfully loaded tshwane_places.csv with 117 rows
+2025-07-11 20:47:54,486 - INFO - Successfully loaded tshwane_social_links.csv with 12 rows
+2025-07-11 20:47:54,500 - WARNING - Failed to load tshwane_descriptions.csv: Error tokenizing data. C error: Expected 6 fields in line 5, saw 8
+
+2025-07-11 20:47:54,526 - INFO - Successfully loaded tshwane_locations.csv with 10 rows
+2025-07-11 20:47:54,623 - INFO - Successfully loaded tshwane_places.csv with 7 rows
+2025-07-11 20:47:54,678 - INFO - Successfully loaded tshwane_restaurants.csv with 2 rows
+2025-07-11 20:47:54,770 - INFO - Successfully loaded tshwane_sentiments.csv with 10 rows
+2025-07-11 20:47:54,807 - INFO - Successfully loaded tshwane_temperature.csv with 12 rows
+2025-07-11 20:47:54,892 - INFO - Successfully loaded tshwane_annual_temperature.csv with 12 rows
+2025-07-11 20:47:55,022 - INFO - Successfully loaded tshwane_descriptions.csv with 117 rows
+2025-07-11 20:47:55,029 - INFO - Successfully loaded tshwane_places.csv with 117 rows
+2025-07-11 20:47:55,035 - INFO - Successfully loaded tshwane_places_coordinates.csv with 117 rows
+2025-07-11 20:47:55,043 - INFO - Successfully loaded tshwane_sentiment_analysis.csv with 117 rows
+2025-07-11 20:47:55,049 - INFO - Successfully loaded tshwane_social_links.csv with 12 rows
+2025-07-11 20:47:55,055 - INFO - Successfully loaded tshwane_places.csv with 7 rows
+2025-07-11 20:47:55,173 - INFO - Successfully loaded tshwane_restaurants.csv with 2 rows
+2025-07-11 20:47:55,298 - INFO - Successfully loaded places.csv with 7 rows
+2025-07-11 20:47:55,321 - INFO - Successfully loaded places.csv with 7 rows
+2025-07-11 20:47:55,419 - INFO - Successfully loaded tshwane_places.csv with 2 rows
+2025-07-11 20:47:55,572 - INFO - Successfully loaded tshwane_social_links.csv with 12 rows
+2025-07-11 20:47:55,607 - INFO - Successfully loaded tshwane_places.csv with 117 rows
+2025-07-11 20:47:55,697 - INFO - Successfully loaded tshwane_social_links.csv with 12 rows
+2025-07-11 20:47:55,815 - INFO - Successfully loaded tshwane_places.csv with 2 rows
+2025-07-11 20:47:55,857 - INFO - Successfully loaded tshwane_social_links.csv with 12 rows
+2025-07-11 20:47:55,884 - INFO - Successfully loaded tshwane_places.csv with 117 rows
+2025-07-11 20:47:55,971 - INFO - Successfully loaded tshwane_social_links.csv with 12 rows
+2025-07-11 20:47:55,989 - INFO - Successfully loaded tshwane_places.csv with 7 rows
+2025-07-11 20:47:56,071 - INFO - Successfully loaded tshwane_restaurants.csv with 2 rows
+2025-07-11 20:47:56,091 - INFO - Successfully loaded places.csv with 7 rows
+2025-07-11 20:47:56,102 - INFO - Successfully loaded tshwane_places.csv with 7 rows
+2025-07-11 20:47:56,119 - INFO - Successfully loaded tshwane_restaurants.csv with 2 rows
+2025-07-11 20:47:56,127 - INFO - Successfully loaded places.csv with 7 rows
+2025-07-11 20:47:56,248 - INFO - Successfully loaded tshwane_places.csv with 7 rows
+2025-07-11 20:47:56,347 - INFO - Successfully loaded tshwane_restaurants.csv with 2 rows
+2025-07-11 20:47:56,369 - INFO - Successfully loaded places.csv with 7 rows
+2025-07-11 20:47:56,388 - INFO - Successfully loaded tshwane_places.csv with 7 rows
+2025-07-11 20:47:56,418 - INFO - Successfully loaded tshwane_restaurants.csv with 2 rows
+2025-07-11 20:47:56,500 - INFO - Successfully loaded places.csv with 7 rows
+2025-07-11 20:47:56,532 - INFO - Processing dataset: developer_details
+2025-07-11 20:47:56,614 - INFO - Processing dataset: synced_gallery
+2025-07-11 20:47:56,797 - INFO - Processing dataset: tshwane_coordinates
+2025-07-11 20:47:56,823 - INFO - Processing dataset: tshwane_descriptions
+2025-07-11 20:47:56,836 - INFO - Processing dataset: tshwane_places
+2025-07-11 20:47:57,152 - INFO - Processing dataset: tshwane_sentiment_data
+2025-07-11 20:47:57,180 - INFO - Processing dataset: tshwane_social_links
+2025-07-11 20:47:57,249 - INFO - Processing dataset: tshwane_temperature_data
+2025-07-11 20:47:57,274 - INFO - Processing dataset: tshwane_places
+2025-07-11 20:47:57,318 - INFO - Processing dataset: tshwane_restaurants
+2025-07-11 20:47:57,460 - INFO - Processing dataset: tshwane_places
+2025-07-11 20:47:57,677 - INFO - Processing dataset: tshwane_social_links
+2025-07-11 20:47:57,728 - INFO - Processing dataset: tshwane_places
+2025-07-11 20:47:57,762 - INFO - Processing dataset: tshwane_restaurants
+2025-07-11 20:47:57,830 - INFO - Processing dataset: places
+2025-07-11 20:47:57,867 - INFO - Processing dataset: tshwane_places
+2025-07-11 20:47:58,166 - INFO - Processing dataset: tshwane_social_links
+2025-07-11 20:47:58,204 - INFO - Processing dataset: tshwane_locations
+2025-07-11 20:47:58,221 - INFO - Processing dataset: tshwane_places
+2025-07-11 20:47:58,387 - INFO - Processing dataset: tshwane_restaurants
+2025-07-11 20:47:58,487 - INFO - Processing dataset: tshwane_sentiments
+2025-07-11 20:47:58,607 - INFO - Processing dataset: tshwane_temperature
+2025-07-11 20:47:58,737 - INFO - Processing dataset: tshwane_annual_temperature
+2025-07-11 20:47:58,773 - INFO - Processing dataset: tshwane_descriptions
+2025-07-11 20:47:59,230 - INFO - Processing dataset: tshwane_places
+2025-07-11 20:47:59,462 - INFO - Processing dataset: tshwane_places_coordinates
+2025-07-11 20:47:59,894 - INFO - Processing dataset: tshwane_sentiment_analysis
+2025-07-11 20:48:00,314 - INFO - Processing dataset: tshwane_social_links
+2025-07-11 20:48:00,347 - INFO - Processing dataset: tshwane_places
+2025-07-11 20:48:00,467 - INFO - Processing dataset: tshwane_restaurants
+2025-07-11 20:48:00,594 - INFO - Processing dataset: places
+2025-07-11 20:48:00,712 - INFO - Processing dataset: places
+2025-07-11 20:48:00,718 - INFO - Processing dataset: tshwane_places
+2025-07-11 20:48:00,719 - INFO - Processing dataset: tshwane_social_links
+2025-07-11 20:48:00,722 - INFO - Processing dataset: tshwane_places
+2025-07-11 20:48:01,203 - INFO - Processing dataset: tshwane_social_links
+2025-07-11 20:48:01,312 - INFO - Processing dataset: tshwane_places
+2025-07-11 20:48:01,491 - INFO - Processing dataset: tshwane_social_links
+2025-07-11 20:48:01,609 - INFO - Processing dataset: tshwane_places
+2025-07-11 20:48:01,980 - INFO - Processing dataset: tshwane_social_links
+2025-07-11 20:48:01,984 - INFO - Processing dataset: tshwane_places
+2025-07-11 20:48:01,987 - INFO - Processing dataset: tshwane_restaurants
+2025-07-11 20:48:01,989 - INFO - Processing dataset: places
+2025-07-11 20:48:01,993 - INFO - Processing dataset: tshwane_places
+2025-07-11 20:48:02,037 - INFO - Processing dataset: tshwane_restaurants
+2025-07-11 20:48:02,117 - INFO - Processing dataset: places
+2025-07-11 20:48:02,220 - INFO - Processing dataset: tshwane_places
+2025-07-11 20:48:02,243 - INFO - Processing dataset: tshwane_restaurants
+2025-07-11 20:48:02,348 - INFO - Processing dataset: places
+2025-07-11 20:48:02,491 - INFO - Processing dataset: tshwane_places
+2025-07-11 20:48:02,606 - INFO - Processing dataset: tshwane_restaurants
+2025-07-11 20:48:02,757 - INFO - Processing dataset: places
+2025-07-11 20:48:02,819 - INFO - Processing dataset: places
+2025-07-11 20:48:02,956 - INFO - Processing dataset: tshwane_places
+2025-07-11 20:48:03,068 - INFO - Processing dataset: tshwane_restaurants
+2025-07-11 20:48:03,212 - INFO - Processing dataset: tshwane_places
+2025-07-11 20:48:03,460 - INFO - Processing dataset: tshwane_social_links
+2025-07-11 20:48:03,475 - INFO - Processing dataset: tshwane_places
+2025-07-11 20:48:03,661 - INFO - Processing dataset: tshwane_restaurants
+2025-07-11 20:48:03,797 - INFO - Processing dataset: places
+2025-07-11 20:48:03,856 - INFO - Processing dataset: tshwane_places
+2025-07-11 20:48:04,053 - INFO - Processing dataset: tshwane_social_links
+2025-07-11 20:48:04,237 - INFO - Processing dataset: tshwane_locations
+2025-07-11 20:48:04,343 - INFO - Processing dataset: tshwane_places
+2025-07-11 20:48:04,377 - INFO - Processing dataset: tshwane_restaurants
+2025-07-11 20:48:04,378 - INFO - Processing dataset: tshwane_sentiments
+2025-07-11 20:48:04,382 - INFO - Processing dataset: tshwane_temperature
+2025-07-11 20:48:04,385 - INFO - Processing dataset: tshwane_annual_temperature
+2025-07-11 20:48:04,389 - INFO - Processing dataset: tshwane_descriptions
+2025-07-11 20:48:04,677 - INFO - Processing dataset: tshwane_places
+2025-07-11 20:48:04,851 - INFO - Processing dataset: tshwane_places_coordinates
+2025-07-11 20:48:05,063 - INFO - Processing dataset: tshwane_sentiment_analysis
+2025-07-11 20:48:05,339 - INFO - Processing dataset: tshwane_social_links
+2025-07-11 20:48:05,368 - INFO - Processing dataset: tshwane_places
+2025-07-11 20:48:05,376 - INFO - Processing dataset: tshwane_restaurants
+2025-07-11 20:48:05,488 - INFO - Processing dataset: places
+2025-07-11 20:48:05,578 - INFO - Processing dataset: places
+2025-07-11 20:48:05,727 - INFO - Processing dataset: tshwane_places
+2025-07-11 20:48:05,783 - INFO - Processing dataset: tshwane_social_links
+2025-07-11 20:48:05,852 - INFO - Processing dataset: tshwane_places
+2025-07-11 20:48:06,051 - INFO - Processing dataset: tshwane_social_links
+2025-07-11 20:48:06,163 - INFO - Processing dataset: tshwane_places
+2025-07-11 20:48:06,216 - INFO - Processing dataset: tshwane_social_links
+2025-07-11 20:48:06,297 - INFO - Processing dataset: tshwane_places
+2025-07-11 20:48:06,450 - INFO - Processing dataset: tshwane_social_links
+2025-07-11 20:48:06,470 - INFO - Processing dataset: tshwane_places
+2025-07-11 20:48:06,488 - INFO - Processing dataset: tshwane_restaurants
+2025-07-11 20:48:06,503 - INFO - Processing dataset: places
+2025-07-11 20:48:06,515 - INFO - Processing dataset: tshwane_places
+2025-07-11 20:48:06,605 - INFO - Processing dataset: tshwane_restaurants
+2025-07-11 20:48:06,634 - INFO - Processing dataset: places
+2025-07-11 20:48:06,651 - INFO - Processing dataset: tshwane_places
+2025-07-11 20:48:06,738 - INFO - Processing dataset: tshwane_restaurants
+2025-07-11 20:48:06,769 - INFO - Processing dataset: places
+2025-07-11 20:48:06,862 - INFO - Processing dataset: tshwane_places
+2025-07-11 20:48:06,886 - INFO - Processing dataset: tshwane_restaurants
+2025-07-11 20:48:07,005 - INFO - Processing dataset: places
+2025-07-11 20:48:07,023 - INFO - Matched 216 unique places across datasets
+2025-07-11 20:48:07,032 - INFO - Starting data enrichment process...
+2025-07-11 20:48:14,168 - INFO - Successfully scraped data for union buildings
+2025-07-11 20:48:15,233 - INFO - Successfully scraped data for voortrekker monument
+2025-07-11 20:48:16,246 - INFO - Successfully scraped data for freedom park
+2025-07-11 20:48:22,691 - INFO - Successfully scraped data for pretoria zoo
+2025-07-11 20:48:23,437 - INFO - Successfully scraped data for pretoria botanical gardens
+2025-07-11 20:48:23,489 - INFO - Successfully scraped data for melrose house
+2025-07-11 20:48:26,858 - INFO - Successfully scraped data for national gallery
+2025-07-11 20:49:26,649 - INFO - Data enrichment completed
+2025-07-11 20:49:26,652 - INFO - Creating individual CSV files for each place...
+2025-07-11 20:49:26,671 - INFO - Created CSV file: processed_places_data\other\thapelo_kgothatso_thooe.csv
+2025-07-11 20:49:26,680 - INFO - Created CSV file: processed_places_data\other\sarah_mokoena.csv
+2025-07-11 20:49:26,737 - INFO - Created CSV file: processed_places_data\other\david_nkosi.csv
+2025-07-11 20:49:26,746 - INFO - Created CSV file: processed_places_data\other\lisa_van_der_merwe.csv
+2025-07-11 20:49:26,756 - INFO - Created CSV file: processed_places_data\other\michael_osei.csv
+2025-07-11 20:49:26,769 - INFO - Created CSV file: processed_places_data\other\nomsa_dlamini.csv
+2025-07-11 20:49:26,777 - INFO - Created CSV file: processed_places_data\other\facebook.csv
+2025-07-11 20:49:26,786 - INFO - Created CSV file: processed_places_data\other\youtube.csv
+2025-07-11 20:49:26,800 - INFO - Created CSV file: processed_places_data\other\about_tshwane.csv
+2025-07-11 20:49:26,818 - INFO - Created CSV file: processed_places_data\other\tshwane_map.csv
+2025-07-11 20:49:26,831 - INFO - Created CSV file: processed_places_data\other\interactive_tourist_map.csv
+2025-07-11 20:49:26,849 - INFO - Created CSV file: processed_places_data\other\download_tourist_map.csv
+2025-07-11 20:49:26,868 - INFO - Created CSV file: processed_places_data\other\request_a_printed_map.csv
+2025-07-11 20:49:26,903 - INFO - Created CSV file: processed_places_data\other\request_a_quoteinfo.csv
+2025-07-11 20:49:26,915 - INFO - Created CSV file: processed_places_data\other\whats_onawardsinfostayplayeatpamperonline_travel_and_experience_marketmeettravelsearchmenumenu.csv
+2025-07-11 20:49:26,926 - INFO - Created CSV file: processed_places_data\other\whats_on.csv
+2025-07-11 20:49:26,942 - INFO - Created CSV file: processed_places_data\other\awards.csv
+2025-07-11 20:49:26,948 - INFO - Created CSV file: processed_places_data\other\pamper.csv
+2025-07-11 20:49:27,048 - INFO - Created CSV file: processed_places_data\other\online_travel_and_experience_market.csv
+2025-07-11 20:49:27,058 - INFO - Created CSV file: processed_places_data\other\travel.csv
+2025-07-11 20:49:27,088 - INFO - Created CSV file: processed_places_data\other\search.csv
+2025-07-11 20:49:27,176 - INFO - Created CSV file: processed_places_data\other\menumenu.csv
+2025-07-11 20:49:27,273 - INFO - Created CSV file: processed_places_data\historical\church_square.csv
+2025-07-11 20:49:27,280 - ERROR - Data processing failed: [Errno 22] Invalid argument: 'processed_places_data\\other\\church_square_in_central_pretoria_was_the_site_of_the_citys_first_church_built_in_1855_during_its_early_years_the_square_was_used_as_a_marketplace_and_sports_field_and_today_is_the_grandest_civic_square_in_the_city_and_among_the_great_attractions_in_gauteng_the_square_is_surrounded_by_historical_buildings_in_varying_neo_classical_architectural_styles_including_the_impressive_palace_of_justice_where_former_president_nelson_mandela_and_several_of_his_comrades_were_tried_and_charged_for_treason_during_the_infamous_rivonia_trial_the_old_capitol_theatre_and_the_ou_raadsaal_old_government_building.csv'
+2025-07-11 20:53:33,861 - INFO - Comprehensive Data Processor initialized
+2025-07-11 20:53:33,863 - INFO - Starting comprehensive data processing...
+2025-07-11 20:53:33,872 - INFO - Found CSV file: developer_details.csv
+2025-07-11 20:53:33,874 - INFO - Found CSV file: synced_gallery.csv
+2025-07-11 20:53:33,877 - INFO - Found CSV file: tshwane_coordinates.csv
+2025-07-11 20:53:33,877 - INFO - Found CSV file: tshwane_descriptions.csv
+2025-07-11 20:53:33,878 - INFO - Found CSV file: tshwane_places.csv
+2025-07-11 20:53:33,885 - INFO - Found CSV file: tshwane_sentiment_data.csv
+2025-07-11 20:53:33,887 - INFO - Found CSV file: tshwane_social_links.csv
+2025-07-11 20:53:33,887 - INFO - Found CSV file: tshwane_temperature_data.csv
+2025-07-11 20:53:33,920 - INFO - Found CSV file: processed_data\tshwane_places.csv
+2025-07-11 20:53:33,921 - INFO - Found CSV file: processed_data\tshwane_restaurants.csv
+2025-07-11 20:53:34,063 - INFO - Found CSV file: processed_data\Tryp_Thooe_Tourism-main\tshwane_places.csv
+2025-07-11 20:53:34,065 - INFO - Found CSV file: processed_data\Tryp_Thooe_Tourism-main\tshwane_social_links.csv
+2025-07-11 20:53:34,073 - INFO - Found CSV file: processed_data\Tryp_Thooe_Tourism-main\processed_data\tshwane_places.csv
+2025-07-11 20:53:34,073 - INFO - Found CSV file: processed_data\Tryp_Thooe_Tourism-main\processed_data\tshwane_restaurants.csv
+2025-07-11 20:53:34,088 - INFO - Found CSV file: processed_data\Tryp_Thooe_Tourism-main\tshwane_crawled_data\data\places.csv
+2025-07-11 20:53:34,110 - INFO - Found CSV file: processed_places_data\historical\church_square.csv
+2025-07-11 20:53:34,114 - INFO - Found CSV file: processed_places_data\other\about_tshwane.csv
+2025-07-11 20:53:34,115 - INFO - Found CSV file: processed_places_data\other\awards.csv
+2025-07-11 20:53:34,116 - INFO - Found CSV file: processed_places_data\other\david_nkosi.csv
+2025-07-11 20:53:34,116 - INFO - Found CSV file: processed_places_data\other\download_tourist_map.csv
+2025-07-11 20:53:34,126 - INFO - Found CSV file: processed_places_data\other\facebook.csv
+2025-07-11 20:53:34,127 - INFO - Found CSV file: processed_places_data\other\interactive_tourist_map.csv
+2025-07-11 20:53:34,128 - INFO - Found CSV file: processed_places_data\other\lisa_van_der_merwe.csv
+2025-07-11 20:53:34,130 - INFO - Found CSV file: processed_places_data\other\menumenu.csv
+2025-07-11 20:53:34,131 - INFO - Found CSV file: processed_places_data\other\michael_osei.csv
+2025-07-11 20:53:34,135 - INFO - Found CSV file: processed_places_data\other\nomsa_dlamini.csv
+2025-07-11 20:53:34,135 - INFO - Found CSV file: processed_places_data\other\online_travel_and_experience_market.csv
+2025-07-11 20:53:34,137 - INFO - Found CSV file: processed_places_data\other\pamper.csv
+2025-07-11 20:53:34,138 - INFO - Found CSV file: processed_places_data\other\request_a_printed_map.csv
+2025-07-11 20:53:34,142 - INFO - Found CSV file: processed_places_data\other\request_a_quoteinfo.csv
+2025-07-11 20:53:34,143 - INFO - Found CSV file: processed_places_data\other\sarah_mokoena.csv
+2025-07-11 20:53:34,145 - INFO - Found CSV file: processed_places_data\other\search.csv
+2025-07-11 20:53:34,146 - INFO - Found CSV file: processed_places_data\other\thapelo_kgothatso_thooe.csv
+2025-07-11 20:53:34,146 - INFO - Found CSV file: processed_places_data\other\travel.csv
+2025-07-11 20:53:34,150 - INFO - Found CSV file: processed_places_data\other\tshwane_map.csv
+2025-07-11 20:53:34,225 - INFO - Found CSV file: processed_places_data\other\whats_on.csv
+2025-07-11 20:53:34,241 - INFO - Found CSV file: processed_places_data\other\whats_onawardsinfostayplayeatpamperonline_travel_and_experience_marketmeettravelsearchmenumenu.csv
+2025-07-11 20:53:34,242 - INFO - Found CSV file: processed_places_data\other\youtube.csv
+2025-07-11 20:53:34,249 - INFO - Found CSV file: scraps\Tryp_Thooe_Tourism-main\tshwane_places.csv
+2025-07-11 20:53:34,253 - INFO - Found CSV file: scraps\Tryp_Thooe_Tourism-main\tshwane_social_links.csv
+2025-07-11 20:53:34,260 - INFO - Found CSV file: scraps\Tryp_Thooe_Tourism-main\processed_data\tshwane_descriptions.csv
+2025-07-11 20:53:34,274 - INFO - Found CSV file: scraps\Tryp_Thooe_Tourism-main\processed_data\tshwane_locations.csv
+2025-07-11 20:53:34,281 - INFO - Found CSV file: scraps\Tryp_Thooe_Tourism-main\processed_data\tshwane_places.csv
+2025-07-11 20:53:34,282 - INFO - Found CSV file: scraps\Tryp_Thooe_Tourism-main\processed_data\tshwane_restaurants.csv
+2025-07-11 20:53:34,283 - INFO - Found CSV file: scraps\Tryp_Thooe_Tourism-main\processed_data\tshwane_sentiments.csv
+2025-07-11 20:53:34,291 - INFO - Found CSV file: scraps\Tryp_Thooe_Tourism-main\processed_data\tshwane_temperature.csv
+2025-07-11 20:53:34,713 - INFO - Found CSV file: scraps\Tryp_Thooe_Tourism-main\Repo\Tryp_Thooe_Tourism-main\tshwane_annual_temperature.csv
+2025-07-11 20:53:34,717 - INFO - Found CSV file: scraps\Tryp_Thooe_Tourism-main\Repo\Tryp_Thooe_Tourism-main\tshwane_descriptions.csv
+2025-07-11 20:53:34,717 - INFO - Found CSV file: scraps\Tryp_Thooe_Tourism-main\Repo\Tryp_Thooe_Tourism-main\tshwane_places.csv
+2025-07-11 20:53:34,718 - INFO - Found CSV file: scraps\Tryp_Thooe_Tourism-main\Repo\Tryp_Thooe_Tourism-main\tshwane_places_coordinates.csv
+2025-07-11 20:53:34,718 - INFO - Found CSV file: scraps\Tryp_Thooe_Tourism-main\Repo\Tryp_Thooe_Tourism-main\tshwane_sentiment_analysis.csv
+2025-07-11 20:53:34,718 - INFO - Found CSV file: scraps\Tryp_Thooe_Tourism-main\Repo\Tryp_Thooe_Tourism-main\tshwane_social_links.csv
+2025-07-11 20:53:34,731 - INFO - Found CSV file: scraps\Tryp_Thooe_Tourism-main\Repo\Tryp_Thooe_Tourism-main\processed_data\tshwane_places.csv
+2025-07-11 20:53:34,739 - INFO - Found CSV file: scraps\Tryp_Thooe_Tourism-main\Repo\Tryp_Thooe_Tourism-main\processed_data\tshwane_restaurants.csv
+2025-07-11 20:53:34,816 - INFO - Found CSV file: scraps\Tryp_Thooe_Tourism-main\Repo\Tryp_Thooe_Tourism-main\tshwane_crawled_data\data\places.csv
+2025-07-11 20:53:34,848 - INFO - Found CSV file: scraps\Tryp_Thooe_Tourism-main\tshwane_crawled_data\data\places.csv
+2025-07-11 20:53:34,862 - INFO - Found CSV file: scraps\Tryp_Thooe_Tourism-main\Tshwane_Tourism_Association\Tryp_Thooe_Tourism\tshwane_places.csv
+2025-07-11 20:53:34,865 - INFO - Found CSV file: scraps\Tryp_Thooe_Tourism-main\Tshwane_Tourism_Association\Tryp_Thooe_Tourism\tshwane_social_links.csv
+2025-07-11 20:53:34,865 - INFO - Found CSV file: scraps\Tryp_Thooe_Tourism-main\Tshwane_Tourism_Association\Tryp_Thooe_Tourism-main\tshwane_places.csv
+2025-07-11 20:53:34,918 - INFO - Found CSV file: scraps\Tryp_Thooe_Tourism-main\Tshwane_Tourism_Association\Tryp_Thooe_Tourism-main\tshwane_social_links.csv
+2025-07-11 20:53:34,921 - INFO - Found CSV file: scraps\Tryp_Thooe_Tourism-main\Tshwane_Tourism_Association\repo\Tryp_Thooe_Tourism\tshwane_places.csv
+2025-07-11 20:53:34,923 - INFO - Found CSV file: scraps\Tryp_Thooe_Tourism-main\Tshwane_Tourism_Association\repo\Tryp_Thooe_Tourism\tshwane_social_links.csv
+2025-07-11 20:53:34,925 - INFO - Found CSV file: scraps\Tryp_Thooe_Tourism-main\Tshwane_Tourism_Association\repo\mock-up\Tryp_Thooe_Tourism-main\tshwane_places.csv
+2025-07-11 20:53:34,927 - INFO - Found CSV file: scraps\Tryp_Thooe_Tourism-main\Tshwane_Tourism_Association\repo\mock-up\Tryp_Thooe_Tourism-main\tshwane_social_links.csv
+2025-07-11 20:53:34,933 - INFO - Found CSV file: scraps\Tryp_Thooe_Tourism-main\Tshwane_Tourism_Association\repo\mock-up\Tryp_Thooe_Tourism-main\processed_data\tshwane_places.csv
+2025-07-11 20:53:34,935 - INFO - Found CSV file: scraps\Tryp_Thooe_Tourism-main\Tshwane_Tourism_Association\repo\mock-up\Tryp_Thooe_Tourism-main\processed_data\tshwane_restaurants.csv
+2025-07-11 20:53:35,155 - INFO - Found CSV file: scraps\Tryp_Thooe_Tourism-main\Tshwane_Tourism_Association\repo\mock-up\Tryp_Thooe_Tourism-main\tshwane_crawled_data\data\places.csv
+2025-07-11 20:53:35,177 - INFO - Found CSV file: scraps\Tryp_Thooe_Tourism-main\Tshwane_Tourism_Association\repo\Tryp_Thooe_Tourism\processed_data\tshwane_places.csv
+2025-07-11 20:53:35,178 - INFO - Found CSV file: scraps\Tryp_Thooe_Tourism-main\Tshwane_Tourism_Association\repo\Tryp_Thooe_Tourism\processed_data\tshwane_restaurants.csv
+2025-07-11 20:53:35,424 - INFO - Found CSV file: scraps\Tryp_Thooe_Tourism-main\Tshwane_Tourism_Association\repo\Tryp_Thooe_Tourism\tshwane_crawled_data\data\places.csv
+2025-07-11 20:53:35,449 - INFO - Found CSV file: scraps\Tryp_Thooe_Tourism-main\Tshwane_Tourism_Association\Tryp_Thooe_Tourism\processed_data\tshwane_places.csv
+2025-07-11 20:53:35,450 - INFO - Found CSV file: scraps\Tryp_Thooe_Tourism-main\Tshwane_Tourism_Association\Tryp_Thooe_Tourism\processed_data\tshwane_restaurants.csv
+2025-07-11 20:53:35,489 - INFO - Found CSV file: scraps\Tryp_Thooe_Tourism-main\Tshwane_Tourism_Association\Tryp_Thooe_Tourism\tshwane_crawled_data\data\places.csv
+2025-07-11 20:53:35,576 - INFO - Found CSV file: scraps\Tryp_Thooe_Tourism-main\Tshwane_Tourism_Association\Tryp_Thooe_Tourism-main\processed_data\tshwane_places.csv
+2025-07-11 20:53:35,576 - INFO - Found CSV file: scraps\Tryp_Thooe_Tourism-main\Tshwane_Tourism_Association\Tryp_Thooe_Tourism-main\processed_data\tshwane_restaurants.csv
+2025-07-11 20:53:35,590 - INFO - Found CSV file: scraps\Tryp_Thooe_Tourism-main\Tshwane_Tourism_Association\Tryp_Thooe_Tourism-main\tshwane_crawled_data\data\places.csv
+2025-07-11 20:53:35,810 - INFO - Found CSV file: tshwane_crawled_data\data\places.csv
+2025-07-11 20:53:35,926 - INFO - Found CSV file: processed_data\tshwane_places.csv
+2025-07-11 20:53:35,927 - INFO - Found CSV file: processed_data\tshwane_restaurants.csv
+2025-07-11 20:53:35,929 - INFO - Found CSV file: processed_data\Tryp_Thooe_Tourism-main\tshwane_places.csv
+2025-07-11 20:53:35,931 - INFO - Found CSV file: processed_data\Tryp_Thooe_Tourism-main\tshwane_social_links.csv
+2025-07-11 20:53:35,941 - INFO - Found CSV file: processed_data\Tryp_Thooe_Tourism-main\processed_data\tshwane_places.csv
+2025-07-11 20:53:35,945 - INFO - Found CSV file: processed_data\Tryp_Thooe_Tourism-main\processed_data\tshwane_restaurants.csv
+2025-07-11 20:53:35,965 - INFO - Found CSV file: processed_data\Tryp_Thooe_Tourism-main\tshwane_crawled_data\data\places.csv
+2025-07-11 20:53:36,047 - INFO - Found CSV file: scraps\Tryp_Thooe_Tourism-main\tshwane_places.csv
+2025-07-11 20:53:36,062 - INFO - Found CSV file: scraps\Tryp_Thooe_Tourism-main\tshwane_social_links.csv
+2025-07-11 20:53:36,072 - INFO - Found CSV file: scraps\Tryp_Thooe_Tourism-main\processed_data\tshwane_descriptions.csv
+2025-07-11 20:53:36,131 - INFO - Found CSV file: scraps\Tryp_Thooe_Tourism-main\processed_data\tshwane_locations.csv
+2025-07-11 20:53:36,133 - INFO - Found CSV file: scraps\Tryp_Thooe_Tourism-main\processed_data\tshwane_places.csv
+2025-07-11 20:53:36,144 - INFO - Found CSV file: scraps\Tryp_Thooe_Tourism-main\processed_data\tshwane_restaurants.csv
+2025-07-11 20:53:36,149 - INFO - Found CSV file: scraps\Tryp_Thooe_Tourism-main\processed_data\tshwane_sentiments.csv
+2025-07-11 20:53:36,152 - INFO - Found CSV file: scraps\Tryp_Thooe_Tourism-main\processed_data\tshwane_temperature.csv
+2025-07-11 20:53:36,687 - INFO - Found CSV file: scraps\Tryp_Thooe_Tourism-main\Repo\Tryp_Thooe_Tourism-main\tshwane_annual_temperature.csv
+2025-07-11 20:53:36,690 - INFO - Found CSV file: scraps\Tryp_Thooe_Tourism-main\Repo\Tryp_Thooe_Tourism-main\tshwane_descriptions.csv
+2025-07-11 20:53:36,691 - INFO - Found CSV file: scraps\Tryp_Thooe_Tourism-main\Repo\Tryp_Thooe_Tourism-main\tshwane_places.csv
+2025-07-11 20:53:36,692 - INFO - Found CSV file: scraps\Tryp_Thooe_Tourism-main\Repo\Tryp_Thooe_Tourism-main\tshwane_places_coordinates.csv
+2025-07-11 20:53:36,698 - INFO - Found CSV file: scraps\Tryp_Thooe_Tourism-main\Repo\Tryp_Thooe_Tourism-main\tshwane_sentiment_analysis.csv
+2025-07-11 20:53:36,700 - INFO - Found CSV file: scraps\Tryp_Thooe_Tourism-main\Repo\Tryp_Thooe_Tourism-main\tshwane_social_links.csv
+2025-07-11 20:53:36,708 - INFO - Found CSV file: scraps\Tryp_Thooe_Tourism-main\Repo\Tryp_Thooe_Tourism-main\processed_data\tshwane_places.csv
+2025-07-11 20:53:36,710 - INFO - Found CSV file: scraps\Tryp_Thooe_Tourism-main\Repo\Tryp_Thooe_Tourism-main\processed_data\tshwane_restaurants.csv
+2025-07-11 20:53:36,728 - INFO - Found CSV file: scraps\Tryp_Thooe_Tourism-main\Repo\Tryp_Thooe_Tourism-main\tshwane_crawled_data\data\places.csv
+2025-07-11 20:53:36,755 - INFO - Found CSV file: scraps\Tryp_Thooe_Tourism-main\tshwane_crawled_data\data\places.csv
+2025-07-11 20:53:36,863 - INFO - Found CSV file: scraps\Tryp_Thooe_Tourism-main\Tshwane_Tourism_Association\Tryp_Thooe_Tourism\tshwane_places.csv
+2025-07-11 20:53:36,878 - INFO - Found CSV file: scraps\Tryp_Thooe_Tourism-main\Tshwane_Tourism_Association\Tryp_Thooe_Tourism\tshwane_social_links.csv
+2025-07-11 20:53:36,880 - INFO - Found CSV file: scraps\Tryp_Thooe_Tourism-main\Tshwane_Tourism_Association\Tryp_Thooe_Tourism-main\tshwane_places.csv
+2025-07-11 20:53:36,906 - INFO - Found CSV file: scraps\Tryp_Thooe_Tourism-main\Tshwane_Tourism_Association\Tryp_Thooe_Tourism-main\tshwane_social_links.csv
+2025-07-11 20:53:36,910 - INFO - Found CSV file: scraps\Tryp_Thooe_Tourism-main\Tshwane_Tourism_Association\repo\Tryp_Thooe_Tourism\tshwane_places.csv
+2025-07-11 20:53:36,990 - INFO - Found CSV file: scraps\Tryp_Thooe_Tourism-main\Tshwane_Tourism_Association\repo\Tryp_Thooe_Tourism\tshwane_social_links.csv
+2025-07-11 20:53:36,995 - INFO - Found CSV file: scraps\Tryp_Thooe_Tourism-main\Tshwane_Tourism_Association\repo\mock-up\Tryp_Thooe_Tourism-main\tshwane_places.csv
+2025-07-11 20:53:37,003 - INFO - Found CSV file: scraps\Tryp_Thooe_Tourism-main\Tshwane_Tourism_Association\repo\mock-up\Tryp_Thooe_Tourism-main\tshwane_social_links.csv
+2025-07-11 20:53:37,014 - INFO - Found CSV file: scraps\Tryp_Thooe_Tourism-main\Tshwane_Tourism_Association\repo\mock-up\Tryp_Thooe_Tourism-main\processed_data\tshwane_places.csv
+2025-07-11 20:53:37,015 - INFO - Found CSV file: scraps\Tryp_Thooe_Tourism-main\Tshwane_Tourism_Association\repo\mock-up\Tryp_Thooe_Tourism-main\processed_data\tshwane_restaurants.csv
+2025-07-11 20:53:37,084 - INFO - Found CSV file: scraps\Tryp_Thooe_Tourism-main\Tshwane_Tourism_Association\repo\mock-up\Tryp_Thooe_Tourism-main\tshwane_crawled_data\data\places.csv
+2025-07-11 20:53:37,219 - INFO - Found CSV file: scraps\Tryp_Thooe_Tourism-main\Tshwane_Tourism_Association\repo\Tryp_Thooe_Tourism\processed_data\tshwane_places.csv
+2025-07-11 20:53:37,221 - INFO - Found CSV file: scraps\Tryp_Thooe_Tourism-main\Tshwane_Tourism_Association\repo\Tryp_Thooe_Tourism\processed_data\tshwane_restaurants.csv
+2025-07-11 20:53:37,510 - INFO - Found CSV file: scraps\Tryp_Thooe_Tourism-main\Tshwane_Tourism_Association\repo\Tryp_Thooe_Tourism\tshwane_crawled_data\data\places.csv
+2025-07-11 20:53:37,531 - INFO - Found CSV file: scraps\Tryp_Thooe_Tourism-main\Tshwane_Tourism_Association\Tryp_Thooe_Tourism\processed_data\tshwane_places.csv
+2025-07-11 20:53:37,532 - INFO - Found CSV file: scraps\Tryp_Thooe_Tourism-main\Tshwane_Tourism_Association\Tryp_Thooe_Tourism\processed_data\tshwane_restaurants.csv
+2025-07-11 20:53:37,571 - INFO - Found CSV file: scraps\Tryp_Thooe_Tourism-main\Tshwane_Tourism_Association\Tryp_Thooe_Tourism\tshwane_crawled_data\data\places.csv
+2025-07-11 20:53:37,601 - INFO - Found CSV file: scraps\Tryp_Thooe_Tourism-main\Tshwane_Tourism_Association\Tryp_Thooe_Tourism-main\processed_data\tshwane_places.csv
+2025-07-11 20:53:37,797 - INFO - Found CSV file: scraps\Tryp_Thooe_Tourism-main\Tshwane_Tourism_Association\Tryp_Thooe_Tourism-main\processed_data\tshwane_restaurants.csv
+2025-07-11 20:53:37,920 - INFO - Found CSV file: scraps\Tryp_Thooe_Tourism-main\Tshwane_Tourism_Association\Tryp_Thooe_Tourism-main\tshwane_crawled_data\data\places.csv
+2025-07-11 20:53:38,023 - INFO - Total CSV files discovered: 122
+2025-07-11 20:53:38,033 - INFO - Successfully loaded developer_details.csv with 6 rows
+2025-07-11 20:53:38,148 - INFO - Successfully loaded synced_gallery.csv with 111 rows
+2025-07-11 20:53:38,216 - INFO - Successfully loaded tshwane_coordinates.csv with 10 rows
+2025-07-11 20:53:38,405 - INFO - Successfully loaded tshwane_descriptions.csv with 8 rows
+2025-07-11 20:53:38,445 - INFO - Successfully loaded tshwane_places.csv with 117 rows
+2025-07-11 20:53:38,463 - INFO - Successfully loaded tshwane_sentiment_data.csv with 8 rows
+2025-07-11 20:53:38,637 - INFO - Successfully loaded tshwane_social_links.csv with 3 rows
+2025-07-11 20:53:38,646 - INFO - Successfully loaded tshwane_temperature_data.csv with 12 rows
+2025-07-11 20:53:38,659 - INFO - Successfully loaded tshwane_places.csv with 7 rows
+2025-07-11 20:53:38,769 - INFO - Successfully loaded tshwane_restaurants.csv with 2 rows
+2025-07-11 20:53:38,784 - INFO - Successfully loaded tshwane_places.csv with 117 rows
+2025-07-11 20:53:38,792 - INFO - Successfully loaded tshwane_social_links.csv with 12 rows
+2025-07-11 20:53:38,798 - INFO - Successfully loaded tshwane_places.csv with 7 rows
+2025-07-11 20:53:38,808 - INFO - Successfully loaded tshwane_restaurants.csv with 2 rows
+2025-07-11 20:53:38,828 - INFO - Successfully loaded places.csv with 7 rows
+2025-07-11 20:53:38,899 - INFO - Successfully loaded church_square.csv with 1 rows
+2025-07-11 20:53:38,909 - INFO - Successfully loaded about_tshwane.csv with 1 rows
+2025-07-11 20:53:38,916 - INFO - Successfully loaded awards.csv with 1 rows
+2025-07-11 20:53:39,032 - INFO - Successfully loaded david_nkosi.csv with 1 rows
+2025-07-11 20:53:39,043 - INFO - Successfully loaded download_tourist_map.csv with 1 rows
+2025-07-11 20:53:39,049 - INFO - Successfully loaded facebook.csv with 1 rows
+2025-07-11 20:53:39,056 - INFO - Successfully loaded interactive_tourist_map.csv with 1 rows
+2025-07-11 20:53:39,063 - INFO - Successfully loaded lisa_van_der_merwe.csv with 1 rows
+2025-07-11 20:53:39,072 - INFO - Successfully loaded menumenu.csv with 1 rows
+2025-07-11 20:53:39,083 - INFO - Successfully loaded michael_osei.csv with 1 rows
+2025-07-11 20:53:39,091 - INFO - Successfully loaded nomsa_dlamini.csv with 1 rows
+2025-07-11 20:53:39,168 - INFO - Successfully loaded online_travel_and_experience_market.csv with 1 rows
+2025-07-11 20:53:39,178 - INFO - Successfully loaded pamper.csv with 1 rows
+2025-07-11 20:53:39,382 - INFO - Successfully loaded request_a_printed_map.csv with 1 rows
+2025-07-11 20:53:39,394 - INFO - Successfully loaded request_a_quoteinfo.csv with 1 rows
+2025-07-11 20:53:39,409 - INFO - Successfully loaded sarah_mokoena.csv with 1 rows
+2025-07-11 20:53:39,535 - INFO - Successfully loaded search.csv with 1 rows
+2025-07-11 20:53:39,567 - INFO - Successfully loaded thapelo_kgothatso_thooe.csv with 1 rows
+2025-07-11 20:53:39,683 - INFO - Successfully loaded travel.csv with 1 rows
+2025-07-11 20:53:39,692 - INFO - Successfully loaded tshwane_map.csv with 1 rows
+2025-07-11 20:53:39,705 - INFO - Successfully loaded whats_on.csv with 1 rows
+2025-07-11 20:53:39,713 - INFO - Successfully loaded whats_onawardsinfostayplayeatpamperonline_travel_and_experience_marketmeettravelsearchmenumenu.csv with 1 rows
+2025-07-11 20:53:39,919 - INFO - Successfully loaded youtube.csv with 1 rows
+2025-07-11 20:53:39,955 - INFO - Successfully loaded tshwane_places.csv with 117 rows
+2025-07-11 20:53:39,972 - INFO - Successfully loaded tshwane_social_links.csv with 12 rows
+2025-07-11 20:53:39,996 - WARNING - Failed to load tshwane_descriptions.csv: Error tokenizing data. C error: Expected 6 fields in line 5, saw 8
+
+2025-07-11 20:53:40,183 - INFO - Successfully loaded tshwane_locations.csv with 10 rows
+2025-07-11 20:53:40,211 - INFO - Successfully loaded tshwane_places.csv with 7 rows
+2025-07-11 20:53:40,223 - INFO - Successfully loaded tshwane_restaurants.csv with 2 rows
+2025-07-11 20:53:40,237 - INFO - Successfully loaded tshwane_sentiments.csv with 10 rows
+2025-07-11 20:53:40,261 - INFO - Successfully loaded tshwane_temperature.csv with 12 rows
+2025-07-11 20:53:40,469 - INFO - Successfully loaded tshwane_annual_temperature.csv with 12 rows
+2025-07-11 20:53:40,487 - INFO - Successfully loaded tshwane_descriptions.csv with 117 rows
+2025-07-11 20:53:40,497 - INFO - Successfully loaded tshwane_places.csv with 117 rows
+2025-07-11 20:53:40,606 - INFO - Successfully loaded tshwane_places_coordinates.csv with 117 rows
+2025-07-11 20:53:40,631 - INFO - Successfully loaded tshwane_sentiment_analysis.csv with 117 rows
+2025-07-11 20:53:40,645 - INFO - Successfully loaded tshwane_social_links.csv with 12 rows
+2025-07-11 20:53:40,659 - INFO - Successfully loaded tshwane_places.csv with 7 rows
+2025-07-11 20:53:40,671 - INFO - Successfully loaded tshwane_restaurants.csv with 2 rows
+2025-07-11 20:53:40,752 - INFO - Successfully loaded places.csv with 7 rows
+2025-07-11 20:53:40,762 - INFO - Successfully loaded places.csv with 7 rows
+2025-07-11 20:53:40,832 - INFO - Successfully loaded tshwane_places.csv with 2 rows
+2025-07-11 20:53:40,841 - INFO - Successfully loaded tshwane_social_links.csv with 12 rows
+2025-07-11 20:53:40,968 - INFO - Successfully loaded tshwane_places.csv with 117 rows
+2025-07-11 20:53:41,036 - INFO - Successfully loaded tshwane_social_links.csv with 12 rows
+2025-07-11 20:53:41,044 - INFO - Successfully loaded tshwane_places.csv with 2 rows
+2025-07-11 20:53:41,049 - INFO - Successfully loaded tshwane_social_links.csv with 12 rows
+2025-07-11 20:53:41,056 - INFO - Successfully loaded tshwane_places.csv with 117 rows
+2025-07-11 20:53:41,061 - INFO - Successfully loaded tshwane_social_links.csv with 12 rows
+2025-07-11 20:53:41,070 - INFO - Successfully loaded tshwane_places.csv with 7 rows
+2025-07-11 20:53:41,161 - INFO - Successfully loaded tshwane_restaurants.csv with 2 rows
+2025-07-11 20:53:41,181 - INFO - Successfully loaded places.csv with 7 rows
+2025-07-11 20:53:41,250 - INFO - Successfully loaded tshwane_places.csv with 7 rows
+2025-07-11 20:53:41,257 - INFO - Successfully loaded tshwane_restaurants.csv with 2 rows
+2025-07-11 20:53:41,358 - INFO - Successfully loaded places.csv with 7 rows
+2025-07-11 20:53:41,365 - INFO - Successfully loaded tshwane_places.csv with 7 rows
+2025-07-11 20:53:41,376 - INFO - Successfully loaded tshwane_restaurants.csv with 2 rows
+2025-07-11 20:53:41,384 - INFO - Successfully loaded places.csv with 7 rows
+2025-07-11 20:53:41,396 - INFO - Successfully loaded tshwane_places.csv with 7 rows
+2025-07-11 20:53:41,517 - INFO - Successfully loaded tshwane_restaurants.csv with 2 rows
+2025-07-11 20:53:41,524 - INFO - Successfully loaded places.csv with 7 rows
+2025-07-11 20:53:41,531 - INFO - Successfully loaded places.csv with 7 rows
+2025-07-11 20:53:41,540 - INFO - Successfully loaded tshwane_places.csv with 7 rows
+2025-07-11 20:53:41,548 - INFO - Successfully loaded tshwane_restaurants.csv with 2 rows
+2025-07-11 20:53:41,555 - INFO - Successfully loaded tshwane_places.csv with 117 rows
+2025-07-11 20:53:41,560 - INFO - Successfully loaded tshwane_social_links.csv with 12 rows
+2025-07-11 20:53:41,567 - INFO - Successfully loaded tshwane_places.csv with 7 rows
+2025-07-11 20:53:41,573 - INFO - Successfully loaded tshwane_restaurants.csv with 2 rows
+2025-07-11 20:53:41,579 - INFO - Successfully loaded places.csv with 7 rows
+2025-07-11 20:53:41,586 - INFO - Successfully loaded tshwane_places.csv with 117 rows
+2025-07-11 20:53:41,592 - INFO - Successfully loaded tshwane_social_links.csv with 12 rows
+2025-07-11 20:53:41,597 - WARNING - Failed to load tshwane_descriptions.csv: Error tokenizing data. C error: Expected 6 fields in line 5, saw 8
+
+2025-07-11 20:53:41,621 - INFO - Successfully loaded tshwane_locations.csv with 10 rows
+2025-07-11 20:53:41,729 - INFO - Successfully loaded tshwane_places.csv with 7 rows
+2025-07-11 20:53:41,901 - INFO - Successfully loaded tshwane_restaurants.csv with 2 rows
+2025-07-11 20:53:42,156 - INFO - Successfully loaded tshwane_sentiments.csv with 10 rows
+2025-07-11 20:53:42,209 - INFO - Successfully loaded tshwane_temperature.csv with 12 rows
+2025-07-11 20:53:42,333 - INFO - Successfully loaded tshwane_annual_temperature.csv with 12 rows
+2025-07-11 20:53:42,421 - INFO - Successfully loaded tshwane_descriptions.csv with 117 rows
+2025-07-11 20:53:42,615 - INFO - Successfully loaded tshwane_places.csv with 117 rows
+2025-07-11 20:53:42,723 - INFO - Successfully loaded tshwane_places_coordinates.csv with 117 rows
+2025-07-11 20:53:42,961 - INFO - Successfully loaded tshwane_sentiment_analysis.csv with 117 rows
+2025-07-11 20:53:42,964 - INFO - Successfully loaded tshwane_social_links.csv with 12 rows
+2025-07-11 20:53:42,970 - INFO - Successfully loaded tshwane_places.csv with 7 rows
+2025-07-11 20:53:42,975 - INFO - Successfully loaded tshwane_restaurants.csv with 2 rows
+2025-07-11 20:53:42,978 - INFO - Successfully loaded places.csv with 7 rows
+2025-07-11 20:53:42,984 - INFO - Successfully loaded places.csv with 7 rows
+2025-07-11 20:53:42,987 - INFO - Successfully loaded tshwane_places.csv with 2 rows
+2025-07-11 20:53:42,991 - INFO - Successfully loaded tshwane_social_links.csv with 12 rows
+2025-07-11 20:53:43,058 - INFO - Successfully loaded tshwane_places.csv with 117 rows
+2025-07-11 20:53:43,086 - INFO - Successfully loaded tshwane_social_links.csv with 12 rows
+2025-07-11 20:53:43,156 - INFO - Successfully loaded tshwane_places.csv with 2 rows
+2025-07-11 20:53:43,180 - INFO - Successfully loaded tshwane_social_links.csv with 12 rows
+2025-07-11 20:53:43,320 - INFO - Successfully loaded tshwane_places.csv with 117 rows
+2025-07-11 20:53:43,467 - INFO - Successfully loaded tshwane_social_links.csv with 12 rows
+2025-07-11 20:53:43,500 - INFO - Successfully loaded tshwane_places.csv with 7 rows
+2025-07-11 20:53:43,583 - INFO - Successfully loaded tshwane_restaurants.csv with 2 rows
+2025-07-11 20:53:43,654 - INFO - Successfully loaded places.csv with 7 rows
+2025-07-11 20:53:43,670 - INFO - Successfully loaded tshwane_places.csv with 7 rows
+2025-07-11 20:53:43,680 - INFO - Successfully loaded tshwane_restaurants.csv with 2 rows
+2025-07-11 20:53:43,777 - INFO - Successfully loaded places.csv with 7 rows
+2025-07-11 20:53:43,861 - INFO - Successfully loaded tshwane_places.csv with 7 rows
+2025-07-11 20:53:43,869 - INFO - Successfully loaded tshwane_restaurants.csv with 2 rows
+2025-07-11 20:53:43,956 - INFO - Successfully loaded places.csv with 7 rows
+2025-07-11 20:53:44,052 - INFO - Successfully loaded tshwane_places.csv with 7 rows
+2025-07-11 20:53:44,064 - INFO - Successfully loaded tshwane_restaurants.csv with 2 rows
+2025-07-11 20:53:44,075 - INFO - Successfully loaded places.csv with 7 rows
+2025-07-11 20:53:44,263 - INFO - Processing dataset: developer_details
+2025-07-11 20:53:44,285 - INFO - Processing dataset: synced_gallery
+2025-07-11 20:53:44,518 - INFO - Processing dataset: tshwane_coordinates
+2025-07-11 20:53:44,527 - INFO - Processing dataset: tshwane_descriptions
+2025-07-11 20:53:44,537 - INFO - Processing dataset: tshwane_places
+2025-07-11 20:53:44,703 - INFO - Processing dataset: tshwane_sentiment_data
+2025-07-11 20:53:44,728 - INFO - Processing dataset: tshwane_social_links
+2025-07-11 20:53:44,734 - INFO - Processing dataset: tshwane_temperature_data
+2025-07-11 20:53:44,742 - INFO - Processing dataset: tshwane_places
+2025-07-11 20:53:44,751 - INFO - Processing dataset: tshwane_restaurants
+2025-07-11 20:53:44,756 - INFO - Processing dataset: tshwane_places
+2025-07-11 20:53:45,025 - INFO - Processing dataset: tshwane_social_links
+2025-07-11 20:53:45,044 - INFO - Processing dataset: tshwane_places
+2025-07-11 20:53:45,052 - INFO - Processing dataset: tshwane_restaurants
+2025-07-11 20:53:45,057 - INFO - Processing dataset: places
+2025-07-11 20:53:45,063 - INFO - Processing dataset: church_square
+2025-07-11 20:53:45,068 - INFO - Processing dataset: about_tshwane
+2025-07-11 20:53:45,070 - INFO - Processing dataset: awards
+2025-07-11 20:53:45,072 - INFO - Processing dataset: david_nkosi
+2025-07-11 20:53:45,078 - INFO - Processing dataset: download_tourist_map
+2025-07-11 20:53:45,167 - INFO - Processing dataset: facebook
+2025-07-11 20:53:45,172 - INFO - Processing dataset: interactive_tourist_map
+2025-07-11 20:53:45,175 - INFO - Processing dataset: lisa_van_der_merwe
+2025-07-11 20:53:45,180 - INFO - Processing dataset: menumenu
+2025-07-11 20:53:45,183 - INFO - Processing dataset: michael_osei
+2025-07-11 20:53:45,198 - INFO - Processing dataset: nomsa_dlamini
+2025-07-11 20:53:45,205 - INFO - Processing dataset: online_travel_and_experience_market
+2025-07-11 20:53:45,273 - INFO - Processing dataset: pamper
+2025-07-11 20:53:45,279 - INFO - Processing dataset: request_a_printed_map
+2025-07-11 20:53:45,283 - INFO - Processing dataset: request_a_quoteinfo
+2025-07-11 20:53:45,290 - INFO - Processing dataset: sarah_mokoena
+2025-07-11 20:53:45,386 - INFO - Processing dataset: search
+2025-07-11 20:53:45,494 - INFO - Processing dataset: thapelo_kgothatso_thooe
+2025-07-11 20:53:45,611 - INFO - Processing dataset: travel
+2025-07-11 20:53:45,618 - INFO - Processing dataset: tshwane_map
+2025-07-11 20:53:45,626 - INFO - Processing dataset: whats_on
+2025-07-11 20:53:45,634 - INFO - Processing dataset: whats_onawardsinfostayplayeatpamperonline_travel_and_experience_marketmeettravelsearchmenumenu
+2025-07-11 20:53:45,645 - INFO - Processing dataset: youtube
+2025-07-11 20:53:45,742 - INFO - Processing dataset: tshwane_places
+2025-07-11 20:53:45,996 - INFO - Processing dataset: tshwane_social_links
+2025-07-11 20:53:46,003 - INFO - Processing dataset: tshwane_locations
+2025-07-11 20:53:46,012 - INFO - Processing dataset: tshwane_places
+2025-07-11 20:53:46,024 - INFO - Processing dataset: tshwane_restaurants
+2025-07-11 20:53:46,028 - INFO - Processing dataset: tshwane_sentiments
+2025-07-11 20:53:46,031 - INFO - Processing dataset: tshwane_temperature
+2025-07-11 20:53:46,038 - INFO - Processing dataset: tshwane_annual_temperature
+2025-07-11 20:53:46,042 - INFO - Processing dataset: tshwane_descriptions
+2025-07-11 20:53:46,287 - INFO - Processing dataset: tshwane_places
+2025-07-11 20:53:46,397 - INFO - Processing dataset: tshwane_places_coordinates
+2025-07-11 20:53:46,524 - INFO - Processing dataset: tshwane_sentiment_analysis
+2025-07-11 20:53:46,670 - INFO - Processing dataset: tshwane_social_links
+2025-07-11 20:53:46,672 - INFO - Processing dataset: tshwane_places
+2025-07-11 20:53:46,677 - INFO - Processing dataset: tshwane_restaurants
+2025-07-11 20:53:46,679 - INFO - Processing dataset: places
+2025-07-11 20:53:46,683 - INFO - Processing dataset: places
+2025-07-11 20:53:46,689 - INFO - Processing dataset: tshwane_places
+2025-07-11 20:53:46,691 - INFO - Processing dataset: tshwane_social_links
+2025-07-11 20:53:46,694 - INFO - Processing dataset: tshwane_places
+2025-07-11 20:53:46,910 - INFO - Processing dataset: tshwane_social_links
+2025-07-11 20:53:46,927 - INFO - Processing dataset: tshwane_places
+2025-07-11 20:53:46,935 - INFO - Processing dataset: tshwane_social_links
+2025-07-11 20:53:46,955 - INFO - Processing dataset: tshwane_places
+2025-07-11 20:53:47,017 - INFO - Processing dataset: tshwane_social_links
+2025-07-11 20:53:47,124 - INFO - Processing dataset: tshwane_places
+2025-07-11 20:53:47,131 - INFO - Processing dataset: tshwane_restaurants
+2025-07-11 20:53:47,222 - INFO - Processing dataset: places
+2025-07-11 20:53:47,235 - INFO - Processing dataset: tshwane_places
+2025-07-11 20:53:47,248 - INFO - Processing dataset: tshwane_restaurants
+2025-07-11 20:53:47,252 - INFO - Processing dataset: places
+2025-07-11 20:53:47,319 - INFO - Processing dataset: tshwane_places
+2025-07-11 20:53:47,330 - INFO - Processing dataset: tshwane_restaurants
+2025-07-11 20:53:47,353 - INFO - Processing dataset: places
+2025-07-11 20:53:47,443 - INFO - Processing dataset: tshwane_places
+2025-07-11 20:53:47,509 - INFO - Processing dataset: tshwane_restaurants
+2025-07-11 20:53:47,515 - INFO - Processing dataset: places
+2025-07-11 20:53:47,522 - INFO - Processing dataset: places
+2025-07-11 20:53:47,535 - INFO - Processing dataset: tshwane_places
+2025-07-11 20:53:47,636 - INFO - Processing dataset: tshwane_restaurants
+2025-07-11 20:53:47,694 - INFO - Processing dataset: tshwane_places
+2025-07-11 20:53:47,900 - INFO - Processing dataset: tshwane_social_links
+2025-07-11 20:53:48,005 - INFO - Processing dataset: tshwane_places
+2025-07-11 20:53:48,012 - INFO - Processing dataset: tshwane_restaurants
+2025-07-11 20:53:48,017 - INFO - Processing dataset: places
+2025-07-11 20:53:48,031 - INFO - Processing dataset: tshwane_places
+2025-07-11 20:53:48,232 - INFO - Processing dataset: tshwane_social_links
+2025-07-11 20:53:48,238 - INFO - Processing dataset: tshwane_locations
+2025-07-11 20:53:48,242 - INFO - Processing dataset: tshwane_places
+2025-07-11 20:53:48,247 - INFO - Processing dataset: tshwane_restaurants
+2025-07-11 20:53:48,251 - INFO - Processing dataset: tshwane_sentiments
+2025-07-11 20:53:48,254 - INFO - Processing dataset: tshwane_temperature
+2025-07-11 20:53:48,258 - INFO - Processing dataset: tshwane_annual_temperature
+2025-07-11 20:53:48,267 - INFO - Processing dataset: tshwane_descriptions
+2025-07-11 20:53:48,523 - INFO - Processing dataset: tshwane_places
+2025-07-11 20:53:48,577 - INFO - Processing dataset: tshwane_places_coordinates
+2025-07-11 20:53:48,739 - INFO - Processing dataset: tshwane_sentiment_analysis
+2025-07-11 20:53:48,960 - INFO - Processing dataset: tshwane_social_links
+2025-07-11 20:53:49,029 - INFO - Processing dataset: tshwane_places
+2025-07-11 20:53:49,080 - INFO - Processing dataset: tshwane_restaurants
+2025-07-11 20:53:49,118 - INFO - Processing dataset: places
+2025-07-11 20:53:49,125 - INFO - Processing dataset: places
+2025-07-11 20:53:49,168 - INFO - Processing dataset: tshwane_places
+2025-07-11 20:53:49,169 - INFO - Processing dataset: tshwane_social_links
+2025-07-11 20:53:49,173 - INFO - Processing dataset: tshwane_places
+2025-07-11 20:53:49,294 - INFO - Processing dataset: tshwane_social_links
+2025-07-11 20:53:49,301 - INFO - Processing dataset: tshwane_places
+2025-07-11 20:53:49,308 - INFO - Processing dataset: tshwane_social_links
+2025-07-11 20:53:49,314 - INFO - Processing dataset: tshwane_places
+2025-07-11 20:53:49,489 - INFO - Processing dataset: tshwane_social_links
+2025-07-11 20:53:49,492 - INFO - Processing dataset: tshwane_places
+2025-07-11 20:53:49,497 - INFO - Processing dataset: tshwane_restaurants
+2025-07-11 20:53:49,501 - INFO - Processing dataset: places
+2025-07-11 20:53:49,507 - INFO - Processing dataset: tshwane_places
+2025-07-11 20:53:49,516 - INFO - Processing dataset: tshwane_restaurants
+2025-07-11 20:53:49,521 - INFO - Processing dataset: places
+2025-07-11 20:53:49,612 - INFO - Processing dataset: tshwane_places
+2025-07-11 20:53:49,620 - INFO - Processing dataset: tshwane_restaurants
+2025-07-11 20:53:49,678 - INFO - Processing dataset: places
+2025-07-11 20:53:49,688 - INFO - Processing dataset: tshwane_places
+2025-07-11 20:53:49,695 - INFO - Processing dataset: tshwane_restaurants
+2025-07-11 20:53:49,701 - INFO - Processing dataset: places
+2025-07-11 20:53:49,710 - INFO - Matched 216 unique places across datasets
+2025-07-11 20:53:49,714 - INFO - Starting data enrichment process...
+2025-07-11 20:54:01,900 - INFO - Successfully scraped data for union buildings
+2025-07-11 20:54:03,514 - INFO - Successfully scraped data for freedom park
+2025-07-11 20:54:04,245 - INFO - Successfully scraped data for voortrekker monument
+2025-07-11 20:54:09,953 - INFO - Successfully scraped data for pretoria zoo
+2025-07-11 20:54:10,147 - INFO - Successfully scraped data for pretoria botanical gardens
+2025-07-11 20:54:11,443 - INFO - Successfully scraped data for melrose house
+2025-07-11 20:54:12,507 - INFO - Successfully scraped data for national gallery
+2025-07-11 20:55:10,990 - INFO - Data enrichment completed
+2025-07-11 20:55:10,991 - INFO - Creating individual CSV files for each place...
+2025-07-11 20:55:11,004 - INFO - Created CSV file: processed_places_data\other\thapelo_kgothatso_thooe.csv
+2025-07-11 20:55:11,014 - INFO - Created CSV file: processed_places_data\other\sarah_mokoena.csv
+2025-07-11 20:55:11,020 - INFO - Created CSV file: processed_places_data\other\david_nkosi.csv
+2025-07-11 20:55:11,030 - INFO - Created CSV file: processed_places_data\other\lisa_van_der_merwe.csv
+2025-07-11 20:55:11,044 - INFO - Created CSV file: processed_places_data\other\michael_osei.csv
+2025-07-11 20:55:11,129 - INFO - Created CSV file: processed_places_data\other\nomsa_dlamini.csv
+2025-07-11 20:55:11,139 - INFO - Created CSV file: processed_places_data\other\facebook.csv
+2025-07-11 20:55:11,149 - INFO - Created CSV file: processed_places_data\other\youtube.csv
+2025-07-11 20:55:11,223 - INFO - Created CSV file: processed_places_data\other\about_tshwane.csv
+2025-07-11 20:55:11,239 - INFO - Created CSV file: processed_places_data\other\tshwane_map.csv
+2025-07-11 20:55:11,339 - INFO - Created CSV file: processed_places_data\other\interactive_tourist_map.csv
+2025-07-11 20:55:11,347 - INFO - Created CSV file: processed_places_data\other\download_tourist_map.csv
+2025-07-11 20:55:11,354 - INFO - Created CSV file: processed_places_data\other\request_a_printed_map.csv
+2025-07-11 20:55:11,358 - INFO - Created CSV file: processed_places_data\other\request_a_quoteinfo.csv
+2025-07-11 20:55:11,365 - INFO - Created CSV file: processed_places_data\other\whats_onawardsinfostayplayeatpamperonline_travel_a_f7b6ff0d.csv
+2025-07-11 20:55:11,373 - INFO - Created CSV file: processed_places_data\other\whats_on.csv
+2025-07-11 20:55:11,384 - INFO - Created CSV file: processed_places_data\other\awards.csv
+2025-07-11 20:55:11,672 - INFO - Created CSV file: processed_places_data\other\pamper.csv
+2025-07-11 20:55:11,758 - INFO - Created CSV file: processed_places_data\other\online_travel_and_experience_market.csv
+2025-07-11 20:55:11,851 - INFO - Created CSV file: processed_places_data\other\travel.csv
+2025-07-11 20:55:11,961 - INFO - Created CSV file: processed_places_data\other\search.csv
+2025-07-11 20:55:11,993 - INFO - Created CSV file: processed_places_data\other\menumenu.csv
+2025-07-11 20:55:12,112 - INFO - Created CSV file: processed_places_data\historical\church_square.csv
+2025-07-11 20:55:12,121 - INFO - Created CSV file: processed_places_data\other\church_square_in_central_pretoria_was_the_site_of__2d8baa7d.csv
+2025-07-11 20:55:12,128 - INFO - Created CSV file: processed_places_data\other\city_hall.csv
+2025-07-11 20:55:12,137 - INFO - Created CSV file: processed_places_data\other\one_of_the_last_large_city_halls_to_be_built_in_so_e491f212.csv
+2025-07-11 20:55:12,197 - INFO - Created CSV file: processed_places_data\other\fountains_circle.csv
+2025-07-11 20:55:12,403 - INFO - Created CSV file: processed_places_data\other\fountains_circle_is_one_of_the_most_well_known_ent_44a6a53b.csv
+2025-07-11 20:55:12,418 - INFO - Created CSV file: processed_places_data\cultural\freedom_park.csv
+2025-07-11 20:55:12,430 - INFO - Created CSV file: processed_places_data\other\freedom_park_is_situated_on_salvokop_in_pretoria_i_02424532.csv
+2025-07-11 20:55:12,505 - INFO - Created CSV file: processed_places_data\other\jacaranda_trees.csv
+2025-07-11 20:55:12,682 - INFO - Created CSV file: processed_places_data\other\from_late_september_to_middle_november_jacarandas__176af3a2.csv
+2025-07-11 20:55:12,691 - INFO - Created CSV file: processed_places_data\other\pretoria_art_museum.csv
+2025-07-11 20:55:12,702 - INFO - Created CSV file: processed_places_data\other\public_art.csv
+2025-07-11 20:55:12,734 - INFO - Created CSV file: processed_places_data\other\pretoria_is_home_to_an_extensive_portfolio_of_publ_c50cb473.csv
+2025-07-11 20:55:12,840 - INFO - Created CSV file: processed_places_data\other\tshwane_wildlife.csv
+2025-07-11 20:55:12,846 - INFO - Created CSV file: processed_places_data\other\tshwane_is_an_african_city_boasting_two_nature_res_4e225fa3.csv
+2025-07-11 20:55:12,854 - INFO - Created CSV file: processed_places_data\other\tswaing_crater.csv
+2025-07-11 20:55:12,935 - INFO - Created CSV file: processed_places_data\other\located_about_40km_northwest_of_pretoria_tswaing_i_e69866da.csv
+2025-07-11 20:55:13,187 - INFO - Created CSV file: processed_places_data\historical\union_buildings.csv
+2025-07-11 20:55:13,234 - INFO - Created CSV file: processed_places_data\other\pretorias_union_buildings_the_official_seat_of_the_580877b7.csv
+2025-07-11 20:55:13,338 - INFO - Created CSV file: processed_places_data\historical\voortrekker_monument.csv
+2025-07-11 20:55:13,353 - INFO - Created CSV file: processed_places_data\other\majestic_voortrekker_monument_is_situated_in_the_n_b8339955.csv
+2025-07-11 20:55:13,362 - INFO - Created CSV file: processed_places_data\other\city_of_excellencetshwane_the_mega_city_capital_of_1f3f853d.csv
+2025-07-11 20:55:13,373 - INFO - Created CSV file: processed_places_data\other\city_of_excellencetshwane_the_mega_city_capital_of_d0fbaead.csv
+2025-07-11 20:55:13,488 - INFO - Created CSV file: processed_places_data\other\tshwane_the_mega_city_capital_of_south_africa_cons_f87ebc48.csv
+2025-07-11 20:55:13,503 - INFO - Created CSV file: processed_places_data\other\ttathe_tshwane_tourism_association_tta_represents__5618eee5.csv
+2025-07-11 20:55:13,514 - INFO - Created CSV file: processed_places_data\other\tshwane_tourism_association_tta_represents_private_defcc498.csv
+2025-07-11 20:55:13,529 - INFO - Created CSV file: processed_places_data\other\secretarytshwanetourismcom.csv
+2025-07-11 20:55:13,681 - INFO - Created CSV file: processed_places_data\other\follow_usvisit_ourfacebookpage_for_news_info_and_g_dc9fcf84.csv
+2025-07-11 20:55:13,820 - INFO - Created CSV file: processed_places_data\other\visit_ourfacebookpage_for_news_info_and_galleriesf_4882461b.csv
+2025-07-11 20:55:13,829 - INFO - Created CSV file: processed_places_data\other\twitter.csv
+2025-07-11 20:55:13,836 - INFO - Created CSV file: processed_places_data\other\linksgautrain_user_guidebus_routes_timetablestshwa_a8f0fcf0.csv
+2025-07-11 20:55:13,842 - INFO - Created CSV file: processed_places_data\other\gautrain_user_guidebus_routes_timetablestshwane_at_5e59690b.csv
+2025-07-11 20:55:13,851 - INFO - Created CSV file: processed_places_data\other\gautrain_user_guide.csv
+2025-07-11 20:55:13,859 - INFO - Created CSV file: processed_places_data\other\bus_routes_timetables.csv
+2025-07-11 20:55:13,867 - INFO - Created CSV file: processed_places_data\other\tshwane_at_a_glance.csv
+2025-07-11 20:55:13,877 - INFO - Created CSV file: processed_places_data\other\tshwane_travel_guide.csv
+2025-07-11 20:55:13,950 - INFO - Created CSV file: processed_places_data\other\_copyright_tshwane_tourism_association_tta_wwwtshw_fd22b42a.csv
+2025-07-11 20:55:14,065 - INFO - Created CSV file: processed_places_data\other\_copyright_tshwane_tourism_association_tta_wwwtshw_6243fda9.csv
+2025-07-11 20:55:14,123 - INFO - Created CSV file: processed_places_data\other\wwwtshwanetourismcom.csv
+2025-07-11 20:55:14,129 - INFO - Created CSV file: processed_places_data\other\scroll_to_top.csv
+2025-07-11 20:55:14,225 - INFO - Created CSV file: processed_places_data\other\this_site_uses_cookies_by_continuing_to_browse_the_b43438a0.csv
+2025-07-11 20:55:14,249 - INFO - Created CSV file: processed_places_data\other\this_site_uses_cookies_by_continuing_to_browse_the_583192f2.csv
+2025-07-11 20:55:14,259 - INFO - Created CSV file: processed_places_data\other\learn_more.csv
+2025-07-11 20:55:14,327 - INFO - Created CSV file: processed_places_data\other\cookie_and_privacy_settingshow_we_use_cookieswe_ma_7c5b649d.csv
+2025-07-11 20:55:14,363 - INFO - Created CSV file: processed_places_data\other\cookie_and_privacy_settings.csv
+2025-07-11 20:55:14,456 - INFO - Created CSV file: processed_places_data\other\how_we_use_cookieswe_may_request_cookies_to_be_set_2af1e7f7.csv
+2025-07-11 20:55:14,463 - INFO - Created CSV file: processed_places_data\other\how_we_use_cookies.csv
+2025-07-11 20:55:14,522 - INFO - Created CSV file: processed_places_data\other\we_may_request_cookies_to_be_set_on_your_device_we_8a4406e0.csv
+2025-07-11 20:55:14,533 - INFO - Created CSV file: processed_places_data\other\essential_website_cookies.csv
+2025-07-11 20:55:14,563 - INFO - Created CSV file: processed_places_data\other\these_cookies_are_strictly_necessary_to_provide_yo_feb395a6.csv
+2025-07-11 20:55:14,651 - INFO - Created CSV file: processed_places_data\other\check_to_enable_permanent_hiding_of_message_bar_an_e79f809b.csv
+2025-07-11 20:55:14,658 - INFO - Created CSV file: processed_places_data\other\click_to_enabledisable_essential_site_cookies.csv
+2025-07-11 20:55:14,672 - INFO - Created CSV file: processed_places_data\other\other_external_services.csv
+2025-07-11 20:55:14,707 - INFO - Created CSV file: processed_places_data\other\we_also_use_different_external_services_like_googl_7c6d50e3.csv
+2025-07-11 20:55:14,767 - INFO - Created CSV file: processed_places_data\other\click_to_enabledisable_google_webfonts.csv
+2025-07-11 20:55:14,833 - INFO - Created CSV file: processed_places_data\other\click_to_enabledisable_google_maps.csv
+2025-07-11 20:55:14,979 - INFO - Created CSV file: processed_places_data\other\click_to_enabledisable_google_recaptcha.csv
+2025-07-11 20:55:15,101 - INFO - Created CSV file: processed_places_data\other\click_to_enabledisable_video_embeds.csv
+2025-07-11 20:55:15,123 - INFO - Created CSV file: processed_places_data\other\privacy_policy.csv
+2025-07-11 20:55:15,130 - INFO - Created CSV file: processed_places_data\other\you_can_read_about_our_cookies_and_privacy_setting_81c41893.csv
+2025-07-11 20:55:15,142 - INFO - Created CSV file: processed_places_data\other\accept_settingshide_notification_only.csv
+2025-07-11 20:55:15,236 - INFO - Created CSV file: processed_places_data\other\accept_settings.csv
+2025-07-11 20:55:15,246 - INFO - Created CSV file: processed_places_data\other\hide_notification_only.csv
+2025-07-11 20:55:15,378 - INFO - Created CSV file: processed_places_data\nature\pretoria_zoo.csv
+2025-07-11 20:55:15,385 - INFO - Created CSV file: processed_places_data\historical\melrose_house.csv
+2025-07-11 20:55:15,392 - INFO - Created CSV file: processed_places_data\nature\pretoria_botanical_gardens.csv
+2025-07-11 20:55:15,492 - INFO - Created CSV file: processed_places_data\cultural\national_gallery.csv
+2025-07-11 20:55:15,695 - INFO - Created CSV file: processed_places_data\historical\kruger_house_museum.csv
+2025-07-11 20:55:15,803 - INFO - Created CSV file: processed_places_data\nature\austin_roberts_bird_sanctuary.csv
+2025-07-11 20:55:15,839 - INFO - Created CSV file: processed_places_data\accommodation\137_murray_street_guesthouse.csv
+2025-07-11 20:55:15,916 - INFO - Created CSV file: processed_places_data\accommodation\23_on_hazelwood.csv
+2025-07-11 20:55:16,214 - INFO - Created CSV file: processed_places_data\accommodation\23_on_rubenstein.csv
+2025-07-11 20:55:16,226 - INFO - Created CSV file: processed_places_data\accommodation\3_at_marion_guesthouse.csv
+2025-07-11 20:55:16,243 - INFO - Created CSV file: processed_places_data\accommodation\37_on_charles.csv
+2025-07-11 20:55:16,415 - INFO - Created CSV file: processed_places_data\area\centurion.csv
+2025-07-11 20:55:16,568 - INFO - Created CSV file: processed_places_data\area\garsfontein.csv
+2025-07-11 20:55:16,614 - INFO - Created CSV file: processed_places_data\area\pretoria_north.csv
+2025-07-11 20:55:16,639 - INFO - Created CSV file: processed_places_data\attraction\adventure_zone_cullinan.csv
+2025-07-11 20:55:16,783 - INFO - Created CSV file: processed_places_data\accommodation\african_nights_guest_house.csv
+2025-07-11 20:55:16,906 - INFO - Created CSV file: processed_places_data\restaurant\afro_boer.csv
+2025-07-11 20:55:17,032 - INFO - Created CSV file: processed_places_data\venue\aidc_automotive_industry_development_supplier_park_d6832b98.csv
+2025-07-11 20:55:17,178 - INFO - Created CSV file: processed_places_data\accommodation\anew_hotel_hatfield.csv
+2025-07-11 20:55:17,249 - INFO - Created CSV file: processed_places_data\accommodation\fortis_hotel_capital.csv
+2025-07-11 20:55:17,345 - INFO - Created CSV file: processed_places_data\accommodation\anew_hotel_centurion.csv
+2025-07-11 20:55:17,502 - INFO - Created CSV file: processed_places_data\restaurant\aroma_gelato_and_waffle_lounge.csv
+2025-07-11 20:55:17,667 - INFO - Created CSV file: processed_places_data\accommodation\at_the_rocks_country_estate.csv
+2025-07-11 20:55:17,809 - INFO - Created CSV file: processed_places_data\accommodation\b_guest_house.csv
+2025-07-11 20:55:18,048 - INFO - Created CSV file: processed_places_data\restaurant\baobab_cafe_grill.csv
+2025-07-11 20:55:18,069 - INFO - Created CSV file: processed_places_data\accommodation\batter_boys_boutique_hotel.csv
+2025-07-11 20:55:18,081 - INFO - Created CSV file: processed_places_data\attraction\bill_harrops_balloon_safaris.csv
+2025-07-11 20:55:18,101 - INFO - Created CSV file: processed_places_data\service\brosad_travel_services.csv
+2025-07-11 20:55:18,203 - INFO - Created CSV file: processed_places_data\attraction\capital_craft_beer_academy.csv
+2025-07-11 20:55:18,210 - INFO - Created CSV file: processed_places_data\restaurant\capito.csv
+2025-07-11 20:55:18,220 - INFO - Created CSV file: processed_places_data\restaurant\caraffa.csv
+2025-07-11 20:55:18,231 - INFO - Created CSV file: processed_places_data\restaurant\carbon_bistro.csv
+2025-07-11 20:55:18,246 - INFO - Created CSV file: processed_places_data\accommodation\casa_toscana_lodge.csv
+2025-07-11 20:55:18,321 - INFO - Created CSV file: processed_places_data\restaurant\castello_di_monte.csv
+2025-07-11 20:55:18,342 - INFO - Created CSV file: processed_places_data\accommodation\castle_bush_camp.csv
+2025-07-11 20:55:18,358 - INFO - Created CSV file: processed_places_data\restaurant\central_restaurant.csv
+2025-07-11 20:55:18,452 - INFO - Created CSV file: processed_places_data\shopping\centurion_mall.csv
+2025-07-11 20:55:18,478 - INFO - Created CSV file: processed_places_data\accommodation\city_lodge_hotel_hatfield.csv
+2025-07-11 20:55:18,545 - INFO - Created CSV file: processed_places_data\accommodation\city_lodge_lynwood.csv
+2025-07-11 20:55:18,571 - INFO - Created CSV file: processed_places_data\restaurant\colcacchio.csv
+2025-07-11 20:55:18,603 - INFO - Created CSV file: processed_places_data\service\conference_consultancy_sa.csv
+2025-07-11 20:55:18,676 - INFO - Created CSV file: processed_places_data\accommodation\constantia_guest_lodge.csv
+2025-07-11 20:55:18,686 - INFO - Created CSV file: processed_places_data\accommodation\cornerstone_guest_lodge.csv
+2025-07-11 20:55:18,697 - INFO - Created CSV file: processed_places_data\accommodation\court_classique_suite_hotel.csv
+2025-07-11 20:55:18,707 - INFO - Created CSV file: processed_places_data\restaurant\crawdaddys_good_food_menlyn.csv
+2025-07-11 20:55:18,780 - INFO - Created CSV file: processed_places_data\accommodation\cussonia_country_home.csv
+2025-07-11 20:55:18,806 - INFO - Created CSV file: processed_places_data\restaurant\de_kloof_restaurant.csv
+2025-07-11 20:55:18,825 - INFO - Created CSV file: processed_places_data\restaurant\pepper_chair.csv
+2025-07-11 20:55:18,846 - INFO - Created CSV file: processed_places_data\attraction\dewetswild.csv
+2025-07-11 20:55:18,908 - INFO - Created CSV file: processed_places_data\museum\ditsong_kruger_museum.csv
+2025-07-11 20:55:19,020 - INFO - Created CSV file: processed_places_data\service\e_biking_africa_pty_ltd.csv
+2025-07-11 20:55:19,139 - INFO - Created CSV file: processed_places_data\service\cullinan_tours.csv
+2025-07-11 20:55:19,149 - INFO - Created CSV file: processed_places_data\service\ebuhleni_tours_pty_ltd.csv
+2025-07-11 20:55:19,165 - INFO - Created CSV file: processed_places_data\service\el_mikho_travel_tours.csv
+2025-07-11 20:55:19,176 - INFO - Created CSV file: processed_places_data\service\eternal_partners_business_solution_pty_ltd.csv
+2025-07-11 20:55:19,203 - INFO - Created CSV file: processed_places_data\service\famba_famba_tour_design_specialists.csv
+2025-07-11 20:55:19,227 - INFO - Created CSV file: processed_places_data\restaurant\fishmonger_centurion.csv
+2025-07-11 20:55:19,346 - INFO - Created CSV file: processed_places_data\restaurant\fleisherei_bistro.csv
+2025-07-11 20:55:19,518 - INFO - Created CSV file: processed_places_data\restaurant\taris_concepts.csv
+2025-07-11 20:55:19,564 - INFO - Created CSV file: processed_places_data\attraction\freedom_park_sa.csv
+2025-07-11 20:55:19,658 - INFO - Created CSV file: processed_places_data\restaurant\fumo.csv
+2025-07-11 20:55:19,685 - INFO - Created CSV file: processed_places_data\restaurant\gabbata_lodge_restaurant.csv
+2025-07-11 20:55:19,795 - INFO - Created CSV file: processed_places_data\accommodation\garden_court_hatfield_hotel_pretoria.csv
+2025-07-11 20:55:19,948 - INFO - Created CSV file: processed_places_data\accommodation\glen_marion_guest_house.csv
+2025-07-11 20:55:19,974 - INFO - Created CSV file: processed_places_data\venue\graceland_conference_lifestyle_centre.csv
+2025-07-11 20:55:20,057 - INFO - Created CSV file: processed_places_data\accommodation\green_valley_lodge.csv
+2025-07-11 20:55:20,133 - INFO - Created CSV file: processed_places_data\service\ndila_transfers.csv
+2025-07-11 20:55:20,279 - INFO - Created CSV file: processed_places_data\accommodation\next_to_apartment_hotel.csv
+2025-07-11 20:55:20,526 - INFO - Created CSV file: processed_places_data\restaurant\ogalito_restaurant_centurion.csv
+2025-07-11 20:55:20,871 - INFO - Created CSV file: processed_places_data\restaurant\pachas_restaurant.csv
+2025-07-11 20:55:21,197 - INFO - Created CSV file: processed_places_data\restaurant\passi_deli.csv
+2025-07-11 20:55:21,445 - INFO - Created CSV file: processed_places_data\accommodation\phahama_lodge.csv
+2025-07-11 20:55:21,600 - INFO - Created CSV file: processed_places_data\restaurant\piccola_italia.csv
+2025-07-11 20:55:21,628 - INFO - Created CSV file: processed_places_data\restaurant\plaka_menlyn.csv
+2025-07-11 20:55:21,777 - INFO - Created CSV file: processed_places_data\restaurant\portugalo_restaurant.csv
+2025-07-11 20:55:21,969 - INFO - Created CSV file: processed_places_data\accommodation\pretoria_hotel.csv
+2025-07-11 20:55:22,011 - INFO - Created CSV file: processed_places_data\attraction\pretoria_national_botanical_garden.csv
+2025-07-11 20:55:22,213 - INFO - Created CSV file: processed_places_data\restaurant\prue_leith_restaurant.csv
+2025-07-11 20:55:22,229 - INFO - Created CSV file: processed_places_data\restaurant\relish_bistro_hatfield.csv
+2025-07-11 20:55:22,255 - INFO - Created CSV file: processed_places_data\accommodation\rh_hotel_pretoria.csv
+2025-07-11 20:55:22,434 - INFO - Created CSV file: processed_places_data\attraction\rietvlei_nature_reserve.csv
+2025-07-11 20:55:22,460 - INFO - Created CSV file: processed_places_data\accommodation\ritsako_guest_lodge.csv
+2025-07-11 20:55:22,502 - INFO - Created CSV file: processed_places_data\accommodation\road_lodge_centurion.csv
+2025-07-11 20:55:22,690 - INFO - Created CSV file: processed_places_data\accommodation\rosemary_hill.csv
+2025-07-11 20:55:22,724 - INFO - Created CSV file: processed_places_data\accommodation\royal_elephant_hotel_conference_centre.csv
+2025-07-11 20:55:22,741 - INFO - Created CSV file: processed_places_data\restaurant\simply_asia_brooklyn_mall.csv
+2025-07-11 20:55:22,888 - INFO - Created CSV file: processed_places_data\attraction\sanbi_national_zoological_garden.csv
+2025-07-11 20:55:22,898 - INFO - Created CSV file: processed_places_data\accommodation\siyaya_lodges.csv
+2025-07-11 20:55:22,941 - INFO - Created CSV file: processed_places_data\accommodation\southern_sun_pretoria.csv
+2025-07-11 20:55:23,052 - INFO - Created CSV file: processed_places_data\service\specialist_tours.csv
+2025-07-11 20:55:23,138 - INFO - Created CSV file: processed_places_data\restaurant\spice_the_indian_kitchen.csv
+2025-07-11 20:55:23,149 - INFO - Created CSV file: processed_places_data\restaurant\spout_coffee_company.csv
+2025-07-11 20:55:23,166 - INFO - Created CSV file: processed_places_data\restaurant\square_time_cafe.csv
+2025-07-11 20:55:23,225 - INFO - Created CSV file: processed_places_data\accommodation\sty_regency.csv
+2025-07-11 20:55:23,391 - INFO - Created CSV file: processed_places_data\service\sundowner_fly_fishing_adventures.csv
+2025-07-11 20:55:23,411 - INFO - Created CSV file: processed_places_data\spa\suntaluna_spa_where_body_and_mind_are_revitalised.csv
+2025-07-11 20:55:23,426 - INFO - Created CSV file: processed_places_data\service\supreme_travel.csv
+2025-07-11 20:55:23,433 - INFO - Created CSV file: processed_places_data\accommodation\thabiso_guest_house.csv
+2025-07-11 20:55:23,451 - INFO - Created CSV file: processed_places_data\restaurant\black_bamboo_restaurant.csv
+2025-07-11 20:55:23,468 - INFO - Created CSV file: processed_places_data\accommodation\blades_hotel.csv
+2025-07-11 20:55:23,545 - INFO - Created CSV file: processed_places_data\restaurant\blue_crane_restaurant_bar.csv
+2025-07-11 20:55:23,560 - INFO - Created CSV file: processed_places_data\accommodation\catwalk_lodge.csv
+2025-07-11 20:55:23,619 - INFO - Created CSV file: processed_places_data\accommodation\falling_feather_inn_guest_house.csv
+2025-07-11 20:55:23,769 - INFO - Created CSV file: processed_places_data\restaurant\godfather_restaurant_midstream.csv
+2025-07-11 20:55:23,797 - INFO - Created CSV file: processed_places_data\restaurant\grill_room.csv
+2025-07-11 20:55:23,831 - INFO - Created CSV file: processed_places_data\restaurant\lions_den.csv
+2025-07-11 20:55:23,907 - INFO - Created CSV file: processed_places_data\accommodation\maslow_time_square_hotel.csv
+2025-07-11 20:55:24,014 - INFO - Created CSV file: processed_places_data\accommodation\park_lodge_hotel_apartments.csv
+2025-07-11 20:55:24,125 - INFO - Created CSV file: processed_places_data\accommodation\regency_apartment_hotel_menlyn.csv
+2025-07-11 20:55:24,227 - INFO - Created CSV file: processed_places_data\attraction\ultimate_pretoria_bucket_list.csv
+2025-07-11 20:55:24,362 - INFO - Created CSV file: processed_places_data\accommodation\woodpecker_inn_guesthouse.csv
+2025-07-11 20:55:24,439 - INFO - Created CSV file: processed_places_data\accommodation\thorn_tree_bush_camp.csv
+2025-07-11 20:55:24,503 - INFO - Created CSV file: processed_places_data\restaurant\tin_roof_cafe.csv
+2025-07-11 20:55:24,569 - INFO - Created CSV file: processed_places_data\restaurant\toulas_greek_restaurant.csv
+2025-07-11 20:55:24,666 - INFO - Created CSV file: processed_places_data\service\travel2africa.csv
+2025-07-11 20:55:24,814 - INFO - Created CSV file: processed_places_data\accommodation\tshikwalo_game_lodge.csv
+2025-07-11 20:55:25,136 - INFO - Created CSV file: processed_places_data\restaurant\turn_n_tender_menlyn_maine.csv
+2025-07-11 20:55:25,303 - INFO - Created CSV file: processed_places_data\accommodation\tussen_i_bome_guest_farm.csv
+2025-07-11 20:55:25,536 - INFO - Created CSV file: processed_places_data\service\ulysses_tours_safaris.csv
+2025-07-11 20:55:25,724 - INFO - Created CSV file: processed_places_data\restaurant\villa_san_giovanni.csv
+2025-07-11 20:55:25,929 - INFO - Created CSV file: processed_places_data\accommodation\villa_san_giovanni_hotel.csv
+2025-07-11 20:55:25,967 - INFO - Created CSV file: processed_places_data\restaurant\wing_wah_sushi.csv
+2025-07-11 20:55:25,980 - INFO - Created CSV file: processed_places_data\service\zilko_tours_travel.csv
+2025-07-11 20:55:25,990 - INFO - Created CSV file: processed_places_data\attraction\tshwane_is_a_culturalcity_with_grandarchitecture_a_6b7e73b3.csv
+2025-07-11 20:55:26,006 - INFO - Created CSV file: processed_places_data\attraction\tshwane_is_a_cultural_city_with_grand_architecture_756956b0.csv
+2025-07-11 20:55:26,071 - INFO - Created CSV file: processed_places_data\attraction\tshwane_is_an_african_city_boasting_two_nature_res_60d3b4b9.csv
+2025-07-11 20:55:26,211 - INFO - Created CSV file: processed_places_data\attraction\mrs_ples_the_nickname_for_what_is_considered_one_o_6c9fdfb6.csv
+2025-07-11 20:55:26,242 - INFO - Created CSV file: processed_places_data\attraction\download_or_request_a_copy_of_a_comprehensive_tour_dde8a577.csv
+2025-07-11 20:55:26,432 - INFO - Created CSV file: processed_places_data\attraction\tourist_map_includes_the_location_of_and_detailed__35985c69.csv
+2025-07-11 20:55:26,602 - INFO - Created CSV file: processed_places_data\restaurant\tshwane_fine_dining_restaurant.csv
+2025-07-11 20:55:26,626 - INFO - Created CSV file: processed_places_data\cafe\street_side_cafe.csv
+2025-07-11 20:55:26,629 - INFO - Created 216 individual CSV files
+2025-07-11 20:55:26,634 - INFO - Created summary report: processed_places_data\processing_summary.json
+2025-07-11 20:55:26,647 - INFO - Comprehensive data processing completed!

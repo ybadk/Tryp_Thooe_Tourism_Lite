@@ -1,0 +1,13 @@
+month,avg_temperature,min_temperature,max_temperature,year,season,rainfall_mm,humidity_percent,sunshine_hours
+Jan,23.5,16.2,30.8,2024,Summer,135,65,8.5
+Feb,23.2,15.9,30.5,2024,Summer,75,68,8.0
+Mar,21.8,14.1,29.5,2024,Autumn,82,70,7.5
+Apr,18.9,10.8,27.0,2024,Autumn,51,72,7.0
+May,15.2,6.9,23.5,2024,Winter,13,75,6.5
+Jun,12.8,3.8,21.8,2024,Winter,4,78,6.0
+Jul,12.9,3.9,21.9,2024,Winter,6,80,6.5
+Aug,15.8,6.8,24.8,2024,Winter,6,75,7.0
+Sep,19.5,10.5,28.5,2024,Spring,22,70,7.5
+Oct,21.8,13.2,30.4,2024,Spring,71,68,8.0
+Nov,22.9,14.9,31.9,2024,Summer,98,66,8.5
+Dec,23.3,15.8,30.8,2024,Summer,110,65,8.5

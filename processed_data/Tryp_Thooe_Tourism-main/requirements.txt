@@ -1,0 +1,56 @@
+# Enhanced requirements with AI tool integrations
+streamlit>=1.28.0
+pandas>=1.5.0
+requests>=2.28.0
+beautifulsoup4>=4.11.0
+plotly>=5.15.0
+transformers>=4.21.0
+torch>=1.12.0
+cryptography>=3.4.8
+Pillow>=9.0.0
+numpy>=1.21.0
+scipy>=1.9.0
+scikit-learn>=1.1.0
+matplotlib>=3.5.0
+seaborn>=0.11.0
+openpyxl>=3.0.10
+xlrd>=2.0.1
+python-dotenv>=0.19.0
+email-validator>=1.2.1
+phonenumbers>=8.12.0
+
+# Enhanced AI and ML libraries
+datasets>=2.14.0
+tokenizers>=0.13.0
+accelerate>=0.20.0
+sentencepiece>=0.1.99
+protobuf>=3.20.0
+
+# Advanced data processing
+asyncio-mqtt>=0.11.0
+aiofiles>=23.1.0
+asyncpg>=0.28.0
+
+# Enhanced visualization
+altair>=5.0.0
+bokeh>=3.2.0
+folium>=0.14.0
+wordcloud>=1.9.0
+
+# Development and testing
+pytest>=7.4.0
+pytest-asyncio>=0.21.0
+black>=23.7.0
+flake8>=6.0.0
+mypy>=1.5.0
+
+# Logging and monitoring
+loguru>=0.7.0
+rich>=13.5.0
+tqdm>=4.65.0
+
+# Additional utilities
+python-dateutil>=2.8.2
+pytz>=2023.3
+uuid>=1.30
+pathlib2>=2.3.7

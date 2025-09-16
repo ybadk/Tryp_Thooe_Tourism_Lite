@@ -1,0 +1,52 @@
+/* ======================================================================================================================================================
+Post Metadata
+====================================================================================================================================================== */
+
+#top .av-post-metadata-container{
+	position: relative;
+	width: 100%;
+}
+
+.av-post-metadata-container-inner{
+	position: relative; 
+	line-height: 1.1em; 
+	margin:0; 
+	font-weight:300; 
+	text-transform:none; 
+	color:inherit; 
+	font-size: inherit;
+	display: inline-block;
+}
+
+.av-post-metadata-container-inner .av-post-metadata-content{
+	position: relative;
+	width: auto;
+	padding: 0;
+	line-break: auto;
+}
+
+.av-post-metadata-container-inner .av-post-metadata-content.av-post-metadata-separator{
+	padding: 0 5px;
+}
+
+.av-post-metadata-container-inner .av-post-metadata-before-meta,
+.av-post-metadata-container-inner .av-metadata-before{
+	padding: 0 5px 0 0;
+}
+
+.av-post-metadata-container-inner .av-post-metadata-after-meta,
+.av-post-metadata-container-inner .av-metadata-after{
+	padding: 0 0 0 5px;
+}
+
+.av-post-metadata-container.av-metadata-container-align-left{
+	text-align: left;
+}
+
+.av-post-metadata-container.av-metadata-container-align-center{
+	text-align: center;
+}
+
+.av-post-metadata-container.av-metadata-container-align-right{
+	text-align: right;
+}

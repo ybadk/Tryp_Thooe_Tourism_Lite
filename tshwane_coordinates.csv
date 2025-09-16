@@ -1,0 +1,11 @@
+name,lat,lng,type,category,address,postal_code,phone,website,description,rating,visitor_count
+Union Buildings,-25.7449,28.1878,historical,Government,"Government Avenue, Pretoria",0002,+27 12 300 5200,https://www.thepresidency.gov.za/,Iconic government building and architectural masterpiece,4.5,50000
+Freedom Park,-25.7667,28.1833,cultural,Memorial,"Koch Street, Salvokop, Pretoria",0002,+27 12 336 4000,https://www.freedompark.co.za/,Memorial site honoring South African freedom fighters,4.3,25000
+Voortrekker Monument,-25.7767,28.1756,historical,Monument,"Eeufees Road, Groenkloof, Pretoria",0181,+27 12 326 6770,https://www.vtm.org.za/,Monument commemorating the Great Trek of the 1830s,4.1,35000
+Pretoria Zoo,-25.7389,28.1889,nature,Zoo,"232 Boom Street, Pretoria",0002,+27 12 328 3265,https://www.pretoriazoo.org/,Premier wildlife conservation and education center,4.6,75000
+Church Square,-25.7479,28.1893,historical,Square,"Church Square, Pretoria CBD",0001,+27 12 358 8000,,Historic square in the heart of Pretoria,4.0,15000
+Melrose House,-25.75,28.2,historical,Museum,"275 Jacob Mare Street, Pretoria",0002,+27 12 322 2805,https://www.melrosehouse.co.za/,Victorian mansion with rich historical significance,4.2,12000
+Pretoria Botanical Gardens,-25.7333,28.2833,nature,Garden,"2 Cussonia Avenue, Brummeria, Pretoria",0184,+27 12 843 5071,https://www.sanbi.org/gardens/pretoria/,Beautiful botanical gardens with diverse plant species,4.4,30000
+National Gallery,-25.7489,28.1899,cultural,Gallery,"Cnr Francis Baard and Schoeman Streets, Pretoria",0002,+27 12 441 3000,https://www.artbank.co.za/,National art gallery showcasing South African art,4.0,18000
+Kruger House Museum,-25.748,28.189,historical,Museum,"60 Church Street West, Pretoria",0002,+27 12 326 9172,,Former home of President Paul Kruger,3.8,8000
+Austin Roberts Bird Sanctuary,-25.75,28.2,nature,Sanctuary,"Boshoff Street, Pretoria",0002,+27 12 440 8316,,Bird sanctuary in the heart of Pretoria,4.1,10000

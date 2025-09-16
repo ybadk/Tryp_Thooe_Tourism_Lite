@@ -1,0 +1,158 @@
+/* ======================================================================================================================================================
+Gallery
+====================================================================================================================================================== */
+#top div .avia-gallery{
+	overflow: hidden;
+	padding-bottom: 2px;
+	clear: both;
+}
+
+#top div .avia-gallery img{
+	float:left;
+	border-style: solid;
+	border-width: 1px;
+	padding: 7px;
+	width: 100%;
+	border-radius: 0;
+}
+
+#top div .avia-gallery .avia-gallery-big{
+	display: block;
+	overflow: hidden;
+	padding: 7px;
+	margin-bottom: -1px;
+	border-top-left-radius: 2px;
+	border-top-right-radius: 2px;
+	border-style: solid;
+	border-width: 1px;
+}
+
+#top div .avia-gallery .avia-gallery-big-inner{
+	display: block;
+	overflow: hidden;
+	height: 100%;
+}
+
+#top div .avia-gallery .avia-gallery-big img{
+	padding: 0;
+	border: none;
+}
+
+#top .avia-gallery .avia-gallery-thumb a{
+	width: 20%;
+	opacity: 1;
+}
+
+#top #wrap_all .avia-gallery .avia-gallery-thumb a{
+	display: inline-block;
+	vertical-align: top;
+}
+
+#top .avia-gallery .avia-gallery-thumb a:hover{
+	opacity: 0.5;
+}
+
+#top .avia-gallery .avia-gallery-caption{
+	display: none;
+}
+
+#top div .avia-gallery .avia-gallery-big-no-crop-thumb{
+	text-align: center;
+}
+
+#top div .avia-gallery .avia-gallery-big-no-crop-thumb img{
+	clear: both;
+	float: none;
+	text-align: center;
+}
+
+.avia-gallery .big-prev-fake{
+	display: none;
+}
+
+/*gallery animation*/
+.avia_transform .avia-gallery-animate .avia-gallery-thumb img{
+	opacity: 0.1;
+	transform: scale(0.5);
+}
+.avia_transform .avia-gallery-animate .avia-gallery-thumb  img.avia_start_animation{
+	animation: avia_appear 0.9s 1 cubic-bezier(0.175, 0.885, 0.320, 1.275); /* IE 10+ */
+	opacity: 1;
+	transform: scale(1);
+}
+
+.avia-gallery-animate .av-hover-grow{
+	overflow: hidden;
+}
+
+.avia-gallery-animate .av-hover-grow img{
+	transition: all 1.7s cubic-bezier(0.230, 1.000, 0.320, 1.000);
+}
+.avia-gallery-animate .av-hover-grow:hover img {
+	transform: scale(1.1);
+}
+
+/*.av-hide-gallery-thumbs .avia-gallery-thumb{display:none;}   removed 4.8.4.1  */
+
+
+#top #av-admin-preview .avia-gallery .avia-gallery-big-inner{
+	height:auto;
+}
+
+/* Fix for Chrome https://kriesi.at/support/topic/gallery-thumbnail-layout-issue-on-chromium-based-browsers/  */
+.avia-chrome .avia-gallery-thumb{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+/* @since 4.8.4.1 moved see https://kriesi.at/support/topic/gallery-light-box-not-working/#post-1312261 */
+.av-hide-gallery-thumbs .avia-gallery-thumb{
+	display: none;
+}
+
+/* @since 5.5 support for slideshow arrows  */
+.avia-gallery.av-slideshow-ui .avia-slideshow-arrows{
+	position: absolute;
+	z-index: 310;			/*	above lightbox image overlay 300	*/
+	width: 100%;
+	margin: 0;
+	top: 7px;
+	left: 0;
+}
+
+#top .avia-gallery.av-slideshow-ui .avia-slideshow-arrows a{
+	margin: 0;
+}
+
+.avia-gallery.av-slideshow-ui:not(.av-control-minimal) .avia-slideshow-arrows a{
+	border-radius: 50%;
+}
+
+#top .avia-gallery.av-slideshow-ui .avia-slideshow-arrows .av-gallery-prev{
+	margin-left: 7px;
+}
+
+#top .avia-gallery.av-slideshow-ui .avia-slideshow-arrows .av-gallery-next{
+	margin-right: 7px;
+}
+
+#av-admin-preview .avia-gallery.av-slideshow-ui .avia-slideshow-arrows{
+	top: 27px;
+}
+
+#av-admin-preview .avia-gallery.av-slideshow-ui .avia-slideshow-arrows .av-gallery-prev{
+	margin-left: 27px;
+}
+#av-admin-preview .avia-gallery.av-slideshow-ui .avia-slideshow-arrows .av-gallery-next{
+	margin-right: 27px;
+}
+
+
+@media only screen and (max-width: 767px)
+{
+	.responsive .avia-gallery-thumb img{
+		padding: 3px;
+	}
+}
+

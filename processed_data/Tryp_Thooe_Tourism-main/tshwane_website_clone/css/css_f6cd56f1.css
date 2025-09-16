@@ -1,0 +1,48 @@
+/* ======================================================================================================================================================
+Lottie Files
+====================================================================================================================================================== */
+
+.av-lottie-animation-container{
+	display: block;
+	position: relative;
+	max-width: 100%;
+}
+
+.av-lottie-animation-container:not(.avia-animate-admin-preview).avia_animated_lottie{
+	opacity: 0;
+}
+
+.avia_transform .av-lottie-animation-container.avia_not_animated_lottie{
+	opacity: 1;
+}
+
+.av-lottie-animation-container dotlottie-player,
+.av-lottie-animation-container.avia-align-left dotlottie-player{
+	float: left;
+	display: flex;
+	overflow: hidden;
+}
+
+.av-lottie-animation-container.avia-align-right dotlottie-player{
+	float: right;
+}
+
+.av-lottie-animation-container.avia-align-center dotlottie-player{
+	clear: both;
+	margin: 0 auto;
+	float: unset;
+}
+
+.av-lottie-animation-container.play-on-hover dotlottie-player:hover{
+	cursor: progress;
+}
+
+.av-lottie-animation-container a.av-lottie-animation:hover,
+.av-lottie-animation-container.play-on-hover a dotlottie-player:hover{
+	cursor: pointer !important;
+}
+
+.av-lottie-animation-container dotlottie-player{
+	transition: all 0.7s;
+}
+

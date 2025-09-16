@@ -1,0 +1,33 @@
+{
+  "integration_timestamp": "2025-07-04T18:54:08.484374",
+  "data_sources": {
+    "main_website": "http://www.visittshwane.co.za",
+    "crawler_used": "simple_tshwane_crawler.py",
+    "enhancement_applied": true
+  },
+  "statistics": {
+    "total_places": 7,
+    "total_restaurants": 2,
+    "total_events": 0,
+    "total_accommodations": 0,
+    "contact_emails": 1,
+    "social_links": 9
+  },
+  "data_quality": {
+    "places_with_descriptions": 7,
+    "places_with_categories": 5,
+    "sentiment_distribution": {
+      "positive": 4,
+      "neutral": 3,
+      "negative": 0
+    }
+  },
+  "files_created": [
+    "enhanced_tshwane_data.json",
+    "tshwane_places.csv",
+    "tshwane_restaurants.csv",
+    "tshwane_events.csv",
+    "tshwane_contacts.json",
+    "tshwane_social_links.json"
+  ]
+}

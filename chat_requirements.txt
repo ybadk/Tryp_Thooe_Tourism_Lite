@@ -1,0 +1,28 @@
+# Chat Interface Dependencies
+# Core LangChain packages for RAG functionality
+langchain==0.1.4
+langchain_community==0.0.16
+langchain_core==0.1.17
+
+# Hugging Face models and transformers
+transformers>=4.35.0
+torch>=2.0.0
+accelerate>=0.20.0
+sentence-transformers>=2.2.0
+
+# Web scraping and processing
+beautifulsoup4==4.12.2
+requests==2.31.0
+
+# Vector database for embeddings
+chromadb==0.3.29
+
+# Environment variables
+python-dotenv==1.0.1
+
+# Streamlit (already in main requirements)
+streamlit==1.30.0
+
+# Additional utilities
+pandas>=1.5.0
+numpy>=1.21.0 

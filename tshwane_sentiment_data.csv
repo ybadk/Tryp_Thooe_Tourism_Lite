@@ -1,0 +1,9 @@
+place_name,positive_sentiment,negative_sentiment,neutral_sentiment,total_reviews,average_rating,review_count_5star,review_count_4star,review_count_3star,review_count_2star,review_count_1star,sentiment_score,last_updated
+Union Buildings,0.85,0.05,0.1,156,4.2,89,45,15,5,2,0.8,2024-01-15
+Freedom Park,0.78,0.08,0.14,89,4.0,45,28,12,3,1,0.7,2024-01-14
+Voortrekker Monument,0.72,0.15,0.13,203,3.8,98,67,25,8,5,0.57,2024-01-13
+Pretoria Zoo,0.91,0.03,0.06,234,4.5,145,67,15,4,3,0.88,2024-01-16
+Church Square,0.68,0.12,0.2,67,4.0,32,22,8,3,2,0.56,2024-01-12
+Melrose House,0.82,0.06,0.12,45,4.2,25,15,3,1,1,0.76,2024-01-11
+Pretoria Botanical Gardens,0.88,0.04,0.08,123,4.4,78,35,7,2,1,0.84,2024-01-15
+National Gallery,0.75,0.1,0.15,78,4.0,42,25,8,2,1,0.65,2024-01-14

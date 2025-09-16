@@ -1,0 +1,670 @@
+/* ======================================================================================================================================================
+Contact Form defaults
+====================================================================================================================================================== */
+
+.avia_ajax_form {
+	clear: both;
+}
+
+.avia_ajax_form fieldset p br {
+	display: none;
+}
+
+.avia_ajax_form label {
+	display: block;
+	visibility: visible;
+	position: relative; /*dont delete. ie8 needs this separate*/
+}
+
+.avia_ajax_form label,
+.modified_width:before {
+	display: block;
+	visibility: visible;
+	position: relative;
+	margin-bottom: 7px;
+	font-weight: 600;
+}
+
+.avia_ajax_form p.av-form-empty-line {
+	height: 2em;
+}
+
+#ajaxresponse.hidden {
+	visibility: visible;
+	position: static;
+	display: none;
+}
+
+#top .avia_ajax_form .text_input,
+#top .avia_ajax_form .select,
+#top .avia_ajax_form .text_area {
+	width: 100%;
+	margin-bottom: 0;
+	display: inline;
+	min-width: 50px;
+	padding: 13px;
+	border-radius: 2px;
+}
+
+#top .avia_ajax_form .select[multiple] option {
+	padding: 5px;
+}
+
+#top .avia_ajax_form .select[multiple] option.av-placeholder {
+	font-weight: 600;
+	border-bottom: 1px solid;
+	margin-bottom: 5px;
+}
+
+#top .avia_ajax_form input[type="checkbox"] {
+	float: left;
+	margin-right: 8px;
+	top: 2px;
+	position: relative;
+}
+
+#top .avia_ajax_form input[type="submit"].avia-button-default-style {
+	background-color: #9a9a9a;
+	border-color: #737373;
+	pointer-events: none;
+	opacity: 0;
+	animation: all 0.7s;
+}
+
+#top .avia_ajax_form.av-form-input-visible input[type="submit"].avia-button-default-style {
+	opacity: 1;
+	animation: all 0.7s;
+}
+
+.value_verifier_label {
+	position: absolute;
+	bottom: 11px;
+	left: 10px;
+	font-size: 13px;
+	line-height: 21px;
+}
+
+.avia_ajax_form.av-form-labels-hidden label {
+	position: fixed;
+	top: -1000px;
+	left: -2000px;
+}
+
+.avia_ajax_form.av-form-labels-hidden label.input_checkbox_label {
+	position: initial;
+	top: initial;
+	left: initial;
+}
+
+.avia_ajax_form p {
+	position: relative;
+	clear: both;
+	float: left;
+	width: 100%;
+	margin: 11px 0;
+}
+
+.avia_ajax_form.av-form-labels-hidden p {
+	margin-top: 8px;
+	margin-bottom: 8px;
+}
+
+.avia_ajax_form p.hidden {
+	position: absolute;
+	width: 0px;
+	left: 0;
+	top: 0;
+}
+
+.avia_ajax_form .form_element_half {
+	width: 49.5%;
+	float: left;
+	margin-left: 1%;
+	clear: none;
+}
+
+.avia_ajax_form .form_element_third {
+	width: 32.6%;
+	float: left;
+	margin-left: 1%;
+	clear: none;
+}
+
+.avia_ajax_form .form_element_two_third {
+	width: 66.4%;
+	float: left;
+	margin-left: 1%;
+	clear: none;
+}
+
+.avia_ajax_form .form_element_fourth {
+	width: 24.2%;
+	float: left;
+	margin-left: 1%;
+	clear: none;
+}
+.avia_ajax_form .form_element_three_fourth {
+	width: 74.8%;
+	float: left;
+	margin-left: 1%;
+	clear: none;
+}
+
+.avia_ajax_form .first_form {
+	clear: both;
+	margin-left: 0;
+}
+
+.avia_ajax_form .button {
+	margin: 0;
+	padding: 16px 20px;
+	border-radius: 2px;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+	font-weight: normal;
+	font-size: 0.92em;
+	min-width: 142px;
+	outline: none;
+}
+
+.modified_width .button {
+	width: 100%;
+	padding: 13px 10px 14px;
+	min-width: 0;
+}
+
+.av-form-labels-visible .modified_width:before {
+	display: block;
+	content: "Submit Form";
+	visibility: hidden;
+}
+
+.av-form-labels-visible .av-last-visible-form-element.first_form.modified_width:before {
+	display: none;
+}
+
+#footer .avia_ajax_form textarea {
+	height: 90px;
+}
+
+.avia_ajax_form p input,
+.avia_ajax_form p textarea,
+.avia_ajax_form p select,
+.avia_ajax_form p .input_checkbox_label {
+	transition: all 0.3s ease-in-out;
+}
+
+#top .button.av-sending-button {
+	transition: none;
+	background-size: 32px 32px;
+	animation: avia-bg-move 1.2s linear infinite; 
+}
+
+.av-centered-form,
+#top .av-centered-form input {
+	text-align: center;
+}
+
+#top .av-centered-form ::-webkit-input-placeholder,
+#top .av-centered-form ::-moz-placeholder,
+#top .av-centered-form :-ms-input-placeholder {
+	text-align: center;
+}
+
+#top .avia_ajax_form input.captcha,
+#top .av-centered-form input.captcha {
+	text-align: left;
+	padding-left: 70px;
+}
+
+.avia_ajax_form .av-hidden-submit {
+	display: none;
+}
+
+.avia-form-success {
+	text-align: center;
+	border-style: solid;
+	border-width: 1px;
+	padding: 20px 15px;
+	line-height: 1.4em;
+	border-radius: 2px;
+	clear: both;
+}
+
+.avia-form-error {
+	text-align: center;
+	border-style: solid;
+	border-width: 1px;
+	padding: 20px 15px;
+	line-height: 1.4em;
+	border-radius: 2px;
+	clear: both;
+	font-weight: bold;
+}
+
+.av-fields-with-error {
+	padding: 10px 10px;
+	margin-right: 20px;
+	font-size: 12px;
+	background-color: #f8f8f8;
+	color: #c26666;
+	border: 2px solid #c26666 !important;
+	border-radius: 5px;
+}
+
+#top .av-custom-form-color ::placeholder {
+	color: inherit;
+	opacity: 0.8;
+}
+
+#top .av-centered-form input[type="checkbox"] {
+	float: none;
+}
+
+#top .av-centered-form .input_checkbox_label {
+	display: inline-block;
+}
+
+.avia_ajax_form .required {
+	text-decoration: none;
+}
+
+/*contact form datepicker*/
+#top .avia-datepicker-div {
+	background: #fff;
+	border: 1px solid #e1e1e1;
+	font-size: 15px;
+}
+
+#top .avia-datepicker-div a {
+	color: #333;
+	background-color: #f8f8f8;
+	background-image: none;
+}
+
+#top .avia-datepicker-div a.ui-state-active {
+	color: #8bba34;
+}
+
+#top .avia-datepicker-div a.ui-state-highlight {
+	color: #8bba34;
+}
+
+#top .avia-datepicker-div a.ui-state-hover {
+	color: #fff;
+	background-color: #bbb;
+}
+
+#top .avia-datepicker-div .ui-datepicker-buttonpane button {
+	background-color: #8bba34;
+	color: #fff;
+	border-color: #8bba34;
+}
+
+#top .avia-datepicker-div.ui-datepicker {
+	width: 300px;
+	padding: 20px;
+	display: none;
+	box-shadow: 0px 0px 44px 0px rgba(0, 0, 0, 0.2);
+	border-radius: 0;
+}
+
+#top .avia-datepicker-div.ui-datepicker .ui-datepicker-header {
+	position: relative;
+	padding: 0.2em 0;
+	background: transparent;
+	border: none;
+}
+
+#top .avia-datepicker-div.ui-datepicker .ui-datepicker-prev,
+#top .avia-datepicker-div.ui-datepicker .ui-datepicker-next {
+	position: absolute;
+	top: 4px;
+	width: 50px;
+	text-align: center;
+	line-height: 34px;
+	height: 34px;
+	cursor: pointer;
+	border-radius: 0;
+	text-decoration: none;
+	font-size: 12px;
+}
+
+#top .avia-datepicker-div.ui-datepicker .ui-datepicker-prev {
+	left: 2px;
+}
+
+#top .avia-datepicker-div.ui-datepicker .ui-datepicker-next {
+	right: 2px;
+}
+
+#top .avia-datepicker-div.ui-datepicker .ui-datepicker-title {
+	margin: 0px 53px;
+	line-height: 32px;
+	text-align: center;
+	font-weight: bold;
+	letter-spacing: 1.5px;
+	text-transform: uppercase;
+}
+
+#top .ui-datepicker-title select {
+	width: 72px;
+	float: left;
+	font-size: 12px;
+	margin-left: 3px;
+	margin-bottom: 0;
+	border-radius: 0px;
+}
+
+#top .avia-datepicker-div.ui-datepicker .ui-datepicker-title select {
+	font-size: 14px;
+	margin: 1px;
+}
+
+#top .avia-datepicker-div.ui-datepicker select.ui-datepicker-month-year {
+	width: 100%;
+}
+
+#top .avia-datepicker-div.ui-datepicker select.ui-datepicker-month,
+#top .avia-datepicker-div.ui-datepicker select.ui-datepicker-year {
+	width: 48%;
+}
+
+#top .avia-datepicker-div.ui-datepicker select.ui-datepicker-year {
+	float: right;
+}
+
+#top .avia-datepicker-div.ui-datepicker table {
+	width: 100%;
+	font-size: 0.9em;
+	border-collapse: collapse;
+	margin: 0 0 0.4em;
+}
+
+#top .avia-datepicker-div.ui-datepicker th {
+	padding: 0.7em 0.3em;
+	text-align: center;
+	font-weight: bold;
+	border: 0;
+}
+
+#top .avia-datepicker-div.ui-datepicker td {
+	border: 0;
+	padding: 1px;
+}
+
+#top .avia-datepicker-div.ui-datepicker td span,
+#top .avia-datepicker-div.ui-datepicker td a {
+	border: none;
+	display: block;
+	padding: 0.2em;
+	text-align: center;
+	text-decoration: none;
+}
+
+#top .avia-datepicker-div.ui-datepicker .ui-datepicker-buttonpane {
+	background-image: none;
+	margin: 0.7em 0 0 0;
+	padding: 0 0.2em;
+	border-left: 0;
+	border-right: 0;
+	border-bottom: 0;
+}
+
+#top .avia-datepicker-div.ui-datepicker .ui-datepicker-buttonpane button {
+	float: right;
+	margin: 0.5em 0 0.4em;
+	cursor: pointer;
+	padding: 10px 20px;
+	width: auto;
+	overflow: visible;
+	border: none;
+	background-image: none;
+	border-radius: 3px;
+	font-size: 13px;
+}
+
+#top .avia-datepicker-div.ui-datepicker .ui-datepicker-buttonpane button.ui-datepicker-current {
+	float: left;
+}
+
+#top .avia-datepicker-div .ui-widget-content {
+	background: transparent;
+	border: none;
+}
+
+#top .avia-datepicker-div.ui-datepicker .ui-datepicker-prev span,
+#top .avia-datepicker-div.ui-datepicker .ui-datepicker-next span {
+	text-indent: 0;
+	overflow: visible;
+	background-image: none;
+	display: inline;
+	position: static;
+	margin: 0;
+	font-weight: normal;
+}
+
+/* RTL support */
+.avia-datepicker-div.ui-datepicker-rtl {
+	direction: rtl;
+}
+
+.avia-datepicker-div.ui-datepicker-rtl .ui-datepicker-prev {
+	right: 2px;
+	left: auto;
+}
+
+.avia-datepicker-div.ui-datepicker-rtl .ui-datepicker-next {
+	left: 2px;
+	right: auto;
+}
+
+.avia-datepicker-div.ui-datepicker-rtl .ui-datepicker-prev:hover {
+	right: 1px;
+	left: auto;
+}
+
+.avia-datepicker-div.ui-datepicker-rtl .ui-datepicker-next:hover {
+	left: 1px;
+	right: auto;
+}
+
+.avia-datepicker-div.ui-datepicker-rtl .ui-datepicker-buttonpane {
+	clear: right;
+}
+
+.avia-datepicker-div.ui-datepicker-rtl .ui-datepicker-buttonpane button {
+	float: left;
+}
+
+.avia-datepicker-div.ui-datepicker-rtl .ui-datepicker-buttonpane button.ui-datepicker-current {
+	float: right;
+}
+
+.avia-datepicker-div.ui-datepicker-rtl .ui-datepicker-group {
+	float: right;
+}
+
+.avia-datepicker-div.ui-datepicker-rtl .ui-datepicker-group-last .ui-datepicker-header {
+	border-right-width: 0;
+	border-left-width: 1px;
+}
+
+.avia-datepicker-div.ui-datepicker-rtl .ui-datepicker-group-middle .ui-datepicker-header {
+	border-right-width: 0;
+	border-left-width: 1px;
+}
+
+/*custom form colors*/
+#top .av-custom-form-color * {
+	color: inherit;
+}
+
+#top .av-custom-form-color a {
+	text-decoration: underline;
+}
+
+#top .av-custom-form-color ::-webkit-input-placeholder,
+#top .av-custom-form-color ::-moz-placeholder,
+#top .av-custom-form-color :-ms-input-placeholder {
+	color: inherit;
+	opacity: 0.8;
+}
+
+#top .av-custom-form-color .button {
+	border: 2px solid;
+}
+
+#top .av-custom-form-color .button:hover {
+}
+
+#top .av-light-form,
+#top .av-light-form + .ajaxresponse * {
+	color: #fff;
+}
+
+#top .av-light-form + .ajaxresponse .avia-form-success {
+	background: transparent;
+}
+
+#top div .av-light-form .input-text,
+#top div .av-light-form input[type="text"],
+#top div .av-light-form input[type="input"],
+#top div .av-light-form input[type="password"],
+#top div .av-light-form input[type="email"],
+#top div .av-light-form input[type="number"],
+#top div .av-light-form input[type="url"],
+#top div .av-light-form input[type="tel"],
+#top div .av-light-form input[type="search"],
+#top div .av-light-form textarea,
+#top div .av-light-form select,
+div div .av-light-form .button {
+	color: #fff;
+	border-color: #fff;
+	border-width: 2px !important;
+	background-color: transparent;
+}
+
+#top .av-dark-form,
+#top .av-dark-form + .ajaxresponse * {
+	color: #222;
+}
+
+#top .av-dark-form + .ajaxresponse .avia-form-success {
+	background: transparent;
+}
+
+#top div .av-dark-form .input-text,
+#top div .av-dark-form input[type="text"],
+#top div .av-dark-form input[type="input"],
+#top div .av-dark-form input[type="password"],
+#top div .av-dark-form input[type="email"],
+#top div .av-dark-form input[type="number"],
+#top div .av-dark-form input[type="url"],
+#top div .av-dark-form input[type="tel"],
+#top div .av-dark-form input[type="search"],
+#top div .av-dark-form textarea,
+#top div .av-dark-form select,
+div div .av-dark-form .button {
+	color: #222;
+	border-color: #222;
+	border-width: 2px !important;
+	background-color: transparent;
+}
+
+/* recaptcha */
+#top .avia_ajax_form .av-recaptcha-area {
+	display: block;
+}
+
+#top .avia_ajax_form .av-recaptcha-submit.avia_button_inactive,
+#top .avia_ajax_form .av-recaptcha-submit-real.avia_button_inactive {
+	opacity: 0.3;
+}
+#top .avia_ajax_form .av-recaptcha-submit.avia_button_inactive:hover,
+#top .avia_ajax_form .av-recaptcha-submit-real.avia_button_inactive:hover {
+	cursor: default;
+}
+
+#top .avia_ajax_form .av-recaptcha-error {
+	display: inline-block;
+	width: 100%;
+}
+
+#top .avia_ajax_form .av-recaptcha-error.av-recaptcha-severe-error {
+	background-color: red;
+	color: white;
+	border-radius: 8px;
+	padding: 10px;
+	text-align: center;
+}
+
+#top .avia_ajax_form .av-recaptcha-error.av-recaptcha-severe-error .av-recaptcha-error-main {
+	color: white;
+	font-weight: 900 !important;
+}
+
+#top .avia_ajax_form .av-recaptcha-error.av-err-content {
+	margin: 5px 0;
+	color: #fe6d4e;
+	background-color: #fff;
+	font-weight: 700;
+	display: block;
+	clear: both;
+}
+
+#top .avia_ajax_form.avia_recaptcha_v3 .av_form_privacy_check {
+	margin-top: -15px;
+}
+
+body .grecaptcha-badge {
+	z-index: 9000;
+}
+
+body.av-google-badge-hide .grecaptcha-badge {
+	visibility: hidden;
+}
+
+body.av-google-badge-visible #scroll-top-link {
+	bottom: 80px;
+}
+
+#top .avia_ajax_form .av-google-badge-message {
+	padding: 12px 0 0 0;
+	min-width: 300px;
+	max-width: 100%;
+	font-size: 0.8em;
+	line-height: 1.3em;
+}
+
+#top .avia_ajax_form.av-centered-form .av-google-badge-message {
+	text-align: center;
+	width: 100%;
+	max-width: 100%;
+	float: left;
+}
+
+#top .avia_ajax_form .avia-disabled-form {
+	padding: 15px 15px;
+	font-size: 1.5em;
+	font-weight: 900;
+	display: none;
+}
+
+#top .avia_ajax_form.av-form-user-disabled .avia-disabled-form {
+	display: block;
+}
+
+#top .avia_ajax_form.av-centered-form .avia-disabled-form {
+	text-align: center;
+}
+
+@media only screen and (max-width: 479px) {
+	.responsive .avia_ajax_form .form_element {
+		width: 100%;
+		clear: both;
+		margin-right: 0;
+		margin-left: 0;
+		float: none;
+	}
+}

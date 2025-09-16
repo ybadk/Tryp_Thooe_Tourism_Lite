@@ -1,0 +1,56 @@
+You are an expert python and streamlit developer.
+crawl and clone this website : http://www.visittshwane.co.za
+extract all the socials and contact links and display the on the sidebar of the app
+Save the cloned website data into this current project folder
+anaylyze all the files and folders in the project folder
+
+I want to use hugging multi models to process the crawled and cloned website and use it as an mcp so clients can interact with differents components of the website using open-source models from huggingface.
+
+This app must enable the user to interact with the http://www.visittshwane.co.za website and construct whatsapp push notifications when queries have been successful.
+
+The visittshwane.co.za  website has a maps page where the user can interact with the map.
+add a html frame from  that website so the client using this app can interact with componets of that webpage.
+
+catalogue all the places mentioned in the website and create an interactive gallery with short descriptions of the places mentioned in the website.
+
+add animation componets to the gallery that simulates a scrolling  motion
+add input buttons so the user can interact with the gallery
+
+if the user chooses a place form the gallery intigate a form instance,that the user can fill in to book a place to stay .
+
+the form must require the users whatsapp number, email address
+add a multi choice option to the form with all the places mentioned in the visittshwane.co.za website so the user can choose where they want to go or stay
+add a multi choice option for all the restaurants mentioned in the website and an option to make reservations if the the user chooses to.
+store these form components in a dataframe.
+send data to secretary of Tshwane Tourism Association via email : secretary@tshwanetourism.com
+
+add ocr modules to the app and scan the contents of the website  http://www.visittshwane.co.za 
+create a container to the left side of the screen that displays a summary of the place selected on the  form and displays its data as a notification message on the screen. 
+
+
+
+
+
+This app was created by Profit Projects Online Virtual Assistance
+Enterprise Number : K2025200646
+Contact : Thapelo Kgothatso Thooe 
+Email : kgothatsothooe@gmail.com
+
+The app has to use huggingface opensource models to avoid api expiration use.
+
+I want to deploy this app within the hour , make sure it has no errors so i can run it smoothly.
+
+encrypt data from form user input for secure transfer via email so the details cant be sniffed via network attacks.
+Make sure the dataframe generated from the user input from the form is in a formal format so the secretary has no problem processing the data.
+try to save the input from the form as a text file and add the necessary details to inform the secretary that a client would like to use their tourism service
+
+analyze all the projects in my source directory and try to implement these ideas into this application without the need to use API keys.
+
+The application must be able to interact with the componets from the https://www.visittshwane.co.za website interactively.
+
+Try to recreate the website and adding its content to this application using the cloned website in this source project.
+
+create a color themed application related to nature and dining in the outdoors.
+
+create a widget that creates a list with a suggestion of places to visit on the website based on the weather.
+create a dataframe that displays these places that are suggested based on the weather.
