@@ -9,7 +9,7 @@ A comprehensive offline Retrieval-Augmented Generation (RAG) system that combine
 - **🧹 Advanced Text Processing**: Smart chunking, cleaning, and preprocessing
 - **🔄 Hybrid Retrieval**: Combine results from multiple embedding models for better accuracy
 - **📊 Corpus Analysis**: Built-in document analysis and statistics
-- **🎨 Dark Theme UI**: Beautiful dark interface with white fonts
+- **🎨 Light Nature-Themed UI**: Calm Streamlit interface using native cards, tabs, and columns
 - **🌐 Web Interface**: Streamlit-based web application for easy interaction
 - **📈 Performance Optimized**: Efficient token management and context truncation
 
@@ -82,7 +82,7 @@ print(result['answer'])
 improved-offline-rag/
 ├── improved_offline_rag.py      # Main RAG system implementation
 ├── rag_web_interface.py         # Streamlit web interface
-├── dark_theme.css              # Dark theme stylesheet
+├── .streamlit/config.toml      # Light theme configuration
 ├── requirements.txt            # Python dependencies
 ├── README.md                  # This file
 └── your_documents_folder/     # Your text documents
@@ -131,14 +131,14 @@ Provides insights about your document collection:
 - Longest words
 - Average document length
 
-## 🎨 Dark Theme
+## 🎨 Light Nature Theme
 
-The web interface features a beautiful dark theme with:
-- Dark backgrounds (`#121212`, `#1e1e1e`, `#2d2d2d`)
-- White text (`#ffffff`, `#e0e0e0`)
-- Purple and teal accent colors
-- Smooth transitions and hover effects
-- Responsive design for mobile devices
+The Streamlit interface now uses a lighter, nature-inspired layout with:
+- Soft green primary accents
+- Light backgrounds for better readability
+- Native Streamlit cards, metrics, tabs, and columns
+- Reduced scrolling through compact grouped sections
+- Card-based data previews instead of cluttered side tables
 
 ## 📊 Performance Tips
 

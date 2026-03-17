@@ -11,9 +11,11 @@ import numpy as np
 from datetime import datetime, timedelta
 import json
 from pathlib import Path
-import requests
 from typing import Dict, List, Any, Optional
 import warnings
+import urllib.parse
+from services.weather_service import WeatherService
+from ui.streamlit_cards import render_dataframe_cards, render_metric_strip, render_record_cards, render_section_header
 warnings.filterwarnings('ignore')
 
 
@@ -28,7 +30,23 @@ class EnhancedDashboard:
             'sentiment': 'tshwane_sentiment_data.csv',
             'descriptions': 'tshwane_descriptions.csv'
         }
+        self.weather_service = WeatherService()
         self.load_data()
+
+    def render_live_weather_overview(self):
+        """Render a live weather snapshot from Open-Meteo when available."""
+        snapshot = self.weather_service.fetch_current_weather()
+        if not snapshot:
+            st.caption("Live weather data is currently unavailable, so the dashboard is showing stored historical analytics.")
+            return
+
+        st.markdown("#### 🌤️ Live Tshwane Weather")
+        col1, col2, col3, col4 = st.columns(4)
+        col1.metric("Condition", snapshot.condition.capitalize())
+        col2.metric("Temperature", f"{snapshot.temperature_c:.1f}°C")
+        col3.metric("Feels like", f"{snapshot.apparent_temperature_c:.1f}°C")
+        col4.metric("Wind", f"{snapshot.wind_speed_kmh:.1f} km/h")
+        st.caption(f"Source: Open-Meteo • Observed at {snapshot.observed_at}")
 
     def load_data(self):
         """Load all CSV data sources"""
@@ -69,19 +87,19 @@ class EnhancedDashboard:
         elif data_type == 'coordinates':
             # Places with coordinates
             places_data = [
-                {'name': 'Union Buildings', 'lat': -25.7449,
+                {'name': 'Union Buildings', 'lat':-25.7449,
                     'lng': 28.1878, 'type': 'historical'},
-                {'name': 'Freedom Park', 'lat': -25.7667,
+                {'name': 'Freedom Park', 'lat':-25.7667,
                     'lng': 28.1833, 'type': 'cultural'},
-                {'name': 'Voortrekker Monument', 'lat': -25.7767,
+                {'name': 'Voortrekker Monument', 'lat':-25.7767,
                     'lng': 28.1756, 'type': 'historical'},
-                {'name': 'Pretoria Zoo', 'lat': -25.7389,
+                {'name': 'Pretoria Zoo', 'lat':-25.7389,
                     'lng': 28.1889, 'type': 'nature'},
-                {'name': 'Church Square', 'lat': -25.7479,
+                {'name': 'Church Square', 'lat':-25.7479,
                     'lng': 28.1893, 'type': 'historical'},
-                {'name': 'Melrose House', 'lat': -25.7500,
+                {'name': 'Melrose House', 'lat':-25.7500,
                     'lng': 28.2000, 'type': 'historical'},
-                {'name': 'Pretoria Botanical Gardens', 'lat': -
+                {'name': 'Pretoria Botanical Gardens', 'lat':-
                     25.7333, 'lng': 28.2833, 'type': 'nature'}
             ]
             return pd.DataFrame(places_data)
@@ -130,63 +148,46 @@ class EnhancedDashboard:
             return 'red'
 
     def render_folium_map(self):
-        st.markdown("### 🗺️ Realistic Tshwane Tourism Map (Interactive)")
+        render_section_header(
+            "Tshwane Tourism Map",
+            "A simplified native map plus card-based place summaries.",
+            "🗺️",
+        )
         coords_df = self.data.get('coordinates', pd.DataFrame())
         desc_df = self.data.get('descriptions', pd.DataFrame())
         sent_df = self.data.get('sentiment', pd.DataFrame())
 
-        # Merge all info for popups
         merged = coords_df.copy()
         merged = pd.merge(merged, desc_df, left_on='name',
                           right_on='place_name', how='left')
         merged = pd.merge(merged, sent_df, left_on='name',
                           right_on='place_name', how='left', suffixes=('', '_sent'))
 
-        # Center map on Tshwane
-        map_center = [-25.7449, 28.1878]
-        m = folium.Map(location=map_center, zoom_start=12,
-                       tiles='CartoDB positron')
-        marker_cluster = MarkerCluster().add_to(m)
+        if {'lat', 'lng'}.issubset(merged.columns):
+            map_df = merged[['lat', 'lng']].dropna().rename(columns={'lng': 'lon'})
+            if not map_df.empty:
+                st.map(map_df, use_container_width=True)
 
-        for _, row in merged.iterrows():
-            lat, lng = row['lat'], row['lng']
-            name = row['name']
-            desc = row.get('short_description', row.get(
-                'description', 'No description'))
-            sentiment = row.get('sentiment_score',
-                                row.get('average_rating', 0.7))
-            sentiment_color = self.get_sentiment_color(sentiment)
-            rating = row.get('average_rating', 'N/A')
-            total_reviews = row.get('total_reviews', 'N/A')
-            popup_html = f"""
-            <div style='width: 250px;'>
-                <h4 style='margin-bottom: 5px;'>{name}</h4>
-                <p style='font-size: 13px; margin-bottom: 5px;'>{desc}</p>
-                <p style='font-size: 12px; margin-bottom: 2px;'><b>Sentiment:</b> <span style='color:{sentiment_color}; font-weight:bold;'>{sentiment:.2f}</span></p>
-                <p style='font-size: 12px; margin-bottom: 2px;'><b>Rating:</b> {rating} ⭐</p>
-                <p style='font-size: 12px;'><b>Reviews:</b> {total_reviews}</p>
-            </div>
-            """
-            folium.Marker(
-                location=[lat, lng],
-                popup=folium.Popup(popup_html, max_width=300),
-                icon=folium.Icon(color=sentiment_color, icon='info-sign')
-            ).add_to(marker_cluster)
+        cards = []
+        for _, row in merged.head(8).iterrows():
+            cards.append({
+                'name': row.get('name', 'Unknown place'),
+                'description': row.get('short_description') or row.get('description') or 'No description available.',
+                'type': row.get('type', 'place'),
+                'average_rating': row.get('average_rating', 'N/A'),
+                'total_reviews': row.get('total_reviews', 'N/A'),
+                'link': f"https://www.google.com/maps/search/{urllib.parse.quote_plus(str(row.get('name', 'Tshwane')))}",
+            })
 
-        # Add legend
-        legend_html = '''
-         <div style="position: fixed; 
-         bottom: 50px; left: 50px; width: 180px; height: 110px; 
-         background-color: white; border:2px solid #bbb; z-index:9999; font-size:14px; border-radius: 8px; padding: 10px;">
-         <b>Sentiment Legend</b><br>
-         <i class="fa fa-map-marker fa-2x" style="color:green"></i> Very Positive (≥0.8)<br>
-         <i class="fa fa-map-marker fa-2x" style="color:orange"></i> Mixed/Neutral (0.6-0.8)<br>
-         <i class="fa fa-map-marker fa-2x" style="color:red"></i> Negative (&lt;0.6)<br>
-         </div>
-         '''
-        m.get_root().html.add_child(folium.Element(legend_html))
-
-        st_folium(m, width="100%", height=600)
+        render_record_cards(
+            cards,
+            title_key='name',
+            description_keys=['description'],
+            meta_keys=['type', 'average_rating', 'total_reviews'],
+            link_key='link',
+            columns_count=2,
+            key_prefix='dashboard_map_cards',
+        )
 
     def render_google_maps_iframe(self):
         # Deprecated: replaced by folium map
@@ -195,6 +196,7 @@ class EnhancedDashboard:
     def render_temperature_dashboard(self):
         """Render temperature analytics dashboard"""
         st.markdown("### 🌡️ Annual Temperature Analytics")
+        self.render_live_weather_overview()
 
         if 'temperature' in self.data:
             temp_df = self.data['temperature']
@@ -297,18 +299,17 @@ class EnhancedDashboard:
 
     def render_table_views(self):
         """Render interactive table views"""
-        st.markdown("### 📊 Data Table Views")
+        render_section_header(
+            "Data views",
+            "Use tabs and cards instead of wide tables to reduce clutter.",
+            "📊",
+        )
 
-        # Tab for different data views
         tab1, tab2, tab3, tab4 = st.tabs(
             ["Places", "Temperature", "Sentiment", "Descriptions"])
 
         with tab1:
             if 'places' in self.data:
-                st.dataframe(self.data['places'], use_container_width=True)
-
-                # Filter options
-                st.markdown("#### 🔍 Filter Places")
                 col1, col2 = st.columns(2)
                 with col1:
                     selected_type = st.selectbox(
@@ -325,54 +326,69 @@ class EnhancedDashboard:
                     filtered_df = filtered_df[filtered_df['name'].str.contains(
                         search_term, case=False)]
 
-                st.dataframe(filtered_df, use_container_width=True)
+                render_dataframe_cards(
+                    "Places",
+                    filtered_df,
+                    key_prefix='dashboard_places_cards',
+                    title_key='name',
+                    description_keys=['type'],
+                    meta_keys=[col for col in ['city', 'province', 'rating'] if col in filtered_df.columns],
+                    columns_count=2,
+                    preview_limit=8,
+                )
 
         with tab2:
             if 'temperature' in self.data:
-                st.dataframe(self.data['temperature'],
-                             use_container_width=True)
-
-                # Temperature statistics
-                st.markdown("#### 📈 Temperature Statistics")
-                col1, col2, col3 = st.columns(3)
-                with col1:
-                    st.metric(
-                        "Max Temp", f"{self.data['temperature']['max_temperature'].max():.1f}°C")
-                with col2:
-                    st.metric(
-                        "Min Temp", f"{self.data['temperature']['min_temperature'].min():.1f}°C")
-                with col3:
-                    st.metric(
-                        "Avg Temp", f"{self.data['temperature']['avg_temperature'].mean():.1f}°C")
+                temp_df = self.data['temperature']
+                render_metric_strip([
+                    ("Max Temp", f"{temp_df['max_temperature'].max():.1f}°C", None),
+                    ("Min Temp", f"{temp_df['min_temperature'].min():.1f}°C", None),
+                    ("Avg Temp", f"{temp_df['avg_temperature'].mean():.1f}°C", None),
+                ])
+                render_dataframe_cards(
+                    "Temperature",
+                    temp_df,
+                    key_prefix='dashboard_temperature_cards',
+                    title_key='month',
+                    description_keys=['avg_temperature'],
+                    meta_keys=['min_temperature', 'max_temperature', 'year'],
+                    columns_count=3,
+                    preview_limit=12,
+                )
 
         with tab3:
             if 'sentiment' in self.data:
-                st.dataframe(self.data['sentiment'], use_container_width=True)
-
-                # Sentiment insights
-                st.markdown("#### 💡 Sentiment Insights")
-                best_rated = self.data['sentiment'].loc[self.data['sentiment']
-                                                        ['average_rating'].idxmax()]
-                most_reviewed = self.data['sentiment'].loc[self.data['sentiment']
-                                                           ['total_reviews'].idxmax()]
-
-                col1, col2 = st.columns(2)
-                with col1:
-                    st.info(
-                        f"🏆 Best Rated: {best_rated['place_name']} ({best_rated['average_rating']}/5.0)")
-                with col2:
-                    st.info(
-                        f"📝 Most Reviewed: {most_reviewed['place_name']} ({most_reviewed['total_reviews']} reviews)")
+                sentiment_df = self.data['sentiment']
+                best_rated = sentiment_df.loc[sentiment_df['average_rating'].idxmax()]
+                most_reviewed = sentiment_df.loc[sentiment_df['total_reviews'].idxmax()]
+                render_metric_strip([
+                    ("Best Rated", best_rated['place_name'], f"{best_rated['average_rating']}/5.0"),
+                    ("Most Reviewed", most_reviewed['place_name'], int(most_reviewed['total_reviews'])),
+                ])
+                render_dataframe_cards(
+                    "Sentiment",
+                    sentiment_df,
+                    key_prefix='dashboard_sentiment_cards',
+                    title_key='place_name',
+                    description_keys=['positive_sentiment'],
+                    meta_keys=['negative_sentiment', 'neutral_sentiment', 'average_rating'],
+                    columns_count=2,
+                    preview_limit=8,
+                )
 
         with tab4:
             if 'descriptions' in self.data:
-                st.dataframe(self.data['descriptions'],
-                             use_container_width=True)
-
-                # Description analytics
-                st.markdown("#### 📝 Description Analytics")
-                category_counts = self.data['descriptions']['category'].value_counts(
+                render_dataframe_cards(
+                    "Descriptions",
+                    self.data['descriptions'],
+                    key_prefix='dashboard_description_cards',
+                    title_key='place_name',
+                    description_keys=['short_description', 'long_description'],
+                    meta_keys=['category', 'accessibility', 'best_time'],
+                    columns_count=2,
+                    preview_limit=8,
                 )
+                category_counts = self.data['descriptions']['category'].value_counts()
                 fig = px.pie(values=category_counts.values, names=category_counts.index,
                              title="Places by Category")
                 st.plotly_chart(fig, use_container_width=True)

@@ -29,6 +29,19 @@ from pathlib import Path
 import urllib.parse
 import warnings
 
+from services.tourism_ai_service import (
+    DEFAULT_GENERATION_CONFIG,
+    rerank_records,
+    split_documents,
+    summarize_ranked_records,
+)
+from services.weather_service import WeatherService
+from ui.streamlit_cards import (
+    render_metric_strip,
+    render_record_cards,
+    render_section_header,
+)
+
 # Suppress warnings for cleaner output
 warnings.filterwarnings('ignore')
 
@@ -79,6 +92,7 @@ class TourismChatInterface:
         self.vector_store = None
         self.current_mode = ChatMode.TOURISM_ASSISTANT
         self.tourism_data = {}
+        self.weather_service = WeatherService()
         self.website_urls = [
             "http://www.visittshwane.co.za",
             "https://www.tshwanetourism.com",
@@ -132,8 +146,7 @@ class TourismChatInterface:
             document = loader.load()
 
             # Split the document into chunks
-            text_splitter = RecursiveCharacterTextSplitter()
-            document_chunks = text_splitter.split_documents(document)
+            document_chunks = split_documents(document)
 
             # Create embeddings using Hugging Face model
             # Using a smaller, efficient embedding model
@@ -156,38 +169,20 @@ class TourismChatInterface:
             return None
 
         try:
-            # Load Hugging Face model for text generation
-            model_name = "sentence-transformers/all-MiniLM-L6-v2"
-
-            # Check if model is already loaded in session state
+            self.load_huggingface_model()
             if 'hf_pipeline' not in st.session_state:
-                with st.spinner("🔄 Loading Hugging Face model..."):
-                    tokenizer = AutoTokenizer.from_pretrained(model_name)
-                    model = AutoModelForCausalLM.from_pretrained(
-                        model_name,
-                        torch_dtype=torch.float16,
-                        device_map="auto" if torch.cuda.is_available() else "cpu"
-                    )
-
-                    # Create pipeline
-                    hf_pipeline = pipeline(
-                        "text-generation",
-                        model=model,
-                        tokenizer=tokenizer,
-                        max_new_tokens=512,
-                        temperature=0.7,
-                        do_sample=True,
-                        pad_token_id=tokenizer.eos_token_id
-                    )
-                    st.session_state.hf_pipeline = hf_pipeline
+                return None
 
             # Create LangChain LLM wrapper
             llm = HuggingFacePipeline(
                 pipeline=st.session_state.hf_pipeline,
-                model_kwargs={"temperature": 0.7, "max_length": 512}
+                model_kwargs={
+                    "temperature": DEFAULT_GENERATION_CONFIG.temperature,
+                    "max_new_tokens": DEFAULT_GENERATION_CONFIG.max_new_tokens,
+                }
             )
 
-            retriever = vector_store.as_retriever()
+            retriever = vector_store.as_retriever(search_kwargs={"k": 4})
 
             prompt = ChatPromptTemplate.from_messages([
                 MessagesPlaceholder(variable_name="chat_history"),
@@ -262,6 +257,10 @@ class TourismChatInterface:
                         })
                         return response['answer']
 
+            local_response = self.get_local_data_response(user_input)
+            if local_response:
+                return local_response
+
             # Fallback to rule-based responses
             return self.get_fallback_response(user_input)
 
@@ -269,9 +268,36 @@ class TourismChatInterface:
             st.error(f"Error getting AI response: {e}")
             return self.get_fallback_response(user_input)
 
+    def get_local_data_response(self, user_input: str) -> Optional[str]:
+        """Use local tourism data and live weather as a lightweight fallback retrieval layer."""
+        all_records: List[Dict[str, Any]] = []
+        for value in self.tourism_data.values():
+            if isinstance(value, list):
+                all_records.extend(item for item in value if isinstance(item, dict))
+
+        ranked_records = rerank_records(user_input, all_records, limit=3)
+        lower_query = user_input.lower()
+        weather_keywords = ("weather", "temperature", "rain", "sunny", "forecast", "wind")
+        include_weather = any(keyword in lower_query for keyword in weather_keywords)
+
+        sections: List[str] = []
+        if include_weather:
+            live_weather = self.weather_service.fetch_current_weather()
+            if live_weather:
+                sections.append("🌤️ " + self.weather_service.format_summary(live_weather))
+
+        if ranked_records:
+            sections.append(summarize_ranked_records(user_input, ranked_records))
+
+        return "\n\n".join(section for section in sections if section) or None
+
     def get_fallback_response(self, user_input: str) -> str:
         """Fallback response system when AI is not available"""
         user_input_lower = user_input.lower()
+
+        local_response = self.get_local_data_response(user_input)
+        if local_response:
+            return local_response
 
         # Tourism-specific responses
         tourism_responses = {
@@ -305,7 +331,7 @@ class TourismChatInterface:
         import random
         return random.choice(general_responses)
 
-    def add_message(self, content: str, sender: str, message_type: str = "text", metadata: Optional[Dict[str, Any]] = None):
+    def add_message(self, content: str, sender: str, message_type: str="text", metadata: Optional[Dict[str, Any]]=None):
         """Add a message to the chat history"""
         message = ChatMessage(
             id=str(uuid.uuid4())[:8],
@@ -321,133 +347,54 @@ class TourismChatInterface:
 
     def display_chat_interface(self):
         """Display the main chat interface"""
-        st.markdown("""
-        <style>
-        .chat-container {
-            background: linear-gradient(135deg, #181c24 0%, #232a36 100%);
-            border-radius: 18px;
-            box-shadow: 0 4px 24px #000a;
-            padding: 24px;
-            margin-bottom: 20px;
-            border: 1.5px solid #00d4aa44;
-        }
-        .chat-message {
-            background: #232a36;
-            border-radius: 12px;
-            padding: 16px;
-            margin: 8px 0;
-            border-left: 4px solid #00d4aa;
-            opacity: 1;
-            transition: opacity 0.7s ease;
-        }
-        .chat-message.fade-out {
-            opacity: 0.2;
-        }
-        .chat-message.user {
-            border-left-color: #4CAF50;
-            background: #1a1d23;
-        }
-        .chat-message.assistant {
-            border-left-color: #00d4aa;
-            background: #232a36;
-        }
-        .chat-input {
-            background: #232a36;
-            border: 1px solid #00d4aa44;
-            border-radius: 12px;
-            color: #fff;
-        }
-        .chat-mode-selector {
-            background: #232a36;
-            border-radius: 8px;
-            padding: 8px;
-            margin-bottom: 16px;
-        }
-        .custom-loader {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            margin: 12px 0;
-        }
-        .dot {
-            width: 10px;
-            height: 10px;
-            background: #00d4aa;
-            border-radius: 50%;
-            display: inline-block;
-            animation: bounce 1.2s infinite alternate;
-        }
-        .dot:nth-child(2) { animation-delay: 0.2s; }
-        .dot:nth-child(3) { animation-delay: 0.4s; }
-        @keyframes bounce {
-            0% { transform: translateY(0); }
-            100% { transform: translateY(-10px); }
-        }
-        </style>
-        """, unsafe_allow_html=True)
+        render_section_header(
+            "Tshwane Tourism Chat Assistant",
+            "Ask about places, weather-aware suggestions, bookings, or planning in a cleaner chat workspace.",
+            "🤖",
+        )
 
-        # Chat mode selector
-        st.markdown('<div class="chat-container">', unsafe_allow_html=True)
-        st.markdown("### 🤖 Tshwane Tourism Chat Assistant")
-
-        # Mode selection
-        col1, col2 = st.columns([3, 1])
-        with col1:
+        control_col, refresh_col = st.columns([3, 1])
+        with control_col:
+            current_mode = st.session_state.get('chat_mode', ChatMode.TOURISM_ASSISTANT.value)
+            mode_options = [mode.value for mode in ChatMode]
             mode = st.selectbox(
                 "Chat Mode",
-                options=[mode.value for mode in ChatMode],
-                index=0,
-                key="chat_mode_selector"
+                options=mode_options,
+                index=mode_options.index(current_mode) if current_mode in mode_options else 0,
+                key="chat_mode_selector",
             )
             st.session_state.chat_mode = mode
-
-        with col2:
-            if st.button("🔄 Refresh Data", key="refresh_chat_data"):
+            self.current_mode = ChatMode(mode)
+        with refresh_col:
+            st.write("")
+            if st.button("Refresh data", key="refresh_chat_data", use_container_width=True):
                 self.load_tourism_data()
-                st.success("Tourism data refreshed!")
+                st.success("Tourism data refreshed.")
 
-        st.markdown("</div>", unsafe_allow_html=True)
+        weather_snapshot = self.weather_service.fetch_current_weather()
+        render_metric_strip([
+            ("Messages", len(st.session_state.chat_messages), None),
+            ("Mode", mode.replace('_', ' ').title(), None),
+            ("Weather", weather_snapshot.condition.title() if weather_snapshot else "Offline", None),
+        ])
 
-        # Minimal chat messages display (last 3 only)
-        st.markdown('<div class="chat-container">', unsafe_allow_html=True)
-        messages = st.session_state.chat_messages[-3:]
-        for i, message in enumerate(messages):
-            fade_class = " fade-out" if i == 0 and len(messages) == 3 else ""
-            with st.chat_message(message.sender):
-                st.markdown(
-                    f'<div class="chat-message{fade_class}">{message.content}</div>', unsafe_allow_html=True)
-                if message.metadata:
-                    st.caption(f"Additional info: {message.metadata}")
-        st.markdown("</div>", unsafe_allow_html=True)
+        with st.container(border=True):
+            recent_messages = st.session_state.chat_messages[-6:]
+            if not recent_messages:
+                st.info("Start the conversation with a question about attractions, routes, food, or booking support.")
+            for message in recent_messages:
+                with st.chat_message(message.sender):
+                    st.write(message.content)
+                    if message.metadata:
+                        st.caption(f"Additional info: {message.metadata}")
 
-        # Chat input
-        st.markdown('<div class="chat-container">', unsafe_allow_html=True)
-        user_input = st.chat_input(
-            "Ask me about Tshwane tourism...", key="chat_input")
-
+        user_input = st.chat_input("Ask me about Tshwane tourism...", key="chat_input")
         if user_input:
-            # Add user message
             self.add_message(user_input, "user")
-
-            # Show custom loader before AI responds
-            with st.container():
-                st.markdown('<div class="custom-loader">',
-                            unsafe_allow_html=True)
-                st.markdown(
-                    '<span class="dot"></span><span class="dot"></span><span class="dot"></span>', unsafe_allow_html=True)
-                st.markdown('</div>', unsafe_allow_html=True)
-                time.sleep(3)  # Ensure loader lasts at least 3 seconds
-
-            # Get AI response
-            ai_response = self.get_ai_response(user_input)
-
-            # Add AI response
+            with st.spinner("Thinking through your Tshwane options..."):
+                ai_response = self.get_ai_response(user_input)
             self.add_message(ai_response, "assistant")
-
-            # Rerun to display new messages
             st.rerun()
-
-        st.markdown("</div>", unsafe_allow_html=True)
 
     def display_quick_actions(self):
         """Display quick action buttons for common queries"""
@@ -538,9 +485,13 @@ class TourismChatInterface:
                 })
 
             if timeline_data:
-                df_timeline = pd.DataFrame(timeline_data)
-                st.dataframe(
-                    df_timeline, use_container_width=True, hide_index=True)
+                render_record_cards(
+                    timeline_data[-6:],
+                    title_key="Sender",
+                    description_keys=["Message"],
+                    meta_keys=["Time"],
+                    columns=2,
+                )
 
     def initialize_vector_store(self):
         """Initialize vector store from tourism websites with Hugging Face models"""
@@ -590,23 +541,25 @@ class TourismChatInterface:
                 start_time = time.time()
 
                 model_name = "gpt2"
+                model_kwargs = {
+                    "device_map": "auto" if torch.cuda.is_available() else "cpu",
+                    "trust_remote_code": True,
+                }
+                if torch.cuda.is_available():
+                    model_kwargs["torch_dtype"] = torch.float16
 
                 # Load tokenizer and model
                 tokenizer = AutoTokenizer.from_pretrained(model_name)
-                model = AutoModelForCausalLM.from_pretrained(
-                    model_name,
-                    torch_dtype=torch.float16,
-                    device_map="auto" if torch.cuda.is_available() else "cpu",
-                    trust_remote_code=True
-                )
+                model = AutoModelForCausalLM.from_pretrained(model_name, **model_kwargs)
 
                 # Create pipeline
                 hf_pipeline = pipeline(
                     "text-generation",
                     model=model,
                     tokenizer=tokenizer,
-                    max_new_tokens=512,
-                    temperature=0.7,
+                    max_new_tokens=DEFAULT_GENERATION_CONFIG.max_new_tokens,
+                    temperature=DEFAULT_GENERATION_CONFIG.temperature,
+                    top_k=DEFAULT_GENERATION_CONFIG.top_k,
                     do_sample=True,
                     pad_token_id=tokenizer.eos_token_id,
                     repetition_penalty=1.1

@@ -13,13 +13,14 @@ import importlib.util
 from transformers import pipeline
 import torch
 import warnings
+from services.weather_service import WeatherService
 warnings.filterwarnings('ignore')
 
 # Add existing agent directories to path
 current_dir = Path(__file__).parent
 agent_dirs = [
     'ai_data_analysis_agent',
-    'ai_data_visualisation_agent', 
+    'ai_data_visualisation_agent',
     'ai_travel_agent',
     'customer_support_voice_agent',
     'opeani_research_agent'
@@ -30,6 +31,7 @@ for agent_dir in agent_dirs:
     if agent_path.exists():
         sys.path.append(str(agent_path))
 
+
 class IntegratedTshwaneProcessor:
     """Integrated processor using existing AI agents and Hugging Face models"""
     
@@ -37,6 +39,7 @@ class IntegratedTshwaneProcessor:
         self.data_folder = "processed_data"
         self.ensure_data_folder()
         self.models = {}
+        self.weather_service = WeatherService()
         self.load_huggingface_models()
     
     def ensure_data_folder(self):
@@ -107,7 +110,7 @@ class IntegratedTshwaneProcessor:
         try:
             # Import the data analysis functions
             spec = importlib.util.spec_from_file_location(
-                "data_analyst", 
+                "data_analyst",
                 "ai_data_analysis_agent/ai_data_analyst.py"
             )
             data_analyst = importlib.util.module_from_spec(spec)
@@ -182,7 +185,7 @@ class IntegratedTshwaneProcessor:
         tourism_categories = [
             "tourist attractions and places",
             "restaurants and dining",
-            "accommodation and hotels", 
+            "accommodation and hotels",
             "events and activities",
             "transportation and travel",
             "general information"
@@ -216,8 +219,8 @@ class IntegratedTshwaneProcessor:
                 if len(content) > 200 and 'summarizer' in self.models:
                     try:
                         summary = self.models['summarizer'](
-                            content[:1024], 
-                            max_length=100, 
+                            content[:1024],
+                            max_length=100,
                             min_length=30
                         )
                         results['summaries'][i] = summary[0]['summary_text']
@@ -279,38 +282,34 @@ class IntegratedTshwaneProcessor:
         
         return dataframes
     
-    def generate_weather_recommendations(self, places_df, weather_condition):
+    def generate_weather_recommendations(self, places_df, weather_condition=None):
         """Generate weather-based recommendations using AI"""
         if places_df is None or places_df.empty:
             return pd.DataFrame()
-        
-        weather_keywords = {
-            'sunny': ['outdoor', 'park', 'garden', 'hiking', 'monument', 'scenic'],
-            'rainy': ['indoor', 'museum', 'gallery', 'shopping', 'theater', 'cultural'],
-            'cloudy': ['walking', 'city', 'historic', 'market', 'cultural'],
-            'hot': ['water', 'shade', 'indoor', 'cool', 'air-conditioned'],
-            'cold': ['indoor', 'warm', 'cozy', 'heated', 'shelter', 'hot drinks']
-        }
-        
-        keywords = weather_keywords.get(weather_condition.lower(), [])
-        
-        # Score places based on weather suitability
+
+        resolved_condition = weather_condition or "auto"
+        snapshot = None
+        if str(resolved_condition).lower() in {"auto", "current", "live"}:
+            snapshot = self.weather_service.fetch_current_weather()
+            resolved_condition = snapshot.condition if snapshot else "mild"
+
+        scored_places = self.weather_service.score_places_for_weather(
+            places_df.to_dict('records'),
+            resolved_condition,
+            limit=10,
+        )
+
         recommendations = []
-        for _, place in places_df.iterrows():
-            content = str(place.get('content', '')).lower()
-            score = sum(1 for keyword in keywords if keyword in content)
-            
-            if score > 0:
-                recommendations.append({
-                    'place': place.get('content', '')[:100],
-                    'weather_suitability_score': score,
-                    'weather_condition': weather_condition,
-                    'recommended_for': ', '.join(keywords)
-                })
-        
-        # Sort by score and return top recommendations
-        recommendations.sort(key=lambda x: x['weather_suitability_score'], reverse=True)
-        return pd.DataFrame(recommendations[:10])
+        for place in scored_places:
+            recommendations.append({
+                'place': place.get('name') or str(place.get('content', ''))[:100],
+                'weather_suitability_score': place.get('weather_suitability_score', 0),
+                'weather_condition': resolved_condition,
+                'recommended_for': place.get('reason', 'Matched by live weather scoring'),
+                'live_weather_summary': self.weather_service.format_summary(snapshot) if snapshot else ''
+            })
+
+        return pd.DataFrame(recommendations)
     
     def save_all_processed_data(self, dataframes, analyzed_content):
         """Save all processed data to files"""
@@ -365,6 +364,7 @@ class IntegratedTshwaneProcessor:
         sorted_entities = sorted(entity_counts.items(), key=lambda x: x[1], reverse=True)
         return dict(sorted_entities[:10])
 
+
 def main():
     """Main function for Streamlit app"""
     st.title("🤖 Integrated Tshwane Tourism Data Processor")
@@ -375,7 +375,7 @@ def main():
     # File upload section
     st.header("📁 Upload Tourism Data")
     uploaded_file = st.file_uploader(
-        "Upload CSV file with tourism content", 
+        "Upload CSV file with tourism content",
         type=['csv']
     )
     
@@ -460,7 +460,7 @@ def main():
             st.header("📊 Data Visualization")
             if st.button("Generate Visualizations"):
                 visualizations = processor.process_with_visualization_agent(
-                    analysis_result['processed_data'], 
+                    analysis_result['processed_data'],
                     "Show me the data distribution"
                 )
                 
@@ -480,6 +480,7 @@ def main():
         - **💾 Data Export**: Saves processed data in multiple formats (CSV, JSON)
         - **🔒 No API Keys Required**: Uses open-source Hugging Face models
         """)
+
 
 if __name__ == "__main__":
     main()

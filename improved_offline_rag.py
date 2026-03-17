@@ -10,18 +10,25 @@ from langchain_community.vectorstores import FAISS
 from langchain_community.embeddings import HuggingFaceEmbeddings, Model2vecEmbeddings
 from langchain.schema import Document
 from langchain_community.document_loaders import TextLoader
-from langchain.text_splitter import CharacterTextSplitter
 import numpy as np
 from sklearn.metrics.pairwise import cosine_similarity
 
+from services.tourism_ai_service import (
+    DEFAULT_GENERATION_CONFIG,
+    rerank_documents,
+    split_documents,
+)
+
+
 class ImprovedOfflineRAG:
-    def __init__(self, 
+
+    def __init__(self,
                  documents_path: str,
-                 chunk_size: int = 500,
-                 chunk_overlap: int = 100,
-                 max_tokens: int = 500,
-                 model_name: str = "gpt2",
-                 device: int = 0):
+                 chunk_size: int=500,
+                 chunk_overlap: int=100,
+                 max_tokens: int=500,
+                 model_name: str="gpt2",
+                 device: int=0):
         """
         Initialize the improved offline RAG system with dual embeddings.
         
@@ -48,10 +55,13 @@ class ImprovedOfflineRAG:
         
         # Initialize LLM
         self.llm_pipeline = pipeline(
-            "text-generation", 
+            "text-generation",
             model=model_name,
-            device=device, 
-            max_new_tokens=200
+            device=device,
+            max_new_tokens=DEFAULT_GENERATION_CONFIG.max_new_tokens,
+            temperature=DEFAULT_GENERATION_CONFIG.temperature,
+            top_k=DEFAULT_GENERATION_CONFIG.top_k,
+            do_sample=True,
         )
         self.llm = HuggingFacePipeline(pipeline=self.llm_pipeline)
         
@@ -71,7 +81,7 @@ class ImprovedOfflineRAG:
         Answer:"""
         
         self.prompt = PromptTemplate(
-            input_variables=["query", "context"], 
+            input_variables=["query", "context"],
             template=self.prompt_template
         )
         
@@ -140,11 +150,11 @@ class ImprovedOfflineRAG:
         """
         Split documents into chunks for better processing.
         """
-        text_splitter = CharacterTextSplitter(
+        return split_documents(
+            documents,
             chunk_size=self.chunk_size,
-            chunk_overlap=self.chunk_overlap
+            chunk_overlap=self.chunk_overlap,
         )
-        return text_splitter.split_documents(documents)
     
     def create_vector_stores(self, documents: List[Document]):
         """
@@ -176,7 +186,7 @@ class ImprovedOfflineRAG:
             return " ".join(tokens[:self.max_tokens])
         return text
     
-    def hybrid_retrieval(self, query: str, k: int = 3) -> List[Document]:
+    def hybrid_retrieval(self, query: str, k: int=3) -> List[Document]:
         """
         Perform hybrid retrieval using both embedding models.
         """
@@ -194,10 +204,9 @@ class ImprovedOfflineRAG:
                 unique_docs.append(doc)
                 seen_contents.add(doc.page_content)
         
-        # Return top k unique documents
-        return unique_docs[:k]
+        return rerank_documents(query, unique_docs, limit=k)
     
-    def answer_question(self, query: str, use_hybrid: bool = True) -> Dict[str, Any]:
+    def answer_question(self, query: str, use_hybrid: bool=True) -> Dict[str, Any]:
         """
         Answer a question using the RAG system.
         
@@ -220,8 +229,8 @@ class ImprovedOfflineRAG:
             context = " ".join([doc.page_content for doc in retrieved_docs])
             context = self.truncate_to_max_tokens(context)
             
-            # Generate answer
-            response = self.retrieval_qa.run(query)
+            # Generate answer using the reranked context directly
+            response = self.llm_chain.run(query=query, context=context)
             
             return {
                 "answer": response,
@@ -283,6 +292,7 @@ class ImprovedOfflineRAG:
         # Analyze corpus
         analysis = self.analyze_corpus()
         print(f"Corpus analysis: {analysis['total_documents']} documents, {analysis['total_words']} unique words")
+
 
 # Example usage
 if __name__ == "__main__":

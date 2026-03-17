@@ -34,9 +34,19 @@ import logging
 from pathlib import Path
 import uuid
 import urllib.parse
+from services.weather_service import WeatherService
+from ui.streamlit_cards import (
+    dataframe_preview_records,
+    render_dataframe_cards,
+    render_metric_strip,
+    render_record_cards,
+    render_section_header,
+)
 warnings.filterwarnings('ignore')
 
 # Enhanced system architecture inspired by analyzed AI tools
+
+WEATHER_SERVICE = WeatherService()
 
 
 class OperationMode(Enum):
@@ -193,7 +203,7 @@ class SemanticSearch:
     def __init__(self):
         self.search_history = []
 
-    def search_tourism_content(self, query: str, target_data: List[Dict] = None) -> List[Dict]:
+    def search_tourism_content(self, query: str, target_data: List[Dict]=None) -> List[Dict]:
         """Enhanced semantic search using real website data"""
         explanation = f"Searching real Tshwane tourism content for: '{query}'"
 
@@ -322,49 +332,6 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
-# Custom CSS for nature theme
-st.markdown("""
-<style>
-    .main {
-        background: linear-gradient(135deg, #000000 0%, #fff 100%);
-    }
-    .stApp {
-        background: linear-gradient(135deg, #000000 0%, #fff 100%);
-    }
-    .sidebar .sidebar-content {
-        background: linear-gradient(135deg, #000000 0%, #fff 100%);
-    }
-    .gallery-card {
-        background: white;
-        padding: 20px;
-        border-radius: 15px;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        margin: 10px;
-        transition: transform 0.3s ease;
-    }
-    .gallery-card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
-    }
-    .nature-button {
-        background: linear-gradient(45deg, #4CAF50, #45a049);
-        color: white;
-        border: none;
-        padding: 10px 20px;
-        border-radius: 25px;
-        cursor: pointer;
-        transition: all 0.3s ease;
-    }
-    .notification {
-        background: #e8f5e8;
-        border-left: 4px solid #4CAF50;
-        padding: 15px;
-        margin: 10px 0;
-        border-radius: 5px;
-    }
-</style>
-""", unsafe_allow_html=True)
-
 # Enhanced session state management
 
 
@@ -413,7 +380,7 @@ class SessionManager:
                 f"Completed: {step} ({progress}%)")
 
     @staticmethod
-    def add_notification(message: str, type: str = "info"):
+    def add_notification(message: str, type: str="info"):
         """Add notification with timestamp"""
         notification = {
             'id': str(uuid.uuid4())[:8],
@@ -730,7 +697,7 @@ def display_tutorial():
             </style>
             <div class='tutorial-native-container'>
             """, unsafe_allow_html=True)
-            progress_pct = int((current_step+1)/n_steps*100)
+            progress_pct = int((current_step + 1) / n_steps * 100)
             st.markdown(f"""
             <div class='tutorial-native-progress'><div class='tutorial-native-progress-bar' style='width:{progress_pct}%;'></div></div>
             <h2 style='margin-bottom: 16px;'>Step {current_step+1} of {n_steps}</h2>
@@ -750,11 +717,11 @@ def display_tutorial():
                     st.session_state.show_tutorial = False
                     st.session_state.tutorial_step = 0
             with nav_cols[2]:
-                if st.button('Next', key='tutorial_next_btn', disabled=current_step == n_steps-1):
-                    if current_step < n_steps-1:
+                if st.button('Next', key='tutorial_next_btn', disabled=current_step == n_steps - 1):
+                    if current_step < n_steps - 1:
                         st.session_state.tutorial_step = current_step + 1
             with nav_cols[3]:
-                if st.button('Finish', key='tutorial_finish_btn', disabled=current_step != n_steps-1):
+                if st.button('Finish', key='tutorial_finish_btn', disabled=current_step != n_steps - 1):
                     st.session_state.show_tutorial = False
                     st.session_state.tutorial_step = 0
 
@@ -936,19 +903,7 @@ def load_weather_model():
 
 def get_weather_suggestions(weather_condition, places_data):
     """Get place suggestions based on weather"""
-    weather_mapping = {
-        'sunny': ['park', 'garden', 'outdoor', 'hiking', 'monument'],
-        'rainy': ['museum', 'gallery', 'indoor', 'shopping', 'theater'],
-        'cloudy': ['walking', 'city', 'cultural', 'historic', 'market'],
-        'hot': ['water', 'shade', 'indoor', 'air-conditioned', 'cool'],
-        'cold': ['indoor', 'warm', 'cozy', 'heated', 'shelter']
-    }
-    suggestions = []
-    keywords = weather_mapping.get(weather_condition.lower(), [])
-    for place in places_data:
-        if any(keyword in place['description'].lower() for keyword in keywords):
-            suggestions.append(place)
-    return suggestions[:5]  # Return top 5 suggestions
+    return WEATHER_SERVICE.score_places_for_weather(places_data, weather_condition, limit=5)
 
 # Enhanced main application with AI tool integrations
 
@@ -1536,6 +1491,7 @@ def display_planning_interface():
                             part = part.strip()
                             if part and len(part) > 2:
                                 activity_set.add(part)
+
         for path in csvs:
             try:
                 df = pd.read_csv(path)
@@ -1587,9 +1543,9 @@ def display_planning_interface():
     # --- Helper for plan reordering ---
     def move_plan_item(plan, idx, direction):
         if direction == 'up' and idx > 0:
-            plan[idx-1], plan[idx] = plan[idx], plan[idx-1]
-        elif direction == 'down' and idx < len(plan)-1:
-            plan[idx+1], plan[idx] = plan[idx], plan[idx+1]
+            plan[idx - 1], plan[idx] = plan[idx], plan[idx - 1]
+        elif direction == 'down' and idx < len(plan) - 1:
+            plan[idx + 1], plan[idx] = plan[idx], plan[idx + 1]
         return plan
 
     if tab == 'Activity Planner':
@@ -1648,7 +1604,7 @@ def display_planning_interface():
                     f"Time for {item['name']}", key=f"plan_time_{i}")
                 # Favorite toggle
                 fav = st.session_state.get(fav_key(item['name']), False)
-                if st.button('⭐' if not fav else '💛', key=fav_key(item['name'])+"_plan"):
+                if st.button('⭐' if not fav else '💛', key=fav_key(item['name']) + "_plan"):
                     st.session_state[fav_key(item['name'])] = not fav
                 st.markdown(
                     f"<span class='planning-fav {'fav-on' if fav else ''}'> {'💛' if fav else '⭐'}</span>", unsafe_allow_html=True)
@@ -1736,7 +1692,7 @@ def display_planning_interface():
                                 # Favorite toggle
                                 fav = st.session_state.get(
                                     fav_key(card['name']), False)
-                                if st.button('⭐' if not fav else '💛', key=fav_key(card['name'])+"_ai"):
+                                if st.button('⭐' if not fav else '💛', key=fav_key(card['name']) + "_ai"):
                                     st.session_state[fav_key(
                                         card['name'])] = not fav
                                 st.markdown(
@@ -1762,7 +1718,7 @@ def display_planning_interface():
                             # Favorite toggle
                             fav = st.session_state.get(
                                 fav_key(card['name']), False)
-                            if st.button('⭐' if not fav else '��', key=fav_key(card['name'])+"_ai_plan"):
+                            if st.button('⭐' if not fav else '��', key=fav_key(card['name']) + "_ai_plan"):
                                 st.session_state[fav_key(
                                     card['name'])] = not fav
                             st.markdown(
@@ -3105,6 +3061,7 @@ def display_weather_content():
     # Load temperature data
     temp_csv = "tshwane_temperature_data.csv"
     temp_df = None
+    live_weather = WEATHER_SERVICE.fetch_current_weather()
     if os.path.exists(temp_csv):
         temp_df = pd.read_csv(temp_csv)
         st.dataframe(temp_df)
@@ -3113,17 +3070,39 @@ def display_weather_content():
     else:
         weather_options = ["Sunny", "Rainy",
                            "Cloudy", "Hot", "Cold", "Windy", "Mild"]
-    weather_options_display = [option.capitalize()
-                               for option in weather_options]
+    weather_options_display = [option.capitalize() for option in weather_options]
+    if live_weather and live_weather.condition.capitalize() not in weather_options_display:
+        weather_options_display.append(live_weather.condition.capitalize())
+
+    if live_weather:
+        st.markdown("### 🌤️ Live Tshwane Weather")
+        col1, col2, col3, col4 = st.columns(4)
+        col1.metric("Condition", live_weather.condition.capitalize())
+        col2.metric("Temperature", f"{live_weather.temperature_c:.1f}°C")
+        col3.metric("Feels like", f"{live_weather.apparent_temperature_c:.1f}°C")
+        col4.metric("Wind", f"{live_weather.wind_speed_kmh:.1f} km/h")
+        st.caption(f"Source: Open-Meteo • Observed at {live_weather.observed_at}")
+
+    default_weather = st.session_state.get(
+        'detected_weather_condition',
+        live_weather.condition.capitalize() if live_weather else weather_options_display[0]
+    )
+    default_index = weather_options_display.index(default_weather) if default_weather in weather_options_display else 0
     selected_weather = st.selectbox(
-        "Current Weather Condition", weather_options_display)
+        "Current Weather Condition", weather_options_display, index=default_index)
     auto_detect = st.button(
-        "🌡️ Auto-Detect", help="Automatically detect weather (simulated)")
-    if auto_detect and temp_df is not None:
-        import random
-        selected_weather = random.choice(weather_options)
-        SessionManager.add_notification(
-            f"Weather auto-detected: {selected_weather}", "info")
+        "🌡️ Auto-Detect", help="Automatically detect live weather in Tshwane")
+    if auto_detect:
+        if live_weather:
+            st.session_state.detected_weather_condition = live_weather.condition.capitalize()
+            SessionManager.add_notification(
+                f"Weather auto-detected from Open-Meteo: {live_weather.condition.capitalize()}", "info")
+            st.rerun()
+        elif temp_df is not None:
+            import random
+            selected_weather = random.choice(weather_options_display)
+            SessionManager.add_notification(
+                f"Weather auto-detected from saved data: {selected_weather}", "info")
     if st.button("🤖 Get AI Recommendations"):
         if st.session_state.places_data:
             with st.spinner("AI is analyzing weather conditions..."):
@@ -3161,74 +3140,12 @@ def display_weather_content():
 
 def get_enhanced_weather_suggestions(weather_condition: str, places_data: list, temp_df=None) -> list:
     """Enhanced weather suggestions using temperature data from CSV if available"""
-    if temp_df is not None and 'weather' in temp_df.columns:
-        valid_places = temp_df[temp_df['weather'].str.lower(
-        ) == weather_condition.lower()]['place'].tolist()
-        suggestions = [place for place in places_data if place.get(
-            'name') in valid_places]
-        for place in suggestions:
-            place['weather_suitability_score'] = 5
-            place['reason'] = f"Matched from temperature data for {weather_condition} weather."
-        return suggestions[:5]
-    # fallback to previous logic
-    weather_mapping = {
-        'sunny': {
-            'keywords': ['outdoor', 'park', 'garden', 'hiking', 'monument', 'scenic', 'nature'],
-            'avoid': ['indoor', 'covered'],
-            'reason': 'Perfect for outdoor exploration and sightseeing'
-        },
-        'rainy': {
-            'keywords': ['indoor', 'museum', 'gallery', 'shopping', 'theater', 'cultural', 'covered'],
-            'avoid': ['outdoor', 'hiking'],
-            'reason': 'Stay dry while enjoying cultural experiences'
-        },
-        'cloudy': {
-            'keywords': ['walking', 'city', 'historic', 'market', 'cultural', 'photography'],
-            'avoid': [],
-            'reason': 'Great lighting for photography and comfortable walking'
-        },
-        'hot': {
-            'keywords': ['water', 'shade', 'indoor', 'cool', 'air-conditioned', 'swimming'],
-            'avoid': ['hiking', 'strenuous'],
-            'reason': 'Stay cool and comfortable during hot weather'
-        },
-        'cold': {
-            'keywords': ['indoor', 'warm', 'cozy', 'heated', 'shelter', 'hot drinks'],
-            'avoid': ['outdoor', 'water'],
-            'reason': 'Warm and comfortable indoor experiences'
-        },
-        'windy': {
-            'keywords': ['indoor', 'sheltered', 'stable'],
-            'avoid': ['outdoor', 'high places'],
-            'reason': 'Protected from strong winds'
-        },
-        'mild': {
-            'keywords': ['walking', 'outdoor', 'sightseeing', 'flexible'],
-            'avoid': [],
-            'reason': 'Perfect weather for any activity'
-        }
-    }
-    weather_info = weather_mapping.get(
-        weather_condition.lower(), weather_mapping['mild'])
-    keywords = weather_info['keywords']
-    avoid_keywords = weather_info['avoid']
-    reason = weather_info['reason']
-    suggestions = []
-    for place in places_data:
-        content = str(place.get('description', '') +
-                      ' ' + place.get('name', '')).lower()
-        positive_score = sum(1 for keyword in keywords if keyword in content)
-        negative_score = sum(
-            1 for keyword in avoid_keywords if keyword in content)
-        final_score = max(0, min(5, positive_score - negative_score))
-        if final_score > 0:
-            place_copy = place.copy()
-            place_copy['weather_suitability_score'] = final_score
-            place_copy['reason'] = reason
-            suggestions.append(place_copy)
-    suggestions.sort(key=lambda x: x.get(
-        'weather_suitability_score', 0), reverse=True)
-    return suggestions[:5]
+    return WEATHER_SERVICE.score_places_for_weather(
+        places_data,
+        weather_condition,
+        temp_df=temp_df,
+        limit=5,
+    )
 
 
 def display_enhanced_gallery():
@@ -3267,6 +3184,7 @@ def display_enhanced_gallery():
 
     def normalize_name(name):
         return re.sub(r'[^a-z0-9]', '', str(name).lower())
+
     scraped_map = {normalize_name(
         p['name']): p for p in gallery_data} if gallery_data else {}
     # Merge CSV with scraped info
@@ -3295,7 +3213,7 @@ def display_enhanced_gallery():
                 st.session_state.gallery_index - 1) % n_places
     with nav2:
         if st.button('🎲 Random', key='gallery_rand'):
-            st.session_state.gallery_index = random.randint(0, n_places-1)
+            st.session_state.gallery_index = random.randint(0, n_places - 1)
     with nav3:
         if st.button('Next ➡️', key='gallery_next'):
             st.session_state.gallery_index = (
@@ -3785,7 +3703,7 @@ def display_booking_form_merged():
                             'time': str(time),
                             'category': cat
                         })
-            st.progress(count_selected(single_selections) /
+            st.progress(count_selected(single_selections) / 
                         max(1, len(categories)), text="Categories selected")
             special_requests = st.text_area(
                 'Special Requests',
@@ -3933,7 +3851,7 @@ def display_booking_form_merged():
                             'time': str(time),
                             'category': cat
                         })
-            st.progress(count_selected(booking_selections) /
+            st.progress(count_selected(booking_selections) / 
                         max(1, len(categories)), text="Categories selected")
             special_requests = st.text_area(
                 'Anything else? (optional)', placeholder='e.g. birthday, accessibility, etc.', key='bm_multi_special')
@@ -4092,7 +4010,6 @@ def send_booking_email(booking_data):
 
     st.info("📧 Booking details prepared for email to secretary@tshwanetourism.com")
 
-
 # Removed duplicate functions - keeping only the first instances
 
 
@@ -4228,7 +4145,7 @@ def display_google_maps_with_places():
         with st.expander('Quick Google Maps Search Links for All Places', expanded=False):
             # Table/grid layout
             n_cols = 4
-            rows = [df.iloc[i:i+n_cols] for i in range(0, len(df), n_cols)]
+            rows = [df.iloc[i:i + n_cols] for i in range(0, len(df), n_cols)]
             for row in rows:
                 cols = st.columns(n_cols)
                 for idx, (_, place) in enumerate(row.iterrows()):
@@ -4262,8 +4179,717 @@ def display_google_maps_with_places():
     except Exception as e:
         st.info(f"Could not load tshwane_places.csv: {e}")
 
-
 # Removed duplicate functions - they are already defined earlier in the file
+
+
+def _native_render_component(component_type: str, props: Dict[str, Any]) -> None:
+    if component_type == "gallery_card":
+        with st.container(border=True):
+            st.markdown(f"#### {props.get('title', 'Untitled')}")
+            st.write(props.get('description', 'No description'))
+            st.caption(f"Category: {props.get('type', 'general')}")
+    elif component_type == "progress_indicator":
+        progress = props.get('progress', 0)
+        st.progress(progress / 100)
+        st.caption(f"Progress: {progress}%")
+    elif component_type == "notification_toast":
+        message_type = props.get('type', 'info')
+        message = props.get('message', '')
+        if message_type == 'success':
+            st.success(message)
+        elif message_type == 'error':
+            st.error(message)
+        elif message_type == 'warning':
+            st.warning(message)
+        else:
+            st.info(message)
+
+
+ComponentSystem.render_component = staticmethod(_native_render_component)
+
+
+def _get_places_records() -> List[Dict[str, Any]]:
+    places = st.session_state.get('places_data') or []
+    if not places:
+        places = load_tshwane_places_csv()
+        if places:
+            st.session_state.places_data = places
+    return places
+
+
+def _build_place_cards(records: List[Dict[str, Any]], limit: int=6) -> List[Dict[str, Any]]:
+    cards: List[Dict[str, Any]] = []
+    for place in records[:limit]:
+        name = place.get('display_name') or place.get('name') or 'Unknown Place'
+        query = urllib.parse.quote_plus(f"{name} Tshwane")
+        cards.append({
+            'title': name,
+            'type': str(place.get('type', 'Place')).title(),
+            'description': place.get('description') or place.get('short_description') or 'Description not available.',
+            'sentiment': str(place.get('ai_sentiment', 'balanced')).title(),
+            'source': place.get('data_source', 'Local data'),
+            'link': f"https://www.google.com/maps/search/{query}",
+        })
+    return cards
+
+
+def _prepare_places_dataframe(records: List[Dict[str, Any]]) -> pd.DataFrame:
+    if not records:
+        return pd.DataFrame()
+    df = pd.DataFrame(records)
+    if 'display_name' in df.columns and 'name' not in df.columns:
+        df['name'] = df['display_name']
+    elif 'display_name' in df.columns:
+        df['name'] = df['display_name'].fillna(df.get('name'))
+    if 'description' not in df.columns:
+        df['description'] = df.get('short_description', 'Description not available.')
+    if 'type' not in df.columns:
+        df['type'] = 'Place'
+    return df
+
+
+def _render_place_selection_card(place: Dict[str, Any], key_prefix: str, button_label: str) -> bool:
+    name = place.get('display_name') or place.get('name') or 'Unknown Place'
+    with st.container(border=True):
+        st.markdown(f"#### {name}")
+        cols = st.columns([1.3, 1])
+        with cols[0]:
+            st.caption(str(place.get('type', 'Place')).title())
+        with cols[1]:
+            sentiment = str(place.get('ai_sentiment', 'balanced')).title()
+            st.caption(f"Sentiment: {sentiment}")
+        st.write((place.get('description') or place.get('short_description') or 'Description not available.')[:220])
+        return st.button(button_label, key=f"{key_prefix}_{name}")
+
+
+def display_tutorial():
+    """Display a native tutorial panel."""
+    if not st.session_state.get('show_tutorial', False):
+        return
+
+    tutorial_steps = create_tutorial_system()
+    current_step = min(st.session_state.get('tutorial_step', 0), len(tutorial_steps) - 1)
+    step = tutorial_steps[current_step]
+    progress_pct = int(((current_step + 1) / len(tutorial_steps)) * 100)
+
+    with st.container(border=True):
+        render_section_header(
+            f"Step {current_step + 1} of {len(tutorial_steps)}",
+            step['content'],
+            "📚",
+        )
+        st.progress(progress_pct / 100)
+        st.info(step['action'])
+        nav_cols = st.columns(4)
+        with nav_cols[0]:
+            if st.button('Back', key='tutorial_back_btn_native', disabled=current_step == 0):
+                st.session_state.tutorial_step = max(current_step - 1, 0)
+                st.rerun()
+        with nav_cols[1]:
+            if st.button('Skip', key='tutorial_skip_btn_native'):
+                st.session_state.show_tutorial = False
+                st.session_state.tutorial_step = 0
+                st.rerun()
+        with nav_cols[2]:
+            if st.button('Next', key='tutorial_next_btn_native', disabled=current_step >= len(tutorial_steps) - 1):
+                st.session_state.tutorial_step = min(current_step + 1, len(tutorial_steps) - 1)
+                st.rerun()
+        with nav_cols[3]:
+            if st.button('Finish', key='tutorial_finish_btn_native'):
+                st.session_state.show_tutorial = False
+                st.session_state.tutorial_step = 0
+                st.rerun()
+
+
+def display_planning_interface():
+    """Native trip planner using tabs, cards, and compact summaries."""
+    places = _get_places_records()
+    if 'planned_places' not in st.session_state:
+        st.session_state.planned_places = []
+
+    render_section_header(
+        "Trip Planner",
+        "Build a compact itinerary with AI-supported place matching and weather-aware suggestions.",
+        "🧭",
+    )
+
+    with st.container(border=True):
+        planner_cols = st.columns([2, 1, 1])
+        with planner_cols[0]:
+            planner_goal = st.text_area(
+                "What kind of day are you planning?",
+                value=st.session_state.get('planner_goal', 'A relaxed day with culture, food, and scenic stops.'),
+                key='planner_goal_native',
+                height=100,
+            )
+            st.session_state.planner_goal = planner_goal
+        with planner_cols[1]:
+            available_types = sorted({str(place.get('type', 'Place')).title() for place in places})
+            selected_types = st.multiselect(
+                "Place types",
+                options=available_types,
+                default=available_types[:3],
+                key='planner_types_native',
+            )
+        with planner_cols[2]:
+            weather_choice = st.selectbox(
+                "Weather mood",
+                options=['sunny', 'cloudy', 'rainy', 'windy'],
+                key='planner_weather_native',
+            )
+
+    filtered_places = [
+        place for place in places
+        if not selected_types or str(place.get('type', 'Place')).title() in selected_types
+    ]
+    if planner_goal:
+        goal_terms = planner_goal.lower()
+        query_matches = [
+            place for place in filtered_places
+            if goal_terms in str(place.get('description', '')).lower()
+            or goal_terms in str(place.get('name', '')).lower()
+        ]
+        if query_matches:
+            filtered_places = query_matches
+
+    recommended_places = WEATHER_SERVICE.score_places_for_weather(filtered_places or places, weather_choice, limit=6)
+    render_metric_strip([
+        ("Places scanned", len(filtered_places or places), None),
+        ("Recommended", len(recommended_places), None),
+        ("In itinerary", len(st.session_state.planned_places), None),
+    ])
+
+    suggestion_tab, itinerary_tab, ai_tab = st.tabs(["Suggestions", "Itinerary", "AI Plan Steps"])
+    with suggestion_tab:
+        if not recommended_places:
+            st.info("Try widening your filters to see more recommended stops.")
+        for place in recommended_places:
+            if _render_place_selection_card(place, 'plan_add', 'Add to itinerary'):
+                if not any((item.get('name') or item.get('display_name')) == (place.get('name') or place.get('display_name')) for item in st.session_state.planned_places):
+                    st.session_state.planned_places.append(place)
+                    st.rerun()
+
+    with itinerary_tab:
+        if not st.session_state.planned_places:
+            st.info('Your itinerary is empty. Add a few places from the Suggestions tab.')
+        else:
+            for index, place in enumerate(st.session_state.planned_places):
+                with st.container(border=True):
+                    title_col, action_col = st.columns([4, 1])
+                    with title_col:
+                        st.markdown(f"#### {place.get('display_name') or place.get('name') or 'Planned stop'}")
+                        st.caption(str(place.get('type', 'Place')).title())
+                        st.write((place.get('description') or 'Description not available.')[:200])
+                    with action_col:
+                        if st.button('Remove', key=f'remove_plan_{index}'):
+                            st.session_state.planned_places.pop(index)
+                            st.rerun()
+                    slot_cols = st.columns(2)
+                    slot_cols[0].text_input('Best time', value='Late morning', key=f'plan_time_{index}')
+                    slot_cols[1].text_input('Notes', value='Great stop for photos or food nearby.', key=f'plan_notes_{index}')
+
+    with ai_tab:
+        ai_steps = st.session_state.planning_system.suggest_plan(planner_goal or 'Plan a Tshwane day trip')
+        for step in ai_steps:
+            status = step.status.replace('_', ' ').title()
+            with st.container(border=True):
+                st.write(f"**{step.description}**")
+                st.caption(f"Status: {status}")
+
+
+def display_enhanced_sidebar():
+    """CSS-free sidebar navigation and app status."""
+    places = _get_places_records()
+    nav_options = {
+        'overview': '🏡 Overview',
+        'planning': '🧭 Planner',
+        'analytics': '📊 Analytics',
+        'individual_places': '🗂️ Places',
+        'weather_guide': '🌤️ Weather Guide',
+        'booking': '📝 Booking',
+        'chat': '🤖 AI Chat',
+        'contact': '📞 Contact',
+        'email_secretary': '📧 Secretary',
+    }
+
+    with st.sidebar:
+        st.title('🌿 Explore Tshwane')
+        st.caption('Lightweight navigation, weather context, and quick access actions.')
+
+        current_section = st.session_state.get('current_section', 'overview')
+        section_keys = list(nav_options.keys())
+        selected_section = st.radio(
+            'Navigate',
+            options=section_keys,
+            index=section_keys.index(current_section) if current_section in section_keys else 0,
+            format_func=lambda key: nav_options[key],
+            key='sidebar_navigation_native',
+        )
+        st.session_state.current_section = selected_section
+
+        if st.button('📚 Start Tutorial', key='start_tutorial_sidebar_native'):
+            st.session_state.show_tutorial = True
+            st.session_state.tutorial_step = 0
+            st.rerun()
+
+        snapshot = WEATHER_SERVICE.fetch_current_weather()
+        with st.expander('Live weather snapshot', expanded=True):
+            if snapshot:
+                st.metric('Condition', snapshot.condition.title())
+                st.metric('Temperature', f"{snapshot.temperature_c:.1f}°C")
+                st.caption(f"Observed at {snapshot.observed_at}")
+            else:
+                st.caption('Live weather is temporarily unavailable.')
+
+        with st.expander('Quick search', expanded=False):
+            query = st.text_input('Search places', key='sidebar_search_native')
+            if query:
+                matches = [
+                    place for place in places
+                    if query.lower() in str(place.get('name', '')).lower()
+                    or query.lower() in str(place.get('description', '')).lower()
+                ][:5]
+                if matches:
+                    render_record_cards(
+                        _build_place_cards(matches, limit=5),
+                        title_key='title',
+                        description_keys=['description'],
+                        meta_keys=['type', 'source'],
+                        link_key='link',
+                        columns_count=1,
+                        key_prefix='sidebar_search_cards',
+                    )
+                else:
+                    st.info('No places matched your search yet.')
+
+        with st.expander('Quick links', expanded=False):
+            st.link_button('Official Tshwane Tourism', 'https://www.visittshwane.co.za/')
+            st.link_button('Open Maps for Pretoria', 'https://www.google.com/maps/search/Pretoria+South+Africa')
+            st.link_button('Project Repository', 'https://github.com/ybadk/Tryp_Thooe_Tourism_Lite')
+
+        with st.expander('App status', expanded=False):
+            render_metric_strip([
+                ('Places', len(places), None),
+                ('Mode', st.session_state.get('operation_mode', OperationMode.STANDARD).value, None),
+            ])
+            st.caption('AI services, weather support, and card-based browsing are active.')
+
+        if selected_section == 'contact':
+            st.caption('Developer details are also available in the main area.')
+        if selected_section == 'email_secretary':
+            st.info('Use the secretary form to send event, booking, or partnership requests.')
+
+
+def display_enhanced_booking_form():
+    """Booking flow with native sections and compact summaries."""
+    places = _get_places_records()
+    place_names = [place.get('display_name') or place.get('name') or 'Unknown Place' for place in places]
+    type_names = sorted({str(place.get('type', 'Place')).title() for place in places})
+    today = pd.Timestamp.today().date()
+    tomorrow = (pd.Timestamp.today() + pd.Timedelta(days=1)).date()
+
+    render_section_header(
+        'Book a Tshwane experience',
+        'Capture visitor details, preferred places, and booking notes in a cleaner layout.',
+        '📝',
+    )
+
+    snapshot = WEATHER_SERVICE.fetch_current_weather()
+    if snapshot:
+        st.caption(f"Weather tip: It is currently {snapshot.condition} and {snapshot.temperature_c:.1f}°C in Tshwane.")
+
+    with st.form('booking_form_native'):
+        details_col, trip_col = st.columns(2)
+        with details_col:
+            name = st.text_input('Full name *')
+            email = st.text_input('Email address *')
+            phone = st.text_input('Phone number')
+            visitors = st.number_input('Number of visitors', min_value=1, max_value=20, value=2)
+        with trip_col:
+            booking_date = st.date_input('Booking date', value=today)
+            end_date = st.date_input('End date', value=tomorrow)
+            selected_types = st.multiselect('Preferred place types', options=type_names)
+            selected_places = st.multiselect('Places to include *', options=place_names)
+
+        notes = st.text_area('Special requests or accessibility notes')
+        summary_col1, summary_col2 = st.columns(2)
+        with summary_col1:
+            st.write('**Selected place types**')
+            st.write(', '.join(selected_types) if selected_types else 'Any type')
+        with summary_col2:
+            st.write('**Selected places**')
+            st.write(', '.join(selected_places) if selected_places else 'Choose at least one place')
+
+        submit = st.form_submit_button('Submit booking request')
+
+    if submit:
+        if not name or not email or not selected_places:
+            st.error('Please complete the required fields and choose at least one place.')
+            return
+
+        booking_data = {
+            'booking_id': str(uuid.uuid4())[:8],
+            'name': name,
+            'email': email,
+            'phone': phone,
+            'visitors': visitors,
+            'booking_date': str(booking_date),
+            'end_date': str(end_date),
+            'place_types': selected_types,
+            'selected_places': selected_places,
+            'notes': notes,
+        }
+        process_booking(booking_data)
+
+
+def display_individual_places_gallery():
+    """Browse place records as cards with compact filters."""
+    places = _get_places_records()
+    if not places:
+        st.warning('No place data is available yet.')
+        return
+
+    places_df = _prepare_places_dataframe(places)
+    render_section_header('Places directory', 'Browse and filter destinations without large tables.', '🗂️')
+
+    filter_cols = st.columns([1, 1, 2])
+    with filter_cols[0]:
+        selected_type = st.selectbox('Type', ['All'] + sorted(places_df['type'].astype(str).str.title().unique().tolist()))
+    with filter_cols[1]:
+        max_cards = st.slider('Cards to show', min_value=4, max_value=20, value=8)
+    with filter_cols[2]:
+        search_term = st.text_input('Search name or description', key='places_gallery_search_native')
+
+    filtered_df = places_df.copy()
+    if selected_type != 'All':
+        filtered_df = filtered_df[filtered_df['type'].astype(str).str.title() == selected_type]
+    if search_term:
+        filtered_df = filtered_df[
+            filtered_df['name'].astype(str).str.contains(search_term, case=False, na=False)
+            | filtered_df['description'].astype(str).str.contains(search_term, case=False, na=False)
+        ]
+
+    render_metric_strip([
+        ('Available', len(places_df), None),
+        ('Filtered', len(filtered_df), None),
+        ('Types', filtered_df['type'].astype(str).nunique() if not filtered_df.empty else 0, None),
+    ])
+
+    preview_cards = _build_place_cards(filtered_df.to_dict(orient='records'), limit=max_cards)
+    render_record_cards(
+        preview_cards,
+        title_key='title',
+        description_keys=['description'],
+        meta_keys=['type', 'sentiment', 'source'],
+        link_key='link',
+        columns_count=2,
+        key_prefix='individual_places_native',
+    )
+
+
+def display_developer_contact_info():
+    """Native developer contact section."""
+    developers = load_developer_details()
+    render_section_header('Project contacts', 'Connect with the builders and support team.', '📞')
+    if not developers:
+        st.info('Developer details could not be loaded.')
+        return
+
+    for index, developer in enumerate(developers):
+        with st.container(border=True):
+            name = developer.get('name', 'Project Team')
+            role = developer.get('role', 'Team member')
+            st.markdown(f"#### {name}")
+            st.caption(role)
+            info_cols = st.columns(2)
+            info_cols[0].write(f"**Email:** {developer.get('email', 'Not provided')}")
+            info_cols[1].write(f"**Phone:** {developer.get('phone', 'Not provided')}")
+            skills = developer.get('skills') or developer.get('specialization') or developer.get('expertise')
+            if skills:
+                st.write(f"**Focus:** {skills}")
+            links_col1, links_col2 = st.columns(2)
+            if developer.get('linkedin'):
+                links_col1.link_button('LinkedIn', developer['linkedin'])
+            if developer.get('github'):
+                links_col2.link_button('GitHub', developer['github'])
+
+
+def display_weather_content():
+    """Weather guidance using metrics and recommendation cards."""
+    places = _get_places_records()
+    render_section_header('Weather-based suggestions', 'Use current conditions to decide what to do next in Tshwane.', '🌤️')
+
+    snapshot = WEATHER_SERVICE.fetch_current_weather()
+    if snapshot:
+        render_metric_strip([
+            ('Condition', snapshot.condition.title(), None),
+            ('Temperature', f"{snapshot.temperature_c:.1f}°C", None),
+            ('Feels like', f"{snapshot.apparent_temperature_c:.1f}°C", None),
+            ('Wind', f"{snapshot.wind_speed_kmh:.1f} km/h", None),
+        ])
+        st.caption(WEATHER_SERVICE.format_summary(snapshot))
+        recommended = WEATHER_SERVICE.score_places_for_weather(places, snapshot.condition, limit=6)
+    else:
+        st.info('Live weather is unavailable, so choose a condition manually.')
+        manual_condition = st.selectbox('Weather condition', ['sunny', 'cloudy', 'rainy', 'windy'])
+        recommended = WEATHER_SERVICE.score_places_for_weather(places, manual_condition, limit=6)
+
+    render_record_cards(
+        _build_place_cards(recommended, limit=6),
+        title_key='title',
+        description_keys=['description'],
+        meta_keys=['type', 'sentiment'],
+        link_key='link',
+        columns_count=2,
+        key_prefix='weather_cards_native',
+    )
+
+
+def display_enhanced_gallery():
+    """Feature selected places in a card-first gallery."""
+    places = _get_places_records()
+    if not places:
+        st.info('No featured places are available right now.')
+        return
+
+    render_section_header('Featured gallery', 'Compact spotlights inspired by your layout card references.', '🌱')
+    featured = sorted(
+        places,
+        key=lambda place: (str(place.get('verified_source', False)), str(place.get('ai_sentiment', 'neutral'))),
+        reverse=True,
+    )
+    render_record_cards(
+        _build_place_cards(featured, limit=6),
+        title_key='title',
+        description_keys=['description'],
+        meta_keys=['type', 'sentiment', 'source'],
+        link_key='link',
+        columns_count=2,
+        key_prefix='featured_gallery_native',
+    )
+
+
+def display_places_table():
+    """Replace the raw table view with filterable cards and CSV download."""
+    places = _get_places_records()
+    if not places:
+        st.warning('No tourism data loaded from tshwane_places.csv!')
+        return
+
+    places_df = _prepare_places_dataframe(places)
+    render_section_header('Data explorer', 'Preview records as cards while keeping CSV export available.', '📚')
+    filter_cols = st.columns(3)
+    with filter_cols[0]:
+        type_filter = st.multiselect(
+            'Filter by type',
+            options=sorted(places_df['type'].astype(str).str.title().unique().tolist()),
+            default=sorted(places_df['type'].astype(str).str.title().unique().tolist()),
+        )
+    with filter_cols[1]:
+        verification_filter = st.selectbox('Verification', ['All', 'Verified only', 'Unverified only'])
+    with filter_cols[2]:
+        weather_filter = st.selectbox('Weather suitability', ['All', 'Has weather fit', 'No weather fit'])
+
+    filtered_df = places_df[places_df['type'].astype(str).str.title().isin(type_filter)] if type_filter else places_df.copy()
+    if verification_filter == 'Verified only' and 'verified_source' in filtered_df.columns:
+        filtered_df = filtered_df[filtered_df['verified_source'] == True]
+    if verification_filter == 'Unverified only' and 'verified_source' in filtered_df.columns:
+        filtered_df = filtered_df[filtered_df['verified_source'] != True]
+    if weather_filter == 'Has weather fit' and 'weather_suitability' in filtered_df.columns:
+        filtered_df = filtered_df[filtered_df['weather_suitability'].notna()]
+    if weather_filter == 'No weather fit' and 'weather_suitability' in filtered_df.columns:
+        filtered_df = filtered_df[filtered_df['weather_suitability'].isna()]
+
+    preview_records = _build_place_cards(filtered_df.to_dict(orient='records'), limit=10)
+    render_record_cards(
+        preview_records,
+        title_key='title',
+        description_keys=['description'],
+        meta_keys=['type', 'sentiment', 'source'],
+        link_key='link',
+        columns_count=2,
+        key_prefix='places_table_cards_native',
+    )
+
+    st.download_button(
+        label='Download filtered CSV',
+        data=filtered_df.to_csv(index=False),
+        file_name='tshwane_places_filtered.csv',
+        mime='text/csv',
+    )
+
+
+def display_booking_form_merged():
+    """Delegate legacy booking entry point to the new booking form."""
+    display_enhanced_booking_form()
+
+
+def display_google_maps_with_places():
+    """Map and search links with native Streamlit layout."""
+    places_df = _prepare_places_dataframe(_get_places_records())
+    render_section_header('Map and place finder', 'Use the map for orientation and open cards for directions.', '🗺️')
+    if places_df.empty:
+        st.info('No mapped place data is available yet.')
+        return
+
+    filter_cols = st.columns([2, 1])
+    with filter_cols[0]:
+        search_text = st.text_input('Search places or descriptions', key='maps_search_native')
+    with filter_cols[1]:
+        type_choice = st.selectbox('Place type', ['All'] + sorted(places_df['type'].astype(str).str.title().unique().tolist()), key='maps_type_native')
+
+    filtered_df = places_df.copy()
+    if search_text:
+        filtered_df = filtered_df[
+            filtered_df['name'].astype(str).str.contains(search_text, case=False, na=False)
+            | filtered_df['description'].astype(str).str.contains(search_text, case=False, na=False)
+        ]
+    if type_choice != 'All':
+        filtered_df = filtered_df[filtered_df['type'].astype(str).str.title() == type_choice]
+
+    if {'lat', 'lng'}.issubset(filtered_df.columns):
+        map_df = filtered_df[['lat', 'lng']].dropna().rename(columns={'lng': 'lon'})
+        if not map_df.empty:
+            st.map(map_df, use_container_width=True)
+        else:
+            st.info('Coordinates are unavailable for the current filter selection.')
+
+    render_record_cards(
+        _build_place_cards(filtered_df.to_dict(orient='records'), limit=8),
+        title_key='title',
+        description_keys=['description'],
+        meta_keys=['type', 'source'],
+        link_key='link',
+        columns_count=2,
+        key_prefix='maps_cards_native',
+    )
+
+
+def display_main_content():
+    """Main card-based content area with tabs and reduced scrolling."""
+    section = st.session_state.get('current_section', 'overview')
+    places = _get_places_records()
+    if not places:
+        st.warning('Tourism place data is not available. Load the CSV files to explore the portal fully.')
+
+    if section == 'planning':
+        display_planning_interface()
+        return
+    if section == 'booking':
+        display_enhanced_booking_form()
+        return
+    if section == 'contact':
+        display_developer_contact_info()
+        return
+    if section == 'email_secretary':
+        display_email_secretary_form()
+        return
+    if section == 'chat':
+        from chat_interface import display_chat_interface_main
+        display_chat_interface_main()
+        return
+    if section == 'weather_guide':
+        display_weather_content()
+        return
+    if section == 'analytics':
+        display_places_dashboard()
+        return
+    if section == 'individual_places':
+        display_individual_places_gallery()
+        return
+
+    render_section_header(
+        'Tshwane tourism command center',
+        'A lighter, card-based overview for exploration, AI guidance, and booking preparation.',
+        '🌿',
+    )
+    render_metric_strip([
+        ('Places', len(places), None),
+        ('Types', len({place.get('type', 'unknown') for place in places}), None),
+        ('Weather aware', sum(1 for place in places if place.get('weather_suitability')), None),
+        ('Verified', sum(1 for place in places if place.get('verified_source')), None),
+    ])
+
+    hero_left, hero_right = st.columns([2.2, 1])
+    with hero_left:
+        display_google_maps_with_places()
+    with hero_right:
+        with st.container(border=True):
+            snapshot = WEATHER_SERVICE.fetch_current_weather()
+            st.markdown('#### Today in Tshwane')
+            if snapshot:
+                st.write(WEATHER_SERVICE.format_summary(snapshot))
+            else:
+                st.write('Live weather is temporarily unavailable.')
+            top_types = pd.Series([str(place.get('type', 'Place')).title() for place in places]).value_counts().head(3)
+            st.caption('Most common place types')
+            for place_type, count in top_types.items():
+                st.write(f"• {place_type}: {count}")
+
+        with st.container(border=True):
+            st.markdown('#### Quick actions')
+            action_cols = st.columns(2)
+            if action_cols[0].button('Open planner', key='quick_planner_native'):
+                st.session_state.current_section = 'planning'
+                st.rerun()
+            if action_cols[1].button('Ask AI', key='quick_chat_native'):
+                st.session_state.current_section = 'chat'
+                st.rerun()
+            if st.button('Book a visit', key='quick_booking_native', use_container_width=True):
+                st.session_state.current_section = 'booking'
+                st.rerun()
+
+    tab1, tab2, tab3, tab4 = st.tabs(['Highlights', 'Gallery', 'Analytics', 'Data Explorer'])
+    with tab1:
+        recommended = WEATHER_SERVICE.score_places_for_weather(places, 'sunny', limit=6)
+        render_record_cards(
+            _build_place_cards(recommended, limit=6),
+            title_key='title',
+            description_keys=['description'],
+            meta_keys=['type', 'sentiment'],
+            link_key='link',
+            columns_count=2,
+            key_prefix='overview_highlights_native',
+        )
+    with tab2:
+        display_enhanced_gallery()
+    with tab3:
+        display_places_dashboard()
+    with tab4:
+        display_places_table()
+
+
+def main():
+    """Main application with native Streamlit theming and compact card layouts."""
+    SessionManager.initialize_session()
+    if 'real_time_processor' not in st.session_state:
+        st.session_state.real_time_processor = RealTimeProcessor()
+    if 'current_section' not in st.session_state:
+        st.session_state.current_section = 'overview'
+
+    display_tutorial()
+
+    header_cols = st.columns([3, 1.2, 1])
+    with header_cols[0]:
+        st.title('🌿 Tshwane Tourism Interactive Portal')
+        st.caption('A light, nature-themed workspace for discovery, planning, weather guidance, and AI support.')
+    with header_cols[1]:
+        mode = st.selectbox(
+            'Operation mode',
+            [mode.value for mode in OperationMode],
+            index=[mode.value for mode in OperationMode].index(st.session_state.get('operation_mode', OperationMode.STANDARD).value),
+            key='operation_mode_select_native',
+        )
+        st.session_state.operation_mode = OperationMode(mode)
+    with header_cols[2]:
+        auto_refresh = st.toggle('Auto refresh', value=st.session_state.user_preferences['auto_refresh'])
+        st.session_state.user_preferences['auto_refresh'] = auto_refresh
+
+    if st.session_state.execution_progress > 0:
+        st.session_state.component_system.render_component('progress_indicator', {'progress': st.session_state.execution_progress})
+
+    display_enhanced_sidebar()
+    display_main_content()
 
 
 if __name__ == "__main__":
@@ -4389,8 +5015,8 @@ def offline_chat_model_call(user_query: str) -> str:
 # response = offline_chat_model_call(user_query)
 # print(response)
 
-
 # --- Unified Offline Data Categorization and Query for Chat Assistant ---
+
 
 # GPT-2 imports (optional, for fallback chat)
 try:
@@ -4504,8 +5130,8 @@ def offline_chat_data_query(user_query: str) -> str:
 # response = offline_chat_data_query(user_query)
 # print(response)
 
-
 # --- Tshwane Data: Unified Tabular Processing and XGBoost Model for Offline Chat Assistant ---
+
 
 # GPT-2 imports (optional, for fallback chat)
 try:
@@ -4662,8 +5288,8 @@ def offline_tshwane_model_query(user_query: str, model_path='tshwane_xgb_model.j
 # response = offline_tshwane_model_query(user_query)
 # print(response)
 
-
 # --- Optimized Tshwane Tabular Data + XGBoost Model for Offline Chat Assistant ---
+
 
 # GPT-2 imports (optional, for fallback chat)
 try:
@@ -4882,8 +5508,8 @@ def offline_tshwane_model_query(user_query: str, model_path='tshwane_xgb_model.j
 # response = offline_tshwane_model_query(user_query)
 # print(response)
 
-
 # --- NLTK-Enhanced Tshwane Tabular Data + XGBoost Model for Offline Chat Assistant ---
+
 
 # NLTK imports for NLP features
 try:
@@ -5167,8 +5793,8 @@ def offline_tshwane_model_query(user_query: str, model_path='tshwane_xgb_model.j
 # response = offline_tshwane_model_query(user_query)
 # print(response)
 
-
 # --- Hugging Face Transformers Fallback for Offline Chat Assistant ---
+
 
 # NLTK imports for NLP features
 try:
@@ -5406,8 +6032,8 @@ def offline_tshwane_model_query(user_query: str, model_path='tshwane_xgb_model.j
 # response = offline_tshwane_model_query(user_query)
 # print(response)
 
-
 # --- Cleaned, Deployment-Ready ML/NLP/Chat Assistant Functions ---
+
 
 # NLTK imports for NLP features
 try:
