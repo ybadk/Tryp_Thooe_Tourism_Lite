@@ -326,13 +326,13 @@ st.set_page_config(
 st.markdown("""
 <style>
     .main {
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        background: linear-gradient(135deg, #000000 0%, #fff 100%);
     }
     .stApp {
-        background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+        background: linear-gradient(135deg, #000000 0%, #fff 100%);
     }
     .sidebar .sidebar-content {
-        background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+        background: linear-gradient(135deg, #000000 0%, #fff 100%);
     }
     .gallery-card {
         background: white;
@@ -967,15 +967,15 @@ def main():
 
         /* Dark theme colors */
         :root {
-            --primary-bg: #0e1117;
-            --secondary-bg: #1a1d23;
+            --primary-bg: #000000;
+            --secondary-bg: #000000;
             --accent-bg: #262730;
             --primary-green: #00d4aa;
             --secondary-green: #00b894;
             --dark-green: #00a085;
             --text-primary: #ffffff;
-            --text-secondary: #b3b3b3;
-            --text-muted: #8b8b8b;
+            --text-secondary: #ffffff;
+            --text-muted: #ffffff;
             --border-color: #2d3748;
             --shadow-dark: rgba(0, 0, 0, 0.3);
             --shadow-light: rgba(0, 212, 170, 0.1);
@@ -3766,9 +3766,9 @@ def display_booking_form_merged():
                         st.markdown(f"""
                         <div class='preview-card'>
                         <b style='font-size:1.1em'>{get_icon(cat)} {place}</b>
-                        {'<span style=\"color:#ffd700;font-weight:bold;\">⭐ Recommended</span>' if info['highlighted'] else ''}
+                        {'<span style=\"color:#ffffff;font-weight:bold;\">⭐ Recommended</span>' if info['highlighted'] else ''}
                         <span class='fav-star {'fav-on' if is_fav else ''}' onclick=\"window.parent.postMessage({{type: 'toggle_fav', name: '{place}'}}, '*')\">{'💛' if is_fav else '⭐'}</span><br>
-                        <span style='color:#888;'>{info['short']}</span>
+                        <span style='color:#ffffff;'>{info['short']}</span>
                         </div>
                         """, unsafe_allow_html=True)
                         col1, col2 = st.columns([1, 1])
